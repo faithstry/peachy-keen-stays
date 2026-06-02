@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Peachy Keen Stays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#home" class="nav-logo">Peachy Keen<span>Stays</span></a>
+    <ul class="nav-links">
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#calculator">Pricing</a></li>
+      <li><a href="#schedule">Book a Call</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#schedule" class="nav-cta">Let's Work Together →</a>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-tag">Short-Term Rental Design + Management</div>
+      <h1 class="hero-title">Your Property,<br><em>Reimagined.</em></h1>
+      <p class="hero-sub">We turn short-term rentals into scroll-stopping, revenue-boosting experiences — virtually or in-person, all 50 states.</p>
+      <div class="hero-btns">
+        <a href="#portfolio" class="btn-primary">See Our Work</a>
+        <a href="#schedule" class="btn-secondary">Book a Free Call →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-img-wrap">
+        <div class="hero-placeholder">
+          <span>✦ Hero Image ✦</span>
+          <p>A stunning, styled STR interior</p>
+        </div>
+        <div class="hero-badge">
+          <span class="badge-num">50</span>
+          <span class="badge-label">States Served</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>Virtual & In-Person Design ✦</span>
+      <span>Short-Term Rental Management ✦</span>
+      <span>Before & After Transformations ✦</span>
+      <span>All 50 States ✦</span>
+      <span>Scroll-Stopping Interiors ✦</span>
+      <span>Corporate Housing ✦</span>
+      <span>Virtual & In-Person Design ✦</span>
+      <span>Short-Term Rental Management ✦</span>
+      <span>Before & After Transformations ✦</span>
+      <span>All 50 States ✦</span>
+      <span>Scroll-Stopping Interiors ✦</span>
+      <span>Corporate Housing ✦</span>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how-it-works" id="how-it-works">
+    <div class="section-inner">
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">How Peachy Keen Works</h2>
+      <div class="services-grid">
+        <div class="service-card card-peach">
+          <div class="service-icon">🏡</div>
+          <h3>STR Management</h3>
+          <p>Turnkey property management. We sign a corporate lease, handle maintenance, and pay rent on time — every time.</p>
+          <a href="#schedule" class="card-link">Learn more →</a>
+        </div>
+        <div class="service-card card-teal">
+          <div class="service-icon">🏢</div>
+          <h3>Corporate Housing</h3>
+          <p>Flexible, furnished housing for your employees. Skip the OTA fees — book direct and save.</p>
+          <a href="#schedule" class="card-link">Learn more →</a>
+        </div>
+        <div class="service-card card-coral">
+          <div class="service-icon">✨</div>
+          <h3>Airbnb Design</h3>
+          <p>Virtual and in-person staging that turns your rental into a real scroll-stopper. Available in all 50 states.</p>
+          <a href="#portfolio" class="card-link">See portfolio →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO / BEFORE & AFTER -->
+  <section class="section portfolio" id="portfolio">
+    <div class="section-inner">
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Before & After<br>Transformations</h2>
+      <p class="section-sub">Drag the slider to reveal the transformation.</p>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="slider-wrap" id="slider1">
+            <div class="before-after-container">
+              <div class="img-placeholder after-img"><span>AFTER</span></div>
+              <div class="before-overlay" id="beforeOverlay1">
+                <div class="img-placeholder before-img"><span>BEFORE</span></div>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this, 'beforeOverlay1', 'handle1')">
+              <div class="slider-handle" id="handle1" style="left:50%">◀▶</div>
+            </div>
+          </div>
+          <div class="portfolio-meta">
+            <h4>The Desert Retreat</h4>
+            <p>Phoenix, AZ · Virtual Design</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="slider-wrap" id="slider2">
+            <div class="before-after-container">
+              <div class="img-placeholder after-img"><span>AFTER</span></div>
+              <div class="before-overlay" id="beforeOverlay2">
+                <div class="img-placeholder before-img"><span>BEFORE</span></div>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this, 'beforeOverlay2', 'handle2')">
+              <div class="slider-handle" id="handle2" style="left:50%">◀▶</div>
+            </div>
+          </div>
+          <div class="portfolio-meta">
+            <h4>The Peachy Bungalow</h4>
+            <p>Nashville, TN · Full Install</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="slider-wrap" id="slider3">
+            <div class="before-after-container">
+              <div class="img-placeholder after-img"><span>AFTER</span></div>
+              <div class="before-overlay" id="beforeOverlay3">
+                <div class="img-placeholder before-img"><span>BEFORE</span></div>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this, 'beforeOverlay3', 'handle3')">
+              <div class="slider-handle" id="handle3" style="left:50%">◀▶</div>
+            </div>
+          </div>
+          <div class="portfolio-meta">
+            <h4>Modern Luxe Loft</h4>
+            <p>Austin, TX · Virtual Design</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="center-btn">
+        <a href="#schedule" class="btn-primary">Want This For Your Property? →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING CALCULATOR -->
+  <section class="section calculator" id="calculator">
+    <div class="section-inner">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Get Your Estimate</h2>
+      <p class="section-sub">Answer a few quick questions and get a ballpark for your virtual design package.</p>
+
+      <div class="calc-wrap">
+        <div class="calc-form">
+          <div class="calc-group">
+            <label>Property Type</label>
+            <div class="calc-options" id="typeOpts">
+              <button class="calc-opt active" data-group="type" onclick="selectOpt(this)">Studio / 1BD</button>
+              <button class="calc-opt" data-group="type" onclick="selectOpt(this)">2–3 Bedroom</button>
+              <button class="calc-opt" data-group="type" onclick="selectOpt(this)">4+ Bedroom</button>
+            </div>
+          </div>
+
+          <div class="calc-group">
+            <label>Number of Rooms to Design: <strong id="roomVal">3</strong></label>
+            <input type="range" min="1" max="10" value="3" class="calc-range" id="roomCount" oninput="updateCalc()">
+          </div>
+
+          <div class="calc-group">
+            <label>Add-Ons</label>
+            <div class="calc-options" id="addOnOpts">
+              <button class="calc-opt" data-group="addon" onclick="toggleAddon(this)">Shopping List</button>
+              <button class="calc-opt" data-group="addon" onclick="toggleAddon(this)">3D Renders</button>
+              <button class="calc-opt" data-group="addon" onclick="toggleAddon(this)">Rush Delivery</button>
+            </div>
+          </div>
+
+          <div class="calc-result">
+            <div class="calc-estimate">
+              <span class="est-label">Estimated Investment</span>
+              <span class="est-price" id="estPrice">$1,200 – $1,800</span>
+            </div>
+            <a href="#schedule" class="btn-primary">Get Your Exact Quote →</a>
+          </div>
+        </div>
+
+        <div class="calc-side">
+          <div class="calc-features">
+            <h4>Every Package Includes</h4>
+            <ul>
+              <li>✦ Custom mood board + concept</li>
+              <li>✦ Full room-by-room design plan</li>
+              <li>✦ Market & competitor analysis</li>
+              <li>✦ 30-day post-launch support</li>
+              <li>✦ Listing setup + optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULING -->
+  <section class="section schedule" id="schedule">
+    <div class="section-inner schedule-inner">
+      <div class="schedule-text">
+        <div class="section-label">Let's Talk</div>
+        <h2 class="section-title">Book a Free<br>Discovery Call</h2>
+        <p>15 minutes is all it takes. We'll find out if we're the right fit and which service makes sense for your property.</p>
+        <ul class="schedule-perks">
+          <li>✦ No commitment required</li>
+          <li>✦ We'll come prepared with market data</li>
+          <li>✦ Get a custom roadmap on the call</li>
+        </ul>
+      </div>
+      <div class="schedule-embed">
+        <div class="embed-placeholder">
+          <div class="embed-icon">📅</div>
+          <h4>Scheduling Widget</h4>
+          <p>Your Calendly or booking tool embeds here</p>
+          <a href="#" class="btn-primary">Book Your Spot →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="section-inner">
+      <div class="section-label">Questions</div>
+      <h2 class="section-title">Frequently Asked</h2>
+
+      <div class="faq-list">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What states do you work in? <span class="faq-icon">+</span></div>
+          <div class="faq-a">We offer virtual design services in all 50 states, and in-person staging in select markets. Reach out to ask about your area!</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How long does the design process take? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Virtual design typically takes 3–4 weeks from kickoff to final delivery. Full installation projects run 4–8 weeks depending on scope and location.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How does property management work? <span class="faq-icon">+</span></div>
+          <div class="faq-a">We sign a corporate lease on your property and become your tenant. You get guaranteed on-time rent, we handle guest management and most maintenance under $200.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What's included in virtual design? <span class="faq-icon">+</span></div>
+          <div class="faq-a">A custom mood board, full room-by-room design plan, curated shopping list with direct links, before/after renders, and 30 days of post-launch support.</div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Do I need to be local for the design service? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Not at all! Our virtual design is fully remote — you get everything delivered digitally and can execute it yourself or with a local team.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Peachy Keen<span>Stays</span></div>
+        <p>Short-term rental management + design, serving all 50 states.</p>
+        <div class="footer-socials">
+          <a href="#">📺 YouTube</a>
+          <a href="#">📸 Instagram</a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h5>Navigate</h5>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#calculator">Pricing</a>
+        <a href="#schedule">Book a Call</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="footer-cta">
+        <h5>Ready to transform your property?</h5>
+        <a href="#schedule" class="btn-primary">Let's Work Together →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Peachy Keen Stays. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
