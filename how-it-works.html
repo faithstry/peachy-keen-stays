@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How It Works – Peachy Keen Stays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .hiw-hero{padding:140px 48px 80px;max-width:900px;margin:0 auto;text-align:center;}
+    .hiw-hero h1{font-family:var(--font-head);font-size:clamp(3rem,6vw,5rem);font-weight:800;color:var(--dark);letter-spacing:-2px;margin-bottom:16px;}
+    .hiw-hero p{color:var(--mid);font-size:1.1rem;max-width:560px;margin:0 auto 40px;line-height:1.7;}
+    .hiw-pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:80px;}
+    .hiw-pill{background:var(--peach-light);color:var(--peach-dark);padding:10px 24px;border-radius:50px;font-size:.88rem;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s;}
+    .hiw-pill:hover,.hiw-pill.active{background:var(--peach);color:white;}
+    .hiw-service{max-width:1100px;margin:0 auto 100px;padding:0 48px;}
+    .hiw-service-header{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-bottom:60px;}
+    .hiw-service-header h2{font-family:var(--font-head);font-size:clamp(2rem,4vw,3.5rem);font-weight:800;color:var(--dark);letter-spacing:-1px;line-height:1.1;}
+    .hiw-service-header p{color:var(--mid);line-height:1.8;font-size:1rem;}
+    .hiw-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:60px;}
+    .hiw-step{background:var(--white);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);}
+    .step-num{font-family:var(--font-head);font-size:3rem;font-weight:800;color:var(--peach);opacity:.3;line-height:1;margin-bottom:12px;}
+    .hiw-step h3{font-family:var(--font-head);font-size:1.3rem;font-weight:800;color:var(--dark);margin-bottom:10px;}
+    .hiw-step p{color:var(--mid);font-size:.9rem;line-height:1.7;}
+    .hiw-cta-strip{background:var(--dark);border-radius:var(--radius);padding:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;}
+    .hiw-cta-strip h3{font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:white;}
+    .hiw-cta-strip p{color:rgba(255,255,255,.6);margin-top:8px;}
+    @media(max-width:768px){
+      .hiw-hero{padding:100px 24px 60px;}
+      .hiw-service{padding:0 24px;}
+      .hiw-service-header{grid-template-columns:1fr;gap:24px;}
+      .hiw-steps{grid-template-columns:1fr;}
+      .hiw-cta-strip{flex-direction:column;text-align:center;}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Peachy Keen <span>Stays</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="index.html#calculator">Pricing</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('bookingModal').style.display='flex'">Let's Work Together</button>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <div class="hiw-hero">
+    <span class="section-label">The Process</span>
+    <h1>How It Works</h1>
+    <p>From empty rooms to five-star listings — here's exactly how we transform short-term rental properties into top earners.</p>
+    <div class="hiw-pills">
+      <a href="#airbnb-design" class="hiw-pill active">Airbnb Design</a>
+      <a href="#co-hosting" class="hiw-pill">Co-Hosting</a>
+      <a href="#arbitrage" class="hiw-pill">Arbitrage</a>
+    </div>
+  </div>
+
+  <!-- AIRBNB DESIGN -->
+  <div class="hiw-service" id="airbnb-design">
+    <div class="hiw-service-header">
+      <div>
+        <span class="section-label">Service 01</span>
+        <h2>Airbnb Design &amp; Staging</h2>
+      </div>
+      <p>We design, source, and style your short-term rental from scratch — turning blank spaces into scroll-stopping listings that guests actually book. Whether virtual or full-install, we handle every detail so you don't have to.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step"><div class="step-num">01</div><h3>Discovery Call</h3><p>We learn about your property, market, goals, and budget. You get a clear scope of work before we charge a dollar.</p></div>
+      <div class="hiw-step"><div class="step-num">02</div><h3>Concept &amp; Mood Board</h3><p>We build a custom design concept around your property's strengths — with a curated aesthetic that performs in your specific market.</p></div>
+      <div class="hiw-step"><div class="step-num">03</div><h3>Shopping Plan</h3><p>Every item, every room. A full sourcing list with links, quantities, and placement guidance so you (or we) can execute with confidence.</p></div>
+      <div class="hiw-step"><div class="step-num">04</div><h3>Install &amp; Style</h3><p>For full-install clients, we manage delivery, assembly, and final styling. For virtual clients, we guide you every step of the way.</p></div>
+      <div class="hiw-step"><div class="step-num">05</div><h3>Listing Optimization</h3><p>We don't stop at staging. We help you write your listing, select hero photos, and price your calendar for maximum revenue.</p></div>
+      <div class="hiw-step"><div class="step-num">06</div><h3>30-Day Support</h3><p>Post-launch, we stay available for questions, tweaks, and anything that comes up in the first month of bookings.</p></div>
+    </div>
+    <div class="hiw-cta-strip">
+      <div><h3>Ready to transform your property?</h3><p>Most clients see a 40–120% revenue increase within 60 days of launch.</p></div>
+      <button class="btn-primary" onclick="document.getElementById('bookingModal').style.display='flex'">Book a Free Call</button>
+    </div>
+  </div>
+
+  <!-- CO-HOSTING -->
+  <div class="hiw-service" id="co-hosting">
+    <div class="hiw-service-header">
+      <div>
+        <span class="section-label">Service 02</span>
+        <h2>Co-Hosting</h2>
+      </div>
+      <p>Already have a property up and running? We step in as your co-host — handling guest communication, pricing strategy, and day-to-day operations so you can be truly hands-off.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step"><div class="step-num">01</div><h3>Onboarding Audit</h3><p>We review your current listing, pricing, and guest reviews to identify quick wins and long-term opportunities.</p></div>
+      <div class="hiw-step"><div class="step-num">02</div><h3>Listing Takeover</h3><p>We optimize your photos, title, description, and amenities to increase your click-through and conversion rate.</p></div>
+      <div class="hiw-step"><div class="step-num">03</div><h3>Dynamic Pricing</h3><p>We use market data and seasonal trends to price your calendar so you never leave money on the table.</p></div>
+      <div class="hiw-step"><div class="step-num">04</div><h3>Guest Communication</h3><p>Every message, every inquiry, every issue — handled professionally and promptly so your reviews stay five-star.</p></div>
+      <div class="hiw-step"><div class="step-num">05</div><h3>Turnover Coordination</h3><p>We manage your cleaning team, restock supplies, and ensure every guest arrival is seamless.</p></div>
+      <div class="hiw-step"><div class="step-num">06</div><h3>Monthly Reporting</h3><p>You get a clear monthly summary of revenue, occupancy, and what we're doing to keep improving.</p></div>
+    </div>
+    <div class="hiw-cta-strip">
+      <div><h3>Let us run it for you.</h3><p>We only make money when you make money. Our fee is a percentage of revenue — never a flat retainer.</p></div>
+      <button class="btn-primary" onclick="document.getElementById('bookingModal').style.display='flex'">Book a Free Call</button>
+    </div>
+  </div>
+
+  <!-- ARBITRAGE -->
+  <div class="hiw-service" id="arbitrage">
+    <div class="hiw-service-header">
+      <div>
+        <span class="section-label">Service 03</span>
+        <h2>Rental Arbitrage</h2>
+      </div>
+      <p>No property? No problem. We identify, negotiate, and launch short-term rental arbitrage deals — leasing long-term and subletting short-term. You own the business, not the building.</p>
+    </div>
+    <div class="hiw-steps">
+      <div class="hiw-step"><div class="step-num">01</div><h3>Market Analysis</h3><p>We identify the highest-performing submarkets for arbitrage in your target city — by occupancy, ADR, and competition.</p></div>
+      <div class="hiw-step"><div class="step-num">02</div><h3>Deal Sourcing</h3><p>We find and vet properties that meet our criteria: layout, price, landlord flexibility, and STR potential.</p></div>
+      <div class="hiw-step"><div class="step-num">03</div><h3>Landlord Negotiation</h3><p>We handle the pitch and lease negotiation, including STR-friendly addendums that protect you and the landlord.</p></div>
+      <div class="hiw-step"><div class="step-num">04</div><h3>Design &amp; Launch</h3><p>We design, furnish, and launch the property just like our full-service design clients — guest-ready in weeks.</p></div>
+      <div class="hiw-step"><div class="step-num">05</div><h3>Operations Setup</h3><p>Cleaning teams, smart locks, pricing tools, guest messaging — everything automated before your first booking.</p></div>
+      <div class="hiw-step"><div class="step-num">06</div><h3>Ongoing Co-Hosting</h3><p>We stay on to manage the property so you can scale to multiple units without adding hours to your week.</p></div>
+    </div>
+    <div class="hiw-cta-strip">
+      <div><h3>Start your STR portfolio today.</h3><p>Arbitrage can cash flow $1K–$5K/month per unit with the right property and execution.</p></div>
+      <button class="btn-primary" onclick="document.getElementById('bookingModal').style.display='flex'">Book a Free Call</button>
+    </div>
+  </div>
+
+  <footer style="background:var(--dark);color:white;padding:60px 48px;text-align:center;">
+    <a href="index.html" style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;color:white;text-decoration:none;">Peachy Keen <span style="color:var(--peach);">Stays</span></a>
+    <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:16px;">Transforming short-term rentals into top-earning properties.</p>
+    <p style="color:rgba(255,255,255,.4);font-size:.78rem;margin-top:12px;">© 2026 Peachy Keen Stays. All rights reserved.</p>
+  </footer>
+  <div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:white;border-radius:24px;padding:40px;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;">
+      <button onclick="document.getElementById('bookingModal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--mid);">✕</button>
+      <h2 style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:8px;">Book a Free Intro Call</h2>
+      <p style="color:var(--mid);margin-bottom:24px;font-size:.95rem;">Let's talk about your property and how we can maximize its potential.</p>
+      <iframe src="https://app.usemotion.com/meet/faith-storey/design-intro" width="100%" height="400" frameborder="0" style="border-radius:12px;"></iframe>
+    </div>
+  </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    // Sticky bar scroll trigger
+    window.addEventListener('scroll', function() {
+      const bar = document.getElementById('stickyBar');
+      if (bar) bar.style.transform = window.scrollY > window.innerHeight * 0.5 ? 'translateY(0)' : 'translateY(100%)';
+    });
+  </script>
+</body>
+</html>
