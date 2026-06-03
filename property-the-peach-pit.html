@@ -1221,7 +1221,7 @@ function toggleMenu() {
     // Add "Let's Work Together" button if not already injected
     if (!links.querySelector('.mobile-cta-btn')) {
       const btn = document.createElement('li');
-      btn.innerHTML = '<button class="mobile-cta-btn btn-primary" onclick="openModal();toggleMenu();" style="width:100%;margin-top:12px;padding:14px;font-size:1rem;">Let's Work Together →</button>';
+      btn.innerHTML = '<button class="mobile-cta-btn btn-primary" onclick="openModal();toggleMenu();" style="width:100%;margin-top:12px;padding:14px;font-size:1rem;">Let\'s Work Together \u2192</button>';
       links.appendChild(btn);
     }
   }
