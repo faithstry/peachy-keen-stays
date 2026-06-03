@@ -3,340 +3,1557 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Peachy Keen Stays — STR Design &amp; Co-Hosting</title>
+  <title>Peachy Keen Stays – STR Design + Management</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+/* ===========================
+   PEACHY KEEN STAYS - STYLES
+   =========================== */
+
+:root {
+  --peach: #F4845F;
+  --peach-light: #FFD9C8;
+  --peach-pale: #FFF5F0;
+  --peach-dark: #E06A42;
+  --teal: #2A9D8F;
+  --teal-dark: #1A7A6E;
+  --cream: #FFFAF7;
+  --dark: #1A1208;
+  --dark-soft: #2D2010;
+  --mid: #6B5744;
+  --light: #F7EDE4;
+  --white: #FFFFFF;
+  --font-head: 'Libre Baskerville', serif;
+  --font-body: 'Nunito Sans', sans-serif;
+  --radius: 20px;
+  --radius-sm: 12px;
+  --shadow: 0 8px 40px rgba(26,18,8,0.10);
+  --shadow-lg: 0 20px 80px rgba(26,18,8,0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4 { font-family: var(--font-head); }
+
+/* ========== NAV ========== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(255,250,247,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(244,132,95,0.15);
+  transition: box-shadow 0.3s;
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--peach); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--mid);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--peach); }
+
+.nav-cta {
+  background: var(--peach);
+  color: var(--white);
+  padding: 11px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+.nav-cta:hover { background: var(--peach-dark); transform: translateY(-1px); }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+  display: inline-block;
+  background: var(--peach);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.btn-primary:hover {
+  background: var(--peach-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244,132,95,0.4);
+}
+
+.btn-secondary {
+  display: inline-block;
+  color: var(--dark);
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid var(--dark);
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: var(--font-body);
+  background: none;
+}
+.btn-secondary:hover {
+  background: var(--dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ========== HERO ========== */
+.hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  padding: 100px 48px 60px;
+  gap: 60px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(244,132,95,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--peach-light);
+  color: var(--peach-dark);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--dark);
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+  font-weight: 700;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--peach);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.hero-visual { flex: 1; display: flex; justify-content: center; position: relative; }
+
+.hero-img-wrap { position: relative; width: 100%; max-width: 540px; }
+
+.hero-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--peach-light) 0%, var(--light) 100%);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: var(--shadow-lg);
+}
+.hero-placeholder span { font-size: 1.5rem; color: var(--peach); font-family: var(--font-head); font-weight: 700; }
+.hero-placeholder p { color: var(--mid); font-size: 0.9rem; }
+
+.hero-badge {
+  position: absolute;
+  bottom: -20px; left: -20px;
+  background: var(--dark);
+  color: white;
+  padding: 18px 22px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.badge-num { display: block; font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--peach); line-height: 1; }
+.badge-label { font-size: 0.75rem; font-weight: 600; opacity: 0.8; }
+
+/* ========== TICKER ========== */
+.ticker-wrap {
+  background: var(--peach);
+  padding: 16px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+}
+.ticker span {
+  display: inline-block;
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0 24px;
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ========== SECTIONS ========== */
+.section { padding: 100px 48px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-label {
+  display: inline-block;
+  background: var(--peach-light);
+  color: var(--peach-dark);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--dark);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.section-sub {
+  color: var(--mid);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+/* ========== HOW IT WORKS (on home = overview cards) ========== */
+.how-it-works { background: var(--white); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.service-card {
+  padding: 40px 32px;
+  border-radius: var(--radius);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+.card-peach { background: var(--peach-pale); }
+.card-teal  { background: #EBF8F6; }
+.card-coral { background: #FFF0ED; }
+
+.service-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+
+.service-card h3 { font-size: 1.6rem; color: var(--dark); margin-bottom: 12px; font-weight: 700; }
+.service-card p  { color: var(--mid); line-height: 1.65; margin-bottom: 24px; font-size: 0.95rem; }
+
+.card-link {
+  color: var(--peach);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: opacity 0.2s;
+}
+.card-link:hover { opacity: 0.75; }
+
+/* ========== PORTFOLIO (home preview) ========== */
+.portfolio { background: var(--cream); }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+.slider-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+.before-after-container {
+  position: relative;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  cursor: ew-resize;
+}
+
+.img-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* AFTER image — always full size, behind */
+.after-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #FFD9C8 0%, #F4845F 100%);
+  background-size: cover;
+  background-position: center;
+  color: white;
+}
+
+/* BEFORE overlay — full size, clipped from the right */
+.before-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: inset(0 50% 0 0);
+  transition: none;
+}
+
+/* BEFORE image — full size inside the clipped overlay */
+.before-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8e8e8 0%, #b0b0b0 100%);
+  background-size: cover;
+  background-position: center;
+  color: #666;
+}
+
+/* Divider line */
+.before-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: white;
+  pointer-events: none;
+}
+
+.slider-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 10;
+  margin: 0;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px; height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: var(--dark);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  z-index: 9;
+  pointer-events: none;
+  font-weight: 700;
+}
+
+.portfolio-meta { padding: 4px 4px 0; }
+.portfolio-meta h4 { font-family: var(--font-head); font-size: 1.2rem; color: var(--dark); margin-bottom: 4px; font-weight: 700; }
+.portfolio-meta a { text-decoration: none; }
+.portfolio-meta a h4 { transition: color 0.2s; }
+.portfolio-meta a:hover h4 { color: var(--peach); }
+.portfolio-meta p  { color: var(--mid); font-size: 0.85rem; }
+
+.center-btn { text-align: center; }
+
+/* ========== CALCULATOR ========== */
+.calculator { background: var(--dark); color: white; }
+.calculator .section-label { background: rgba(244,132,95,0.2); color: var(--peach); }
+.calculator .section-title { color: white; }
+.calculator .section-sub  { color: rgba(255,255,255,0.65); }
+
+.calc-wrap {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.calc-form {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+
+.calc-group { margin-bottom: 32px; }
+.calc-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.calc-options { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.calc-opt {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.calc-opt:hover { border-color: var(--peach); color: var(--peach); }
+.calc-opt.active { background: var(--peach); border-color: var(--peach); color: white; font-weight: 700; }
+
+.calc-range {
+  width: 100%;
+  accent-color: var(--peach);
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.15);
+  outline: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.calc-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.calc-estimate { display: flex; flex-direction: column; gap: 4px; }
+.est-label { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; }
+.est-price { font-family: var(--font-head); font-size: 2.2rem; font-weight: 700; color: var(--peach); letter-spacing: -0.5px; }
+
+.calc-features {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(244,132,95,0.25);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+.calc-features h4 { font-family: var(--font-head); font-size: 1.5rem; color: white; margin-bottom: 20px; font-weight: 700; }
+.calc-features ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.calc-features li { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.5; }
+
+/* ========== FAQ ========== */
+.faq { background: var(--white); }
+
+.faq-list {
+  max-width: 760px;
+  margin-top: 48px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--light);
+  cursor: pointer;
+  padding: 24px 0;
+}
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  gap: 16px;
+}
+
+.faq-icon {
+  width: 28px; height: 28px;
+  background: var(--peach-light);
+  color: var(--peach-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.faq-item.open .faq-icon { background: var(--peach); color: white; transform: rotate(45deg); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  color: var(--mid);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.faq-item.open .faq-a { max-height: 200px; padding-top: 14px; }
+
+/* ========== FOOTER ========== */
+.footer { background: var(--dark-soft); color: white; padding: 64px 48px 0; }
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+.footer-logo { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; margin-bottom: 14px; }
+.footer-logo span { color: var(--peach); }
+.footer-brand p { color: rgba(255,255,255,0.55); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px; max-width: 280px; }
+
+.footer-socials { display: flex; gap: 16px; }
+.footer-socials a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: color 0.2s; }
+.footer-socials a:hover { color: var(--peach); }
+
+.footer-links { display: flex; flex-direction: column; gap: 12px; }
+.footer-links h5 { color: rgba(255,255,255,0.4); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
+.footer-links a:hover { color: var(--peach); }
+
+.footer-cta { display: flex; flex-direction: column; gap: 16px; }
+.footer-cta h5 { font-family: var(--font-head); font-size: 1.4rem; color: white; line-height: 1.35; font-weight: 700; }
+
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+.footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.82rem; }
+
+/* ========== BOOKING MODAL ========== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,18,8,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: white;
+  border-radius: 24px;
+  padding: 48px 48px 0;
+  max-width: 620px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  animation: modalIn 0.3s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: var(--light);
+  border: none;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mid);
+  transition: background 0.2s;
+}
+.modal-close:hover { background: var(--peach-light); color: var(--peach-dark); }
+
+.modal-box h3 { font-family: var(--font-head); font-size: 2rem; color: var(--dark); margin-bottom: 12px; font-weight: 700; }
+.modal-box p  { color: var(--mid); font-size: 0.95rem; line-height: 1.65; margin-bottom: 28px; }
+
+.modal-perks { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
+.modal-perks li { color: var(--mid); font-size: 0.92rem; font-weight: 600; }
+
+.modal-embed-placeholder {
+  background: var(--peach-pale);
+  border: 2px dashed var(--peach-light);
+  border-radius: var(--radius-sm);
+  padding: 40px;
+  text-align: center;
+  color: var(--mid);
+  font-size: 0.92rem;
+}
+.modal-embed-placeholder .embed-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.modal-embed-placeholder h4 { font-family: var(--font-head); font-size: 1.3rem; color: var(--dark); margin-bottom: 8px; font-weight: 700; }
+
+/* ========== STICKY BAR ========== */
+.sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 200;
+  background: var(--dark);
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
+  animation: slideUp 0.4s ease;
+}
+.sticky-bar.visible { display: flex; }
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.sticky-bar p { color: white; font-size: 0.95rem; font-weight: 600; }
+.sticky-bar p span { color: var(--peach); }
+.sticky-bar-close {
+  background: none; border: none; color: rgba(255,255,255,0.4);
+  font-size: 1.2rem; cursor: pointer; margin-left: auto;
+  transition: color 0.2s;
+}
+.sticky-bar-close:hover { color: white; }
+
+/* ========== STANDALONE PAGES ========== */
+.page-hero {
+  padding: 160px 48px 80px;
+  background: var(--cream);
+  text-align: center;
+}
+.page-hero .section-label { margin-bottom: 16px; }
+.page-hero h1 { font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; color: var(--dark); margin-bottom: 20px; letter-spacing: -0.5px; }
+.page-hero p { color: var(--mid); font-size: 1.1rem; line-height: 1.7; max-width: 580px; margin: 0 auto; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .hero { padding: 100px 32px 60px; }
+  .section { padding: 80px 32px; }
+  .nav { padding: 16px 32px; }
+  .services-grid { grid-template-columns: 1fr; gap: 16px; }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .calc-wrap { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .sticky-bar { padding: 16px 24px; }
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 14px 20px; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: block; }
+  .hero { flex-direction: column; padding: 100px 20px 60px; text-align: center; gap: 40px; }
+  .hero-btns { justify-content: center; }
+  .hero-sub { margin: 0 auto 36px; }
+  .section { padding: 60px 20px; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .calc-form { padding: 24px; }
+  .modal-box { padding: 32px 24px; }
+  .sticky-bar { flex-direction: column; text-align: center; padding: 16px 20px; gap: 12px; }
+  .page-hero { padding: 120px 20px 60px; }
+}
+
+/* ========== LIGHTBOX ========== */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 80px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 28px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  opacity: 0.8;
+}
+.lightbox-close:hover { opacity: 1; }
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  padding: 12px 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.3); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+
+/* Airbnb pill */
+.airbnb-pill {
+  background: #FF5A5F !important;
+  color: white !important;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.airbnb-pill:hover { opacity: .85; }
+
+</style>
+  <style>
+  /* ── Why Us section (new) ── */
+  .why-us { background: var(--white); }
+  .why-us-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: start; }
+  .why-us-text h2 { font-family: var(--font-head); font-size: clamp(2rem,3.5vw,3rem); font-weight: 700; color: var(--dark); letter-spacing: -1px; line-height: 1.1; margin-bottom: 8px; }
+  .why-sub-label { color: var(--peach); font-size: 1.05rem; font-weight: 700; margin-bottom: 24px; font-family: var(--font-head); font-style: italic; }
+  .why-body p { color: var(--mid); line-height: 1.8; margin-bottom: 12px; font-size: 0.95rem; }
+  .why-checklist { list-style: none; margin: 8px 0 16px; display: flex; flex-direction: column; gap: 10px; }
+  .why-checklist li { color: var(--dark); font-weight: 700; font-size: 1rem; }
+  .why-closer { font-size: 1rem; color: var(--mid); }
+  .why-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .why-card { background: var(--peach-pale); border-radius: var(--radius-sm); padding: 24px; text-align: center; }
+  .why-card-icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .why-card-stat { font-family: var(--font-head); font-size: 1.5rem; font-weight: 700; color: var(--peach); letter-spacing: -0.5px; }
+  .why-card-label { color: var(--mid); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+  @media(max-width:900px){
+    .why-us-inner { grid-template-columns: 1fr; gap: 40px; }
+    .why-cards { grid-template-columns: repeat(2,1fr); }
+  }
+  </style>
 </head>
 <body>
-
-  <!-- TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker">
-      <span>✦ Short-Term Rental Design</span><span>✦ Revenue Optimization</span><span>✦ Airbnb Staging</span><span>✦ Co-Hosting Services</span><span>✦ Rental Arbitrage</span><span>✦ 5-Star Guest Experiences</span>
-      <span>✦ Short-Term Rental Design</span><span>✦ Revenue Optimization</span><span>✦ Airbnb Staging</span><span>✦ Co-Hosting Services</span><span>✦ Rental Arbitrage</span><span>✦ 5-Star Guest Experiences</span>
-    </div>
-  </div>
 
   <!-- NAV -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">Peachy Keen <span>Stays</span></a>
-    <ul class="nav-links" id="navLinks">
+    <ul class="nav-links">
       <li><a href="how-it-works.html">How It Works</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="#calculator">Pricing</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="https://www.youtube.com/@thisismy_storey/featured" target="_blank">YouTube</a></li>
     </ul>
-    <button class="nav-cta" onclick="document.getElementById('bookingModal').style.display='flex'">Let's Work Together</button>
+    <button class="nav-cta" onclick="openModal()">Let's Work Together →</button>
     <button class="hamburger" onclick="toggleMenu()">☰</button>
   </nav>
 
   <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <span class="hero-tag">✦ STR Design + Co-Hosting</span>
-      <h1 class="hero-title">We don't design<br><em>like interior designers.</em></h1>
-      <p class="hero-sub">We design like STR investors — because that's what we are. Every decision is made to maximize bookings, revenue, and guest reviews.</p>
+  <section class="hero" id="home" style="gap:48px;">
+    <div class="hero-content" style="flex:1.1;max-width:none;">
+      <div class="hero-tag">Short-Term Rental Design + Management</div>
+      <h1 class="hero-title">A Better Designed Airbnb<br><em>Makes More Money.</em></h1>
+      <p class="hero-sub">That's it. That's the pitch. We create guest experiences that help you charge more, book faster, and stop competing on price.</p>
       <div class="hero-btns">
-        <button class="btn-primary" onclick="document.getElementById('bookingModal').style.display='flex'">Book a Free Call</button>
-        <a href="portfolio.html" class="btn-secondary">See the Work</a>
+        <a href="portfolio.html" class="btn-primary">See Our Work</a>
+        <button class="btn-secondary" onclick="openModal()">Book a Free Call →</button>
       </div>
     </div>
-    <div class="hero-visual">
+    <div class="hero-visual" style="flex:0.9;min-width:0;">
       <div class="hero-img-wrap">
-        <div class="before-after-container" style="aspect-ratio:4/3;border-radius:24px;overflow:hidden;box-shadow:0 20px 80px rgba(26,18,8,.2);">
-          <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w1200');background-size:cover;background-position:center;"></div>
-          <div class="before-overlay" id="heroBO"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w1200');background-size:cover;background-position:center;"></div></div>
-          <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'heroBO','heroH')">
-          <div class="slider-handle" id="heroH" style="left:50%">◀▶</div>
+        <div class="before-after-container" style="border-radius:24px;overflow:hidden;box-shadow:var(--shadow-lg);aspect-ratio:4/3;">
+          <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1pAe-6-doBZbG1yjGMwjBYLluIzRSOyiB&sz=w1000');background-size:cover;background-position:center;height:100%;"></div>
+          <div class="before-overlay" id="heroOverlay">
+            <div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1DjQmBlJk6BJei2UiXpoO3TzmlQMJMa8w&sz=w1000');background-size:cover;background-position:center;height:100%;"></div>
+          </div>
+          <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'heroOverlay','heroHandle')">
+          <div class="slider-handle" id="heroHandle" style="left:50%">◀▶</div>
         </div>
         <div class="hero-badge">
-          <span class="badge-num">9</span>
-          <span class="badge-label">Properties Transformed</span>
+          <span class="badge-num">4.9★</span>
+          <span class="badge-label">Star Rating</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- STATS STRIP -->
-  <div class="stats-strip">
-    <div class="stats-strip-inner">
-      <div class="stat-big"><span class="num">9</span><span class="lbl">Properties Transformed</span></div>
-      <div class="stat-big"><span class="num">40–120%</span><span class="lbl">Average Revenue Increase</span></div>
-      <div class="stat-big"><span class="num">4.9★</span><span class="lbl">Average Guest Rating</span></div>
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>WE DESIGN FOR BOOKINGS, NOT PINTEREST ✦</span>
+      <span>BUILT BY HOSTS, NOT DESIGNERS ✦</span>
+      <span>50 STATES SERVED ✦</span>
+      <span>WE DESIGN FOR BOOKINGS, NOT PINTEREST ✦</span>
+      <span>BUILT BY HOSTS, NOT DESIGNERS ✦</span>
+      <span>50 STATES SERVED ✦</span>
+      <span>WE DESIGN FOR BOOKINGS, NOT PINTEREST ✦</span>
+      <span>BUILT BY HOSTS, NOT DESIGNERS ✦</span>
+      <span>50 STATES SERVED ✦</span>
     </div>
   </div>
 
-  <!-- WHY US -->
-  <section class="section" style="background:var(--white);">
+      <!-- WHY US (new section) -->
+  <section class="section why-us">
+    <div class="section-inner" style="max-width:900px;">
+      <div class="section-label">Why Peachy Keen</div>
+      <h2 class="section-title">We Don't Design Like<br>Interior Designers.</h2>
+      <p style="color:var(--peach);font-family:var(--font-head);font-size:1.15rem;font-style:italic;margin-bottom:24px;">We design like Airbnb operators.</p>
+      <div style="color:var(--mid);font-size:1rem;line-height:1.8;margin-bottom:40px;">
+        <p style="margin-bottom:12px;">We've managed properties ourselves. We've dealt with bad reviews, low occupancy, furniture that looked great online but terrible in person, and design decisions that didn't move the needle.</p>
+        <p style="margin-bottom:12px;">Most designers focus on making a property look pretty. We focus on helping it <strong>perform.</strong></p>
+        <p style="margin-bottom:16px;">That means every decision is made through two lenses:</p>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+          <span style="color:var(--dark);font-weight:700;font-size:1rem;">✔ Will guests love it?</span>
+          <span style="color:var(--dark);font-weight:700;font-size:1rem;">✔ Will it make the owner more money?</span>
+        </div>
+        <p>Pretty is nice. <strong>Profitable is better.</strong></p>
+      </div>
+
+      <!-- Stat strip -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--light);border-radius:var(--radius);overflow:hidden;margin-bottom:32px;">
+        <div style="background:var(--white);padding:36px 32px;text-align:center;">
+          <div style="font-family:var(--font-head);font-size:2.6rem;font-weight:700;color:var(--peach);letter-spacing:-1px;line-height:1;">+71%</div>
+          <div style="color:var(--mid);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-top:8px;">Avg. Revenue Increase</div>
+        </div>
+        <div style="background:var(--white);padding:36px 32px;text-align:center;">
+          <div style="font-family:var(--font-head);font-size:2.6rem;font-weight:700;color:var(--peach);letter-spacing:-1px;line-height:1;">4.9★</div>
+          <div style="color:var(--mid);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-top:8px;">Average Guest Rating</div>
+        </div>
+        <div style="background:var(--white);padding:36px 32px;text-align:center;">
+          <div style="font-family:var(--font-head);font-size:2.6rem;font-weight:700;color:var(--peach);letter-spacing:-1px;line-height:1;">50</div>
+          <div style="color:var(--mid);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-top:8px;">States Served</div>
+        </div>
+      </div>
+
+      <a href="portfolio.html" class="btn-primary" style="display:inline-block;">Talk Is Cheap. Here's The Proof. →</a>
+    </div>
+  </section>
+
+  <!-- BEFORE & AFTER PREVIEW -->
+  <section class="section portfolio" id="portfolio-preview">
     <div class="section-inner">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-        <div>
-          <span class="section-label">Our Approach</span>
-          <h2 class="section-title">We don't design like<br>interior designers.</h2>
-          <p style="color:var(--mid);line-height:1.8;margin-bottom:20px;">Interior designers optimize for aesthetics. We optimize for revenue. Every furniture choice, every layout decision, every color selection is made with one question in mind: <em>will this make guests book faster and rate higher?</em></p>
-          <p style="color:var(--mid);line-height:1.8;margin-bottom:32px;">We're STR operators first. We own and manage properties ourselves — so we know exactly what works, what breaks, and what gets five-star reviews at 2am.</p>
-          <a href="how-it-works.html" class="btn-primary">See How We Work</a>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
-          <div style="background:var(--peach-pale);border-radius:var(--radius);padding:28px;">
-            <div style="font-size:2rem;margin-bottom:12px;">🛋️</div>
-            <h4 style="font-family:var(--font-head);font-weight:800;font-size:1.1rem;margin-bottom:8px;">Revenue-First Design</h4>
-            <p style="color:var(--mid);font-size:.88rem;line-height:1.6;">Every decision maximizes bookings, not just looks.</p>
+      <div class="section-label">Our Work</div>
+      <h2 class="section-title">Recent Transformations</h2>
+      <p class="section-sub">Drag the slider to see how your property goes from <em>Forgettable</em> to <em>Bookable.</em></p>
+
+      <div class="portfolio-grid">
+
+        <div class="portfolio-item">
+          <div class="slider-wrap">
+            <div class="before-after-container">
+              <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1pAe-6-doBZbG1yjGMwjBYLluIzRSOyiB&sz=w1000');background-size:cover;background-position:center;height:100%;"></div>
+              <div class="before-overlay" id="beforeOverlay1">
+                <div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1DjQmBlJk6BJei2UiXpoO3TzmlQMJMa8w&sz=w1000');background-size:cover;background-position:center;height:100%;"></div>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'beforeOverlay1','handle1')">
+              <div class="slider-handle" id="handle1" style="left:50%">◀▶</div>
+            </div>
           </div>
-          <div style="background:#EBF8F6;border-radius:var(--radius);padding:28px;">
-            <div style="font-size:2rem;margin-bottom:12px;">📊</div>
-            <h4 style="font-family:var(--font-head);font-weight:800;font-size:1.1rem;margin-bottom:8px;">Market Analysis</h4>
-            <p style="color:var(--mid);font-size:.88rem;line-height:1.6;">We study your competition before picking a single item.</p>
-          </div>
-          <div style="background:#FFF0ED;border-radius:var(--radius);padding:28px;">
-            <div style="font-size:2rem;margin-bottom:12px;">⚡</div>
-            <h4 style="font-family:var(--font-head);font-weight:800;font-size:1.1rem;margin-bottom:8px;">Fast Execution</h4>
-            <p style="color:var(--mid);font-size:.88rem;line-height:1.6;">Most projects go from empty to bookable in 3–6 weeks.</p>
-          </div>
-          <div style="background:var(--peach-pale);border-radius:var(--radius);padding:28px;">
-            <div style="font-size:2rem;margin-bottom:12px;">🏆</div>
-            <h4 style="font-family:var(--font-head);font-weight:800;font-size:1.1rem;margin-bottom:8px;">Proven Results</h4>
-            <p style="color:var(--mid);font-size:.88rem;line-height:1.6;">9 properties, 40–120% revenue increases, 4.9★ average.</p>
+          <div class="portfolio-meta">
+            <a href="property-san-antonio-cowboy.html"><h4>The San Antonio Cowboy</h4></a>
+            <p>San Antonio, TX · Design + Install</p>
           </div>
         </div>
+
+        <div class="portfolio-item">
+          <div class="slider-wrap">
+            <div class="before-after-container">
+              <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=11uKIqu3bRZU917S2dRm5KxZIZnpLFyok&sz=w1000');background-size:cover;background-position:center;height:100%;"></div>
+              <div class="before-overlay" id="beforeOverlay2">
+                <div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=15RC9zqilwJiZ0RiBjbaMH94d8PdfCTCd&sz=w1000');background-size:cover;background-position:center;height:100%;"></div>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'beforeOverlay2','handle2')">
+              <div class="slider-handle" id="handle2" style="left:50%">◀▶</div>
+            </div>
+          </div>
+          <div class="portfolio-meta">
+            <a href="property-san-antonio-luxe.html"><h4>San Antonio Luxe</h4></a>
+            <p>San Antonio, TX · Design + Install</p>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="slider-wrap">
+            <div class="before-after-container">
+              <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1iwXBZAWZf0m4spYx36TWu1cbwUdiTGh8&sz=w1000');background-size:cover;background-position:center;height:100%;"></div>
+              <div class="before-overlay" id="beforeOverlay3">
+                <div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1U5adQ5hATZ7mVv9y56vG-aJcS4os9BEh&sz=w1000');background-size:cover;background-position:center;height:100%;"></div>
+              </div>
+              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'beforeOverlay3','handle3')">
+              <div class="slider-handle" id="handle3" style="left:50%">◀▶</div>
+            </div>
+          </div>
+          <div class="portfolio-meta">
+            <a href="property-sunshine-house.html"><h4>The Sunshine House</h4></a>
+            <p>Tyler, TX · Virtual Design</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="center-btn">
+        <a href="portfolio.html" class="btn-primary">See Full Portfolio →</a>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="section how-it-works" id="services">
+  <!-- HOW IT WORKS (services overview) -->
+  <section class="section how-it-works" id="how-it-works">
     <div class="section-inner">
-      <span class="section-label">What We Do</span>
-      <h2 class="section-title">Three ways we can help.</h2>
-      <p class="section-sub">Whether you need a full design, a co-host, or help getting started — we've got a path for you.</p>
+      <div class="section-label">The Process</div>
+      <h2 class="section-title">Three Ways We Make You More Money</h2>
       <div class="services-grid">
         <div class="service-card card-peach">
-          <span class="service-icon">🛋️</span>
-          <h3>Airbnb Design</h3>
-          <p>We design, source, and style your property from scratch — virtually or full-install. Revenue-first, guest-obsessed.</p>
-          <a href="how-it-works.html#airbnb-design" class="card-link">Learn More →</a>
+          <div class="service-icon">✨</div>
+          <h3>STR Design</h3>
+          <p>We design Airbnbs that look expensive in photos and feel expensive in person.</p>
+          <a href="how-it-works.html" class="card-link">Learn more →</a>
         </div>
         <div class="service-card card-teal">
-          <span class="service-icon">🤝</span>
-          <h3>Co-Hosting</h3>
-          <p>We manage your listing, guests, and operations so you earn without the work. Performance-based pricing.</p>
-          <a href="how-it-works.html#co-hosting" class="card-link">Learn More →</a>
+          <div class="service-icon">🏡</div>
+          <h3>STR Management</h3>
+          <p>Running an Airbnb is harder than it looks. Let us do it for you instead.</p>
+          <a href="how-it-works.html" class="card-link">Learn more →</a>
         </div>
         <div class="service-card card-coral">
-          <span class="service-icon">🏠</span>
-          <h3>Arbitrage</h3>
-          <p>No property? We find, negotiate, and launch STR arbitrage deals from scratch. You own the business, not the building.</p>
-          <a href="how-it-works.html#arbitrage" class="card-link">Learn More →</a>
+          <div class="service-icon">🔑</div>
+          <h3>Airbnb Arbitrage</h3>
+          <p>Let us be your long-term tenant and make your property completely passive.</p>
+          <a href="how-it-works.html" class="card-link">Learn more →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO PREVIEW -->
-  <section class="section portfolio" id="portfolio">
-    <div class="section-inner">
-      <span class="section-label">Recent Work</span>
-      <h2 class="section-title">The transformations speak for themselves.</h2>
-      <p class="section-sub">Drag the sliders to reveal before &amp; after. Click any property to see the full story.</p>
-      <div class="portfolio-grid">
-        
-      <div>
-        <div class="slider-wrap">
-          <div class="before-after-container" style="aspect-ratio:4/3;">
-            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="before-overlay" id="hpbo_the-peach-pit"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w800');background-size:cover;background-position:center;"></div></div>
-            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'hpbo_the-peach-pit','hph_the-peach-pit')">
-            <div class="slider-handle" id="hph_the-peach-pit" style="left:50%">◀▶</div>
-          </div>
-        </div>
-        <div class="portfolio-meta">
-          <a href="property-the-peach-pit.html"><h4>The Peach Pit</h4></a>
-          <p></p>
-        </div>
-      </div>
-      <div>
-        <div class="slider-wrap">
-          <div class="before-after-container" style="aspect-ratio:4/3;">
-            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1cP9cDN2IXGUVszEuN_IIOduWMvfkPoMd&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="before-overlay" id="hpbo_the-lone-star-loft"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1K_uQYaAk91hMmIcMINX985hfQ1r2tdgf&sz=w800');background-size:cover;background-position:center;"></div></div>
-            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'hpbo_the-lone-star-loft','hph_the-lone-star-loft')">
-            <div class="slider-handle" id="hph_the-lone-star-loft" style="left:50%">◀▶</div>
-          </div>
-        </div>
-        <div class="portfolio-meta">
-          <a href="property-the-lone-star-loft.html"><h4>The Lone Star Loft</h4></a>
-          <p></p>
-        </div>
-      </div>
-      <div>
-        <div class="slider-wrap">
-          <div class="before-after-container" style="aspect-ratio:4/3;">
-            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1aP8OCSKZelLVDbw2Grycn7WnEwye3xVw&sz=w800');background-size:cover;background-position:center;"></div>
-            <div class="before-overlay" id="hpbo_san-antonio-quirk"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1rBUI3RspJ_iTfyUPAUvUoCM1fNRCm0yp&sz=w800');background-size:cover;background-position:center;"></div></div>
-            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'hpbo_san-antonio-quirk','hph_san-antonio-quirk')">
-            <div class="slider-handle" id="hph_san-antonio-quirk" style="left:50%">◀▶</div>
-          </div>
-        </div>
-        <div class="portfolio-meta">
-          <a href="property-san-antonio-quirk.html"><h4>San Antonio Quirk</h4></a>
-          <p>📍 San Antonio, TX</p>
-        </div>
-      </div>
-      </div>
-      <div class="center-btn">
-        <a href="portfolio.html" class="btn-primary">View Full Portfolio →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CALCULATOR -->
+    <!-- PRICING CALCULATOR -->
   <section class="section calculator" id="calculator">
     <div class="section-inner">
-      <span class="section-label">Pricing Estimator</span>
-      <h2 class="section-title">Get a quick estimate.</h2>
-      <p class="section-sub">Not a quote — just a ballpark so you know what to expect. Real numbers come after your free call.</p>
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Wondering What This Costs?</h2>
+      <p class="section-sub">Answer two questions and we'll give you a realistic ballpark. No sales call required.</p>
+
       <div class="calc-wrap">
         <div class="calc-form">
-          <div class="calc-group">
-            <label>Service Type</label>
-            <div class="calc-options">
-              <button class="calc-option active" onclick="setOption(this,'service','design')">Design Only</button>
-              <button class="calc-option" onclick="setOption(this,'service','install')">Design + Install</button>
-              <button class="calc-option" onclick="setOption(this,'service','cohost')">Co-Hosting</button>
-              <button class="calc-option" onclick="setOption(this,'service','arbitrage')">Arbitrage</button>
-            </div>
-          </div>
+
+          <!-- Step 1: Property Size -->
           <div class="calc-group">
             <label>Property Size</label>
-            <div class="calc-options">
-              <button class="calc-option active" onclick="setOption(this,'size','studio')">Studio / 1BR</button>
-              <button class="calc-option" onclick="setOption(this,'size','2br')">2–3 BR</button>
-              <button class="calc-option" onclick="setOption(this,'size','4br')">4–5 BR</button>
-              <button class="calc-option" onclick="setOption(this,'size','large')">6+ BR / Estate</button>
+            <div class="calc-options" style="flex-wrap:wrap;">
+              <button class="calc-opt active" data-size="studio" onclick="calcSelect(this,'size')">Studio / 1BR<br><span style="font-size:0.72rem;opacity:0.7;font-weight:400;">Up to 900 sq ft</span></button>
+              <button class="calc-opt" data-size="2br" onclick="calcSelect(this,'size')">2 Bedroom<br><span style="font-size:0.72rem;opacity:0.7;font-weight:400;">Up to 1,300 sq ft</span></button>
+              <button class="calc-opt" data-size="3br" onclick="calcSelect(this,'size')">3 Bedroom<br><span style="font-size:0.72rem;opacity:0.7;font-weight:400;">Up to 1,900 sq ft</span></button>
+              <button class="calc-opt" data-size="4br" onclick="calcSelect(this,'size')">4 Bedroom<br><span style="font-size:0.72rem;opacity:0.7;font-weight:400;">Up to 2,500 sq ft</span></button>
+              <button class="calc-opt" data-size="5br" onclick="calcSelect(this,'size')">5 Bedroom<br><span style="font-size:0.72rem;opacity:0.7;font-weight:400;">Up to 3,200 sq ft</span></button>
+              <button class="calc-opt" data-size="6br" onclick="calcSelect(this,'size')">6BR+<br><span style="font-size:0.72rem;opacity:0.7;font-weight:400;">Custom</span></button>
             </div>
           </div>
+
+          <!-- Step 2: Design Tier -->
           <div class="calc-group">
-            <label>Extras <span class="tooltip" data-tip="These add meaningful scope to the project">ⓘ</span></label>
-            <div class="calc-options" id="extrasOptions">
-              <button class="calc-option" onclick="toggleExtra(this,'outdoor')">Outdoor Space</button>
-              <button class="calc-option" onclick="toggleExtra(this,'custom')">Custom Art / Murals</button>
-              <button class="calc-option" onclick="toggleExtra(this,'listing')">Listing Optimization</button>
-              <button class="calc-option" onclick="toggleExtra(this,'photography')">Photography Prep</button>
+            <label>Design Level <span style="font-size:0.8rem;font-weight:400;color:rgba(255,255,255,0.5);">— hover for details</span></label>
+            <div class="calc-options" style="flex-wrap:wrap;">
+              <div class="calc-tier-wrap">
+                <button class="calc-opt" data-tier="basic" onclick="calcSelect(this,'tier')">
+                  Basic
+                </button>
+                <div class="calc-tooltip">Built for lower-competition markets, MTRs, and owners who want a great-looking property without a massive furnishing budget. Focused on clean design, durability, and maximizing ROI.<br><br>No frills. Just the basics to start operating.</div>
+              </div>
+              <div class="calc-tier-wrap">
+                <button class="calc-opt" data-tier="mid" onclick="calcSelect(this,'tier')">
+                  Mid-Tier
+                </button>
+                <div class="calc-tooltip">For owners who want to outperform the average listing. Includes upgraded furnishings, stronger design concepts, and guest-focused amenities that help justify higher nightly rates. Looking for 50–75th percentile ADR.</div>
+              </div>
+              <div class="calc-tier-wrap">
+                <button class="calc-opt active" data-tier="lux" onclick="calcSelect(this,'tier')">
+                  Luxury
+                </button>
+                <div class="calc-tooltip">Built for owners chasing top-of-market performance. Premium furnishings, statement pieces, elevated guest experiences, and the kind of design that helps command top 10% ADRs in your market.</div>
+              </div>
             </div>
           </div>
+
+          <!-- Result -->
+          <div class="calc-result">
+            <div class="calc-estimate">
+              <span class="est-label">Estimated Investment</span>
+              <span class="est-price" id="estPrice">$5,000–$6,500</span>
+            </div>
+            <button class="btn-primary" onclick="openModal()">Let's Talk</button>
+          </div>
+
+          <!-- Custom quote msg (hidden unless 6BR+) -->
+          <div id="customQuoteMsg" style="display:none;margin-top:16px;padding:16px 20px;background:rgba(244,132,95,0.15);border-radius:12px;color:rgba(255,255,255,0.85);font-size:0.9rem;">
+            Every 6BR+ property is unique. <strong>Book a free call</strong> and we'll put together a custom quote based on your specific space.
+          </div>
+
         </div>
-        <div class="calc-result">
-          <h3>Your Estimate</h3>
-          <div class="result-line"><span class="result-label">Design Fee</span><span class="result-value" id="rDesign">$2,500–$3,500</span></div>
-          <div class="result-line"><span class="result-label">Furnishing Budget <span class="tooltip" data-tip="Estimated cost of furniture &amp; decor — paid to vendors, not us">ⓘ</span></span><span class="result-value" id="rFurnish">$8K–$15K</span></div>
-          <div class="result-line"><span class="result-label">Timeline</span><span class="result-value" id="rTimeline">2–3 weeks</span></div>
-          <div class="result-line"><span class="result-label">Revenue Uplift (est.)</span><span class="result-value" id="rUplift">40–80%</span></div>
-          <div class="result-total"><span class="lbl">Total Investment</span><span class="val" id="rTotal">$10.5K–$18.5K</span></div>
-          <p class="calc-note">* Estimates only. Final pricing depends on property specifics, market, and scope. Book a free call for an exact quote.</p>
-          <button class="btn-primary" style="width:100%;margin-top:20px;text-align:center;" onclick="document.getElementById('bookingModal').style.display='flex'">Get an Exact Quote →</button>
+
+        <div class="calc-side">
+          <div class="calc-features">
+            <h4>Every Package Includes</h4>
+            <p style="color:rgba(255,255,255,0.45);font-size:0.82rem;margin-bottom:20px;margin-top:-4px;">Because surprise costs are annoying.</p>
+            <ul>
+              <li>✦ Custom mood board + concept</li>
+              <li>✦ Full room-by-room design plan</li>
+              <li>✦ Curated shopping list with links</li>
+              <li>✦ Market &amp; competitor analysis</li>
+              <li>✦ Listing setup + optimization</li>
+              <li>✦ 30-day post-launch support</li>
+            </ul>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <style>
+  .calc-tier-wrap { position: relative; display: inline-block; }
+  .calc-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2D2010;
+    color: rgba(255,255,255,0.85);
+    font-size: 0.82rem;
+    line-height: 1.6;
+    padding: 12px 16px;
+    border-radius: 10px;
+    width: 240px;
+    z-index: 50;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    pointer-events: none;
+  }
+  .calc-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 6px solid transparent;
+    border-top-color: #2D2010;
+  }
+  .calc-tier-wrap:hover .calc-tooltip { display: block; }
+  .calc-opt { line-height: 1.4; padding: 12px 18px; }
+  </style>
+
+  <script>
+  // Pricing table
+  const PRICES = {
+    studio: { basic: [2500,2500], mid: [3500,4500], lux: [5000,6500] },
+    '2br':  { basic: [3500,3500], mid: [4500,6000], lux: [6500,8500] },
+    '3br':  { basic: [4500,4500], mid: [6000,7500], lux: [8500,11000] },
+    '4br':  { basic: [6000,6000], mid: [7500,9500], lux: [11000,14000] },
+    '5br':  { basic: [7500,7500], mid: [9500,12000], lux: [14000,18000] },
+    '6br':  null
+  };
+
+  let calcState = { size: 'studio', tier: 'lux' };
+
+  function calcSelect(btn, group) {
+    // Deselect others in same group
+    const parent = btn.closest('.calc-options') || btn.parentElement.closest('.calc-options');
+    parent.querySelectorAll('.calc-opt').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (group === 'size') calcState.size = btn.dataset.size;
+    if (group === 'tier') calcState.tier = btn.dataset.tier;
+    updateCalcDisplay();
+  }
+
+  function fmt(n) {
+    return '$' + n.toLocaleString();
+  }
+
+  function updateCalcDisplay() {
+    const priceEl = document.getElementById('estPrice');
+    const customMsg = document.getElementById('customQuoteMsg');
+    const resultRow = document.querySelector('.calc-result');
+
+    if (calcState.size === '6br') {
+      priceEl.textContent = 'Custom Quote';
+      if (customMsg) customMsg.style.display = 'block';
+      if (resultRow) resultRow.style.opacity = '0.6';
+    } else {
+      if (customMsg) customMsg.style.display = 'none';
+      if (resultRow) resultRow.style.opacity = '1';
+      const range = PRICES[calcState.size][calcState.tier];
+      if (range[0] === range[1]) {
+        priceEl.textContent = fmt(range[0]);
+      } else {
+        priceEl.textContent = fmt(range[0]) + '–' + fmt(range[1]);
+      }
+    }
+  }
+
+  // Init on load
+  document.addEventListener('DOMContentLoaded', updateCalcDisplay);
+  </script>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="section-inner">
+      <div class="section-label">Questions</div>
+      <h2 class="section-title">Questions We Get All the Time</h2>
+      <div class="faq-list">
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Why shouldn't I just hire a local interior designer? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Because most interior designers have never run an Airbnb. We don't design for magazine covers. We design for guests. Every recommendation is filtered through: Will guests care? Will it improve the experience? Will it help the property compete? Pretty matters. Performance matters more.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How much should I expect to invest in furniture? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Most owners underestimate this. A well-designed property is an investment, not an expense. We'll help you determine the right budget based on your market, property size, and revenue goals — so you're not overspending on things guests don't care about, or underspending on things they do.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What states do you work in? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Our virtual design service works anywhere in the United States. If Amazon delivers there, we can design there. For full-service installs, we'll either travel to the property ourselves or coordinate a local install team. We've built systems that allow us to execute projects whether your property is in Austin, Phoenix, Nashville, or the middle of nowhere.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How long does the design process take? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Depends on how fast you want to move. Most virtual design projects are completed in 1–2 weeks. Full-service installations typically take 4–8 weeks from design approval to guest-ready.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What's included in virtual design? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Everything you need to execute the design yourself: design concept and mood board, room-by-room layout plans, furniture and decor shopping list with direct links, STR market and competitor analysis, styling recommendations, guest experience recommendations, and post-delivery support. Think of it as the blueprint. You handle the purchasing and installation. We handle the strategy. We do offer purchasing for an additional fee if you don't want to add to cart yourself (it's more tedious than you think).</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How do I know if my property is a good fit? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Book a call. We'll tell you. Seriously. If we don't think design will move the needle, we'll tell you that too. Not every property needs a $10,000+ transformation. Sometimes a few strategic changes can get 80% of the result.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Do I need to be local for the design service? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Nope. Most of our design clients never meet us in person. We've designed properties across the country using photos, measurements, videos, floor plans, and virtual walkthroughs. As long as we can see the property, we can design it.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Do you offer install or turnkey setups? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Yes. This is actually what most clients hire us for. We can handle: design, procurement, package receiving, furniture assembly, styling, mounting, trash removal, final cleaning, and photography. In other words: you hand us the keys. We hand you back a guest-ready property.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">How do you pay for the service? All upfront? <span class="faq-icon">+</span></div>
+          <div class="faq-a">No. Most projects are split into phases. Typically: 50% to begin design and planning, 50% before installation begins. For larger projects, custom payment schedules may be available. The goal is simple: align payment with project milestones.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Do you have any sort of guarantee of performance? <span class="faq-icon">+</span></div>
+          <div class="faq-a">No legitimate designer can guarantee revenue. Anyone who does is selling fantasy. What we do guarantee is that every recommendation is based on real-world short-term rental experience — not Pinterest trends. The market determines performance. Our job is to put you in the best possible position to win.</div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">What's the difference between property management versus arbitrage? <span class="faq-icon">+</span></div>
+          <div class="faq-a">Property management means you own the property and we manage the listing, guests, cleaners, maintenance, and operations on your behalf. Airbnb arbitrage means we become the tenant — we sign a lease, pay rent, furnish the property, operate it, and assume the operational risk. We'll help you determine which option fits your goals.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section" style="background:var(--dark);text-align:center;" id="contact">
+    <div class="section-inner" style="max-width:700px;">
+      <h2 class="section-title" style="color:white;">Have a property that needs help?</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.6);margin:0 auto 36px;">Let's figure out what would actually move the needle.</p>
+      <button class="btn-primary" onclick="openModal()" style="font-size:1rem;padding:16px 36px;">Let's Figure Out What Would Actually Move The Needle →</button>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer>
+  <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
-        <a href="index.html" class="logo">Peachy Keen <span>Stays</span></a>
-        <p>Transforming short-term rentals into top-earning properties. Revenue-first design for the modern STR investor.</p>
+        <div class="footer-logo">Peachy Keen <span>Stays</span></div>
+        <p>Short-term rental design + management, serving all 50 states.</p>
+        <div class="footer-socials">
+          <a href="https://www.youtube.com/@thisismy_storey/featured" target="_blank">📺 YouTube</a>
+          <a href="#">📸 Instagram</a>
+        </div>
       </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="how-it-works.html#airbnb-design">Airbnb Design</a></li>
-          <li><a href="how-it-works.html#co-hosting">Co-Hosting</a></li>
-          <li><a href="how-it-works.html#arbitrage">Arbitrage</a></li>
-        </ul>
+      <div class="footer-links">
+        <h5>Navigate</h5>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="#calculator">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://www.youtube.com/@thisismy_storey/featured" target="_blank">YouTube</a>
       </div>
-      <div class="footer-col">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="how-it-works.html">How It Works</a></li>
-          <li><a href="#calculator">Pricing</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Get Started</h4>
-        <ul>
-          <li><a href="#" onclick="document.getElementById('bookingModal').style.display='flex';return false;">Book a Free Call</a></li>
-        </ul>
+      <div class="footer-cta">
+        <h5>Have a property that needs help?</h5>
+        <button class="btn-primary" onclick="openModal()">Let's Work Together →</button>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 Peachy Keen Stays. All rights reserved.</div>
+    <div class="footer-bottom"><p>© 2026 Peachy Keen Stays. All rights reserved.</p></div>
   </footer>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxPrev()">‹</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="lightboxNext()">›</button>
+  </div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="bookingModal" onclick="closeModalOutside(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3>Book a Free Discovery Call</h3>
+      <p>15 minutes is all it takes.</p>
+      <ul class="modal-perks">
+        <li>✦ No commitment required</li>
+        <li>✦ Market data prepared for your area</li>
+        <li>✦ Custom roadmap on the call</li>
+      </ul>
+      <div style="margin:-8px -8px -8px -8px;border-radius:0 0 16px 16px;overflow:hidden;">
+        <iframe src="https://app.usemotion.com/meet/faith-storey/design-intro" title="Book a Call" width="100%" height="600px" frameborder="0" style="display:block;border:none;"></iframe>
+      </div>
+    </div>
+  </div>
 
   <!-- STICKY BAR -->
   <div class="sticky-bar" id="stickyBar">
-    <p>Ready to transform your property? <span>Most clients see 40–120% more revenue.</span></p>
-    <button class="btn-primary" onclick="document.getElementById('bookingModal').style.display='flex'">Book a Free Call →</button>
-  </div>
-
-  <!-- BOOKING MODAL -->
-  <div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
-    <div style="background:white;border-radius:24px;padding:40px;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;">
-      <button onclick="document.getElementById('bookingModal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--mid);">✕</button>
-      <h2 style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:8px;">Book a Free Intro Call</h2>
-      <p style="color:var(--mid);margin-bottom:24px;font-size:.95rem;">Let's talk about your property and how we can maximize its potential.</p>
-      <iframe src="https://app.usemotion.com/meet/faith-storey/design-intro" width="100%" height="400" frameborder="0" style="border-radius:12px;"></iframe>
-    </div>
+    <p>Have a property that needs help? <span>Let's figure out what would actually move the needle.</span></p>
+    <button class="btn-primary" onclick="openModal()">Let's Talk →</button>
+    <button class="sticky-bar-close" onclick="closeStickyBar()">✕</button>
   </div>
 
   <script>
-    // Slider
-    function moveSlider(input, overlayId, handleId) {
-      document.getElementById(overlayId).style.width = input.value + '%';
-      document.getElementById(handleId).style.left = input.value + '%';
+// ========================
+// BEFORE/AFTER SLIDER
+// ========================
+function moveSlider(input, overlayId, handleId) {
+  const val = input.value;
+  const overlay = document.getElementById(overlayId);
+  const handle = document.getElementById(handleId);
+  // Clip from the right — stable images, no scaling
+  if (overlay) overlay.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
+  if (handle) handle.style.left = val + '%';
+}
+
+// ========================
+// FAQ ACCORDION
+// ========================
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ========================
+// CALCULATOR
+// ========================
+const BASE_PRICES = {
+  'Studio / 1BD': 800,
+  '2–3 Bedroom': 1200,
+  '4+ Bedroom': 1800
+};
+const ADDON_PRICES = {
+  'Shopping List': 200,
+  '3D Renders': 350,
+  'Rush Delivery': 400
+};
+
+let selectedType = 'Studio / 1BD';
+let selectedAddons = new Set();
+
+function selectOpt(btn) {
+  const group = btn.dataset.group;
+  document.querySelectorAll(`.calc-opt[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (group === 'type') selectedType = btn.textContent.trim();
+  updateCalc();
+}
+
+function toggleAddon(btn) {
+  const label = btn.textContent.trim();
+  if (btn.classList.contains('active')) {
+    btn.classList.remove('active');
+    selectedAddons.delete(label);
+  } else {
+    btn.classList.add('active');
+    selectedAddons.add(label);
+  }
+  updateCalc();
+}
+
+function updateCalc() {
+  const roomEl = document.getElementById('roomCount');
+  const valEl  = document.getElementById('roomVal');
+  const priceEl = document.getElementById('estPrice');
+  if (!roomEl) return;
+
+  const rooms = parseInt(roomEl.value);
+  if (valEl) valEl.textContent = rooms;
+
+  const base = BASE_PRICES[selectedType] || 800;
+  const roomMult = 1 + (rooms - 1) * 0.18;
+  let addonTotal = 0;
+  selectedAddons.forEach(a => { addonTotal += ADDON_PRICES[a] || 0; });
+
+  const low  = Math.round((base * roomMult + addonTotal) / 100) * 100;
+  const high = Math.round((base * roomMult * 1.45 + addonTotal) / 100) * 100;
+
+  if (priceEl) priceEl.textContent = `$${low.toLocaleString()} – $${high.toLocaleString()}`;
+}
+
+// ========================
+// BOOKING MODAL
+// ========================
+function openModal() {
+  const modal = document.getElementById('bookingModal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById('bookingModal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('bookingModal')) closeModal();
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ========================
+// STICKY BAR (appears at 50% scroll)
+// ========================
+let stickyDismissed = false;
+
+function closeStickyBar() {
+  const bar = document.getElementById('stickyBar');
+  if (bar) bar.classList.remove('visible');
+  stickyDismissed = true;
+}
+
+window.addEventListener('scroll', () => {
+  if (stickyDismissed) return;
+  const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  const bar = document.getElementById('stickyBar');
+  if (bar) {
+    if (scrollPct > 0.5) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
     }
-    // Nav
-    function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
-    // Sticky bar
-    window.addEventListener('scroll', function() {
-      const bar = document.getElementById('stickyBar');
-      if (bar) bar.style.transform = window.scrollY > window.innerHeight * 0.5 ? 'translateY(0)' : 'translateY(100%)';
+  }
+});
+
+// ========================
+// NAV SCROLL EFFECT
+// ========================
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    nav.style.boxShadow = window.scrollY > 50
+      ? '0 4px 24px rgba(26,18,8,0.10)'
+      : 'none';
+  }
+});
+
+// ========================
+// MOBILE MENU
+// ========================
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (!links) return;
+  const isOpen = links.style.display === 'flex';
+  if (isOpen) {
+    links.style.display = 'none';
+  } else {
+    Object.assign(links.style, {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'absolute',
+      top: '70px',
+      left: '0',
+      right: '0',
+      background: 'white',
+      padding: '20px 24px',
+      boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+      zIndex: '99'
     });
-    // Calculator
-    const state = { service:'design', size:'studio', extras:new Set() };
-    const pricing = {
-      design:{ studio:[2500,3500], '2br':[3500,5000], '4br':[5000,7500], large:[7500,12000] },
-      install:{ studio:[4500,6500], '2br':[6000,9000], '4br':[9000,14000], large:[14000,22000] },
-      cohost:{ studio:[0,0], '2br':[0,0], '4br':[0,0], large:[0,0] },
-      arbitrage:{ studio:[3000,5000], '2br':[4000,7000], '4br':[7000,12000], large:[12000,20000] }
-    };
-    const furnish = { studio:[5000,10000], '2br':[10000,18000], '4br':[18000,35000], large:[35000,65000] };
-    const timelines = { design:'2–3 weeks', install:'4–6 weeks', cohost:'1 week setup', arbitrage:'6–8 weeks' };
-    const extraCost = { outdoor:[800,1500], custom:[500,2000], listing:[300,600], photography:[200,500] };
-    function setOption(btn, key, val) {
-      btn.closest('.calc-options').querySelectorAll('.calc-option').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      state[key] = val;
-      updateCalc();
-    }
-    function toggleExtra(btn, key) {
-      btn.classList.toggle('active');
-      if (state.extras.has(key)) state.extras.delete(key); else state.extras.add(key);
-      updateCalc();
-    }
-    function fmt(lo, hi) { return lo === 0 ? 'Revenue share' : '$' + (lo/1000).toFixed(1).replace('.0','') + 'K–$' + (hi/1000).toFixed(1).replace('.0','') + 'K'; }
-    function updateCalc() {
-      const [dlo, dhi] = pricing[state.service][state.size];
-      const [flo, fhi] = state.service === 'cohost' ? [0,0] : furnish[state.size];
-      let elo = 0, ehi = 0;
-      state.extras.forEach(k => { elo += extraCost[k][0]; ehi += extraCost[k][1]; });
-      document.getElementById('rDesign').textContent = fmt(dlo, dhi + elo);
-      document.getElementById('rFurnish').textContent = state.service === 'cohost' ? 'N/A' : fmt(flo, fhi);
-      document.getElementById('rTimeline').textContent = timelines[state.service];
-      document.getElementById('rUplift').textContent = state.service === 'cohost' ? 'Ongoing' : '40–120%';
-      const tlo = dlo + flo + elo, thi = dhi + fhi + ehi;
-      document.getElementById('rTotal').textContent = state.service === 'cohost' ? '15–25% of revenue' : fmt(tlo, thi);
-    }
+  }
+}
+
+// ========================
+// SMOOTH SCROLL (same-page anchors only)
+// ========================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Init
+updateCalc();
+
+// ========================
+// LIGHTBOX
+// ========================
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function openLightbox(imgEl) {
+  const gallery = imgEl.closest('.gallery-grid');
+  if (!gallery) return;
+  lightboxImages = Array.from(gallery.querySelectorAll('img'));
+  lightboxIndex = lightboxImages.indexOf(imgEl);
+  showLightboxImage();
+  const overlay = document.getElementById('lightboxOverlay');
+  if (overlay) overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage() {
+  const img = document.getElementById('lightboxImg');
+  if (img && lightboxImages[lightboxIndex]) {
+    img.src = lightboxImages[lightboxIndex].src.replace('sz=w800','sz=w1600').replace('sz=w1200','sz=w1600');
+  }
+}
+
+function lightboxNext() {
+  lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+  showLightboxImage();
+}
+function lightboxPrev() {
+  lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+  showLightboxImage();
+}
+function closeLightbox() {
+  const overlay = document.getElementById('lightboxOverlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  const overlay = document.getElementById('lightboxOverlay');
+  if (!overlay || !overlay.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lightboxNext();
+  if (e.key === 'ArrowLeft') lightboxPrev();
+  if (e.key === 'Escape') closeLightbox();
+});
+
   </script>
 </body>
 </html>
