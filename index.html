@@ -1,308 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Peachy Keen Stays</title>
+  <title>Peachy Keen Stays — STR Design &amp; Co-Hosting</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>✦ Short-Term Rental Design</span><span>✦ Revenue Optimization</span><span>✦ Airbnb Staging</span><span>✦ Co-Hosting Services</span><span>✦ Rental Arbitrage</span><span>✦ 5-Star Guest Experiences</span>
+      <span>✦ Short-Term Rental Design</span><span>✦ Revenue Optimization</span><span>✦ Airbnb Staging</span><span>✦ Co-Hosting Services</span><span>✦ Rental Arbitrage</span><span>✦ 5-Star Guest Experiences</span>
+    </div>
+  </div>
+
   <!-- NAV -->
   <nav class="nav">
-    <a href="#home" class="nav-logo">Peachy Keen<span>Stays</span></a>
-    <ul class="nav-links">
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
+    <a href="index.html" class="nav-logo">Peachy Keen <span>Stays</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
       <li><a href="#calculator">Pricing</a></li>
-      <li><a href="#schedule">Book a Call</a></li>
-      <li><a href="#faq">FAQ</a></li>
     </ul>
-    <a href="#schedule" class="nav-cta">Let's Work Together →</a>
+    <button class="nav-cta" onclick="document.getElementById('bookingModal').style.display='flex'">Let's Work Together</button>
     <button class="hamburger" onclick="toggleMenu()">☰</button>
   </nav>
 
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-tag">Short-Term Rental Design + Management</div>
-      <h1 class="hero-title">Your Property,<br><em>Reimagined.</em></h1>
-      <p class="hero-sub">We turn short-term rentals into scroll-stopping, revenue-boosting experiences — virtually or in-person, all 50 states.</p>
+      <span class="hero-tag">✦ STR Design + Co-Hosting</span>
+      <h1 class="hero-title">We don't design<br><em>like interior designers.</em></h1>
+      <p class="hero-sub">We design like STR investors — because that's what we are. Every decision is made to maximize bookings, revenue, and guest reviews.</p>
       <div class="hero-btns">
-        <a href="#portfolio" class="btn-primary">See Our Work</a>
-        <a href="#schedule" class="btn-secondary">Book a Free Call →</a>
+        <button class="btn-primary" onclick="document.getElementById('bookingModal').style.display='flex'">Book a Free Call</button>
+        <a href="portfolio.html" class="btn-secondary">See the Work</a>
       </div>
     </div>
     <div class="hero-visual">
       <div class="hero-img-wrap">
-        <div class="hero-placeholder">
-          <span>✦ Hero Image ✦</span>
-          <p>A stunning, styled STR interior</p>
+        <div class="before-after-container" style="aspect-ratio:4/3;border-radius:24px;overflow:hidden;box-shadow:0 20px 80px rgba(26,18,8,.2);">
+          <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w1200');background-size:cover;background-position:center;"></div>
+          <div class="before-overlay" id="heroBO"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w1200');background-size:cover;background-position:center;"></div></div>
+          <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'heroBO','heroH')">
+          <div class="slider-handle" id="heroH" style="left:50%">◀▶</div>
         </div>
         <div class="hero-badge">
-          <span class="badge-num">50</span>
-          <span class="badge-label">States Served</span>
+          <span class="badge-num">9</span>
+          <span class="badge-label">Properties Transformed</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- MARQUEE TICKER -->
-  <div class="ticker-wrap">
-    <div class="ticker">
-      <span>Virtual & In-Person Design ✦</span>
-      <span>Short-Term Rental Management ✦</span>
-      <span>Before & After Transformations ✦</span>
-      <span>All 50 States ✦</span>
-      <span>Scroll-Stopping Interiors ✦</span>
-      <span>Corporate Housing ✦</span>
-      <span>Virtual & In-Person Design ✦</span>
-      <span>Short-Term Rental Management ✦</span>
-      <span>Before & After Transformations ✦</span>
-      <span>All 50 States ✦</span>
-      <span>Scroll-Stopping Interiors ✦</span>
-      <span>Corporate Housing ✦</span>
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stats-strip-inner">
+      <div class="stat-big"><span class="num">9</span><span class="lbl">Properties Transformed</span></div>
+      <div class="stat-big"><span class="num">40–120%</span><span class="lbl">Average Revenue Increase</span></div>
+      <div class="stat-big"><span class="num">4.9★</span><span class="lbl">Average Guest Rating</span></div>
     </div>
   </div>
 
-  <!-- HOW IT WORKS -->
-  <section class="section how-it-works" id="how-it-works">
+  <!-- WHY US -->
+  <section class="section" style="background:var(--white);">
     <div class="section-inner">
-      <div class="section-label">The Process</div>
-      <h2 class="section-title">How Peachy Keen Works</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
+        <div>
+          <span class="section-label">Our Approach</span>
+          <h2 class="section-title">We don't design like<br>interior designers.</h2>
+          <p style="color:var(--mid);line-height:1.8;margin-bottom:20px;">Interior designers optimize for aesthetics. We optimize for revenue. Every furniture choice, every layout decision, every color selection is made with one question in mind: <em>will this make guests book faster and rate higher?</em></p>
+          <p style="color:var(--mid);line-height:1.8;margin-bottom:32px;">We're STR operators first. We own and manage properties ourselves — so we know exactly what works, what breaks, and what gets five-star reviews at 2am.</p>
+          <a href="how-it-works.html" class="btn-primary">See How We Work</a>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div style="background:var(--peach-pale);border-radius:var(--radius);padding:28px;">
+            <div style="font-size:2rem;margin-bottom:12px;">🛋️</div>
+            <h4 style="font-family:var(--font-head);font-weight:800;font-size:1.1rem;margin-bottom:8px;">Revenue-First Design</h4>
+            <p style="color:var(--mid);font-size:.88rem;line-height:1.6;">Every decision maximizes bookings, not just looks.</p>
+          </div>
+          <div style="background:#EBF8F6;border-radius:var(--radius);padding:28px;">
+            <div style="font-size:2rem;margin-bottom:12px;">📊</div>
+            <h4 style="font-family:var(--font-head);font-weight:800;font-size:1.1rem;margin-bottom:8px;">Market Analysis</h4>
+            <p style="color:var(--mid);font-size:.88rem;line-height:1.6;">We study your competition before picking a single item.</p>
+          </div>
+          <div style="background:#FFF0ED;border-radius:var(--radius);padding:28px;">
+            <div style="font-size:2rem;margin-bottom:12px;">⚡</div>
+            <h4 style="font-family:var(--font-head);font-weight:800;font-size:1.1rem;margin-bottom:8px;">Fast Execution</h4>
+            <p style="color:var(--mid);font-size:.88rem;line-height:1.6;">Most projects go from empty to bookable in 3–6 weeks.</p>
+          </div>
+          <div style="background:var(--peach-pale);border-radius:var(--radius);padding:28px;">
+            <div style="font-size:2rem;margin-bottom:12px;">🏆</div>
+            <h4 style="font-family:var(--font-head);font-weight:800;font-size:1.1rem;margin-bottom:8px;">Proven Results</h4>
+            <p style="color:var(--mid);font-size:.88rem;line-height:1.6;">9 properties, 40–120% revenue increases, 4.9★ average.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section how-it-works" id="services">
+    <div class="section-inner">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Three ways we can help.</h2>
+      <p class="section-sub">Whether you need a full design, a co-host, or help getting started — we've got a path for you.</p>
       <div class="services-grid">
         <div class="service-card card-peach">
-          <div class="service-icon">🏡</div>
-          <h3>STR Management</h3>
-          <p>Turnkey property management. We sign a corporate lease, handle maintenance, and pay rent on time — every time.</p>
-          <a href="#schedule" class="card-link">Learn more →</a>
+          <span class="service-icon">🛋️</span>
+          <h3>Airbnb Design</h3>
+          <p>We design, source, and style your property from scratch — virtually or full-install. Revenue-first, guest-obsessed.</p>
+          <a href="how-it-works.html#airbnb-design" class="card-link">Learn More →</a>
         </div>
         <div class="service-card card-teal">
-          <div class="service-icon">🏢</div>
-          <h3>Corporate Housing</h3>
-          <p>Flexible, furnished housing for your employees. Skip the OTA fees — book direct and save.</p>
-          <a href="#schedule" class="card-link">Learn more →</a>
+          <span class="service-icon">🤝</span>
+          <h3>Co-Hosting</h3>
+          <p>We manage your listing, guests, and operations so you earn without the work. Performance-based pricing.</p>
+          <a href="how-it-works.html#co-hosting" class="card-link">Learn More →</a>
         </div>
         <div class="service-card card-coral">
-          <div class="service-icon">✨</div>
-          <h3>Airbnb Design</h3>
-          <p>Virtual and in-person staging that turns your rental into a real scroll-stopper. Available in all 50 states.</p>
-          <a href="#portfolio" class="card-link">See portfolio →</a>
+          <span class="service-icon">🏠</span>
+          <h3>Arbitrage</h3>
+          <p>No property? We find, negotiate, and launch STR arbitrage deals from scratch. You own the business, not the building.</p>
+          <a href="how-it-works.html#arbitrage" class="card-link">Learn More →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO / BEFORE & AFTER -->
+  <!-- PORTFOLIO PREVIEW -->
   <section class="section portfolio" id="portfolio">
     <div class="section-inner">
-      <div class="section-label">Our Work</div>
-      <h2 class="section-title">Before & After<br>Transformations</h2>
-      <p class="section-sub">Drag the slider to reveal the transformation.</p>
-
+      <span class="section-label">Recent Work</span>
+      <h2 class="section-title">The transformations speak for themselves.</h2>
+      <p class="section-sub">Drag the sliders to reveal before &amp; after. Click any property to see the full story.</p>
       <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <div class="slider-wrap" id="slider1">
-            <div class="before-after-container">
-              <div class="img-placeholder after-img"><span>AFTER</span></div>
-              <div class="before-overlay" id="beforeOverlay1">
-                <div class="img-placeholder before-img"><span>BEFORE</span></div>
-              </div>
-              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this, 'beforeOverlay1', 'handle1')">
-              <div class="slider-handle" id="handle1" style="left:50%">◀▶</div>
-            </div>
-          </div>
-          <div class="portfolio-meta">
-            <h4>The Desert Retreat</h4>
-            <p>Phoenix, AZ · Virtual Design</p>
+        
+      <div>
+        <div class="slider-wrap">
+          <div class="before-after-container" style="aspect-ratio:4/3;">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="hpbo_the-peach-pit"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'hpbo_the-peach-pit','hph_the-peach-pit')">
+            <div class="slider-handle" id="hph_the-peach-pit" style="left:50%">◀▶</div>
           </div>
         </div>
-
-        <div class="portfolio-item">
-          <div class="slider-wrap" id="slider2">
-            <div class="before-after-container">
-              <div class="img-placeholder after-img"><span>AFTER</span></div>
-              <div class="before-overlay" id="beforeOverlay2">
-                <div class="img-placeholder before-img"><span>BEFORE</span></div>
-              </div>
-              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this, 'beforeOverlay2', 'handle2')">
-              <div class="slider-handle" id="handle2" style="left:50%">◀▶</div>
-            </div>
-          </div>
-          <div class="portfolio-meta">
-            <h4>The Peachy Bungalow</h4>
-            <p>Nashville, TN · Full Install</p>
-          </div>
-        </div>
-
-        <div class="portfolio-item">
-          <div class="slider-wrap" id="slider3">
-            <div class="before-after-container">
-              <div class="img-placeholder after-img"><span>AFTER</span></div>
-              <div class="before-overlay" id="beforeOverlay3">
-                <div class="img-placeholder before-img"><span>BEFORE</span></div>
-              </div>
-              <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this, 'beforeOverlay3', 'handle3')">
-              <div class="slider-handle" id="handle3" style="left:50%">◀▶</div>
-            </div>
-          </div>
-          <div class="portfolio-meta">
-            <h4>Modern Luxe Loft</h4>
-            <p>Austin, TX · Virtual Design</p>
-          </div>
+        <div class="portfolio-meta">
+          <a href="property-the-peach-pit.html"><h4>The Peach Pit</h4></a>
+          <p></p>
         </div>
       </div>
-
+      <div>
+        <div class="slider-wrap">
+          <div class="before-after-container" style="aspect-ratio:4/3;">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1cP9cDN2IXGUVszEuN_IIOduWMvfkPoMd&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="hpbo_the-lone-star-loft"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1K_uQYaAk91hMmIcMINX985hfQ1r2tdgf&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'hpbo_the-lone-star-loft','hph_the-lone-star-loft')">
+            <div class="slider-handle" id="hph_the-lone-star-loft" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <a href="property-the-lone-star-loft.html"><h4>The Lone Star Loft</h4></a>
+          <p></p>
+        </div>
+      </div>
+      <div>
+        <div class="slider-wrap">
+          <div class="before-after-container" style="aspect-ratio:4/3;">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1aP8OCSKZelLVDbw2Grycn7WnEwye3xVw&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="hpbo_san-antonio-quirk"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1rBUI3RspJ_iTfyUPAUvUoCM1fNRCm0yp&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'hpbo_san-antonio-quirk','hph_san-antonio-quirk')">
+            <div class="slider-handle" id="hph_san-antonio-quirk" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="portfolio-meta">
+          <a href="property-san-antonio-quirk.html"><h4>San Antonio Quirk</h4></a>
+          <p>📍 San Antonio, TX</p>
+        </div>
+      </div>
+      </div>
       <div class="center-btn">
-        <a href="#schedule" class="btn-primary">Want This For Your Property? →</a>
+        <a href="portfolio.html" class="btn-primary">View Full Portfolio →</a>
       </div>
     </div>
   </section>
 
-  <!-- PRICING CALCULATOR -->
+  <!-- CALCULATOR -->
   <section class="section calculator" id="calculator">
     <div class="section-inner">
-      <div class="section-label">Pricing</div>
-      <h2 class="section-title">Get Your Estimate</h2>
-      <p class="section-sub">Answer a few quick questions and get a ballpark for your virtual design package.</p>
-
+      <span class="section-label">Pricing Estimator</span>
+      <h2 class="section-title">Get a quick estimate.</h2>
+      <p class="section-sub">Not a quote — just a ballpark so you know what to expect. Real numbers come after your free call.</p>
       <div class="calc-wrap">
         <div class="calc-form">
           <div class="calc-group">
-            <label>Property Type</label>
-            <div class="calc-options" id="typeOpts">
-              <button class="calc-opt active" data-group="type" onclick="selectOpt(this)">Studio / 1BD</button>
-              <button class="calc-opt" data-group="type" onclick="selectOpt(this)">2–3 Bedroom</button>
-              <button class="calc-opt" data-group="type" onclick="selectOpt(this)">4+ Bedroom</button>
+            <label>Service Type</label>
+            <div class="calc-options">
+              <button class="calc-option active" onclick="setOption(this,'service','design')">Design Only</button>
+              <button class="calc-option" onclick="setOption(this,'service','install')">Design + Install</button>
+              <button class="calc-option" onclick="setOption(this,'service','cohost')">Co-Hosting</button>
+              <button class="calc-option" onclick="setOption(this,'service','arbitrage')">Arbitrage</button>
             </div>
           </div>
-
           <div class="calc-group">
-            <label>Number of Rooms to Design: <strong id="roomVal">3</strong></label>
-            <input type="range" min="1" max="10" value="3" class="calc-range" id="roomCount" oninput="updateCalc()">
+            <label>Property Size</label>
+            <div class="calc-options">
+              <button class="calc-option active" onclick="setOption(this,'size','studio')">Studio / 1BR</button>
+              <button class="calc-option" onclick="setOption(this,'size','2br')">2–3 BR</button>
+              <button class="calc-option" onclick="setOption(this,'size','4br')">4–5 BR</button>
+              <button class="calc-option" onclick="setOption(this,'size','large')">6+ BR / Estate</button>
+            </div>
           </div>
-
           <div class="calc-group">
-            <label>Add-Ons</label>
-            <div class="calc-options" id="addOnOpts">
-              <button class="calc-opt" data-group="addon" onclick="toggleAddon(this)">Shopping List</button>
-              <button class="calc-opt" data-group="addon" onclick="toggleAddon(this)">3D Renders</button>
-              <button class="calc-opt" data-group="addon" onclick="toggleAddon(this)">Rush Delivery</button>
+            <label>Extras <span class="tooltip" data-tip="These add meaningful scope to the project">ⓘ</span></label>
+            <div class="calc-options" id="extrasOptions">
+              <button class="calc-option" onclick="toggleExtra(this,'outdoor')">Outdoor Space</button>
+              <button class="calc-option" onclick="toggleExtra(this,'custom')">Custom Art / Murals</button>
+              <button class="calc-option" onclick="toggleExtra(this,'listing')">Listing Optimization</button>
+              <button class="calc-option" onclick="toggleExtra(this,'photography')">Photography Prep</button>
             </div>
           </div>
-
-          <div class="calc-result">
-            <div class="calc-estimate">
-              <span class="est-label">Estimated Investment</span>
-              <span class="est-price" id="estPrice">$1,200 – $1,800</span>
-            </div>
-            <a href="#schedule" class="btn-primary">Get Your Exact Quote →</a>
-          </div>
         </div>
-
-        <div class="calc-side">
-          <div class="calc-features">
-            <h4>Every Package Includes</h4>
-            <ul>
-              <li>✦ Custom mood board + concept</li>
-              <li>✦ Full room-by-room design plan</li>
-              <li>✦ Market & competitor analysis</li>
-              <li>✦ 30-day post-launch support</li>
-              <li>✦ Listing setup + optimization</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SCHEDULING -->
-  <section class="section schedule" id="schedule">
-    <div class="section-inner schedule-inner">
-      <div class="schedule-text">
-        <div class="section-label">Let's Talk</div>
-        <h2 class="section-title">Book a Free<br>Discovery Call</h2>
-        <p>15 minutes is all it takes. We'll find out if we're the right fit and which service makes sense for your property.</p>
-        <ul class="schedule-perks">
-          <li>✦ No commitment required</li>
-          <li>✦ We'll come prepared with market data</li>
-          <li>✦ Get a custom roadmap on the call</li>
-        </ul>
-      </div>
-      <div class="schedule-embed">
-        <div class="embed-placeholder">
-          <div class="embed-icon">📅</div>
-          <h4>Scheduling Widget</h4>
-          <p>Your Calendly or booking tool embeds here</p>
-          <a href="#" class="btn-primary">Book Your Spot →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section faq" id="faq">
-    <div class="section-inner">
-      <div class="section-label">Questions</div>
-      <h2 class="section-title">Frequently Asked</h2>
-
-      <div class="faq-list">
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">What states do you work in? <span class="faq-icon">+</span></div>
-          <div class="faq-a">We offer virtual design services in all 50 states, and in-person staging in select markets. Reach out to ask about your area!</div>
-        </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">How long does the design process take? <span class="faq-icon">+</span></div>
-          <div class="faq-a">Virtual design typically takes 3–4 weeks from kickoff to final delivery. Full installation projects run 4–8 weeks depending on scope and location.</div>
-        </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">How does property management work? <span class="faq-icon">+</span></div>
-          <div class="faq-a">We sign a corporate lease on your property and become your tenant. You get guaranteed on-time rent, we handle guest management and most maintenance under $200.</div>
-        </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">What's included in virtual design? <span class="faq-icon">+</span></div>
-          <div class="faq-a">A custom mood board, full room-by-room design plan, curated shopping list with direct links, before/after renders, and 30 days of post-launch support.</div>
-        </div>
-        <div class="faq-item" onclick="toggleFaq(this)">
-          <div class="faq-q">Do I need to be local for the design service? <span class="faq-icon">+</span></div>
-          <div class="faq-a">Not at all! Our virtual design is fully remote — you get everything delivered digitally and can execute it yourself or with a local team.</div>
+        <div class="calc-result">
+          <h3>Your Estimate</h3>
+          <div class="result-line"><span class="result-label">Design Fee</span><span class="result-value" id="rDesign">$2,500–$3,500</span></div>
+          <div class="result-line"><span class="result-label">Furnishing Budget <span class="tooltip" data-tip="Estimated cost of furniture &amp; decor — paid to vendors, not us">ⓘ</span></span><span class="result-value" id="rFurnish">$8K–$15K</span></div>
+          <div class="result-line"><span class="result-label">Timeline</span><span class="result-value" id="rTimeline">2–3 weeks</span></div>
+          <div class="result-line"><span class="result-label">Revenue Uplift (est.)</span><span class="result-value" id="rUplift">40–80%</span></div>
+          <div class="result-total"><span class="lbl">Total Investment</span><span class="val" id="rTotal">$10.5K–$18.5K</span></div>
+          <p class="calc-note">* Estimates only. Final pricing depends on property specifics, market, and scope. Book a free call for an exact quote.</p>
+          <button class="btn-primary" style="width:100%;margin-top:20px;text-align:center;" onclick="document.getElementById('bookingModal').style.display='flex'">Get an Exact Quote →</button>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="footer">
+  <footer>
     <div class="footer-inner">
       <div class="footer-brand">
-        <div class="footer-logo">Peachy Keen<span>Stays</span></div>
-        <p>Short-term rental management + design, serving all 50 states.</p>
-        <div class="footer-socials">
-          <a href="#">📺 YouTube</a>
-          <a href="#">📸 Instagram</a>
-        </div>
+        <a href="index.html" class="logo">Peachy Keen <span>Stays</span></a>
+        <p>Transforming short-term rentals into top-earning properties. Revenue-first design for the modern STR investor.</p>
       </div>
-      <div class="footer-links">
-        <h5>Navigate</h5>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#calculator">Pricing</a>
-        <a href="#schedule">Book a Call</a>
-        <a href="#faq">FAQ</a>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="how-it-works.html#airbnb-design">Airbnb Design</a></li>
+          <li><a href="how-it-works.html#co-hosting">Co-Hosting</a></li>
+          <li><a href="how-it-works.html#arbitrage">Arbitrage</a></li>
+        </ul>
       </div>
-      <div class="footer-cta">
-        <h5>Ready to transform your property?</h5>
-        <a href="#schedule" class="btn-primary">Let's Work Together →</a>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="#calculator">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get Started</h4>
+        <ul>
+          <li><a href="#" onclick="document.getElementById('bookingModal').style.display='flex';return false;">Book a Free Call</a></li>
+        </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>© 2026 Peachy Keen Stays. All rights reserved.</p>
-    </div>
+    <div class="footer-bottom">© 2026 Peachy Keen Stays. All rights reserved.</div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- STICKY BAR -->
+  <div class="sticky-bar" id="stickyBar">
+    <p>Ready to transform your property? <span>Most clients see 40–120% more revenue.</span></p>
+    <button class="btn-primary" onclick="document.getElementById('bookingModal').style.display='flex'">Book a Free Call →</button>
+  </div>
+
+  <!-- BOOKING MODAL -->
+  <div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:white;border-radius:24px;padding:40px;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;">
+      <button onclick="document.getElementById('bookingModal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--mid);">✕</button>
+      <h2 style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:8px;">Book a Free Intro Call</h2>
+      <p style="color:var(--mid);margin-bottom:24px;font-size:.95rem;">Let's talk about your property and how we can maximize its potential.</p>
+      <iframe src="https://app.usemotion.com/meet/faith-storey/design-intro" width="100%" height="400" frameborder="0" style="border-radius:12px;"></iframe>
+    </div>
+  </div>
+
+  <script>
+    // Slider
+    function moveSlider(input, overlayId, handleId) {
+      document.getElementById(overlayId).style.width = input.value + '%';
+      document.getElementById(handleId).style.left = input.value + '%';
+    }
+    // Nav
+    function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+    // Sticky bar
+    window.addEventListener('scroll', function() {
+      const bar = document.getElementById('stickyBar');
+      if (bar) bar.style.transform = window.scrollY > window.innerHeight * 0.5 ? 'translateY(0)' : 'translateY(100%)';
+    });
+    // Calculator
+    const state = { service:'design', size:'studio', extras:new Set() };
+    const pricing = {
+      design:{ studio:[2500,3500], '2br':[3500,5000], '4br':[5000,7500], large:[7500,12000] },
+      install:{ studio:[4500,6500], '2br':[6000,9000], '4br':[9000,14000], large:[14000,22000] },
+      cohost:{ studio:[0,0], '2br':[0,0], '4br':[0,0], large:[0,0] },
+      arbitrage:{ studio:[3000,5000], '2br':[4000,7000], '4br':[7000,12000], large:[12000,20000] }
+    };
+    const furnish = { studio:[5000,10000], '2br':[10000,18000], '4br':[18000,35000], large:[35000,65000] };
+    const timelines = { design:'2–3 weeks', install:'4–6 weeks', cohost:'1 week setup', arbitrage:'6–8 weeks' };
+    const extraCost = { outdoor:[800,1500], custom:[500,2000], listing:[300,600], photography:[200,500] };
+    function setOption(btn, key, val) {
+      btn.closest('.calc-options').querySelectorAll('.calc-option').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state[key] = val;
+      updateCalc();
+    }
+    function toggleExtra(btn, key) {
+      btn.classList.toggle('active');
+      if (state.extras.has(key)) state.extras.delete(key); else state.extras.add(key);
+      updateCalc();
+    }
+    function fmt(lo, hi) { return lo === 0 ? 'Revenue share' : '$' + (lo/1000).toFixed(1).replace('.0','') + 'K–$' + (hi/1000).toFixed(1).replace('.0','') + 'K'; }
+    function updateCalc() {
+      const [dlo, dhi] = pricing[state.service][state.size];
+      const [flo, fhi] = state.service === 'cohost' ? [0,0] : furnish[state.size];
+      let elo = 0, ehi = 0;
+      state.extras.forEach(k => { elo += extraCost[k][0]; ehi += extraCost[k][1]; });
+      document.getElementById('rDesign').textContent = fmt(dlo, dhi + elo);
+      document.getElementById('rFurnish').textContent = state.service === 'cohost' ? 'N/A' : fmt(flo, fhi);
+      document.getElementById('rTimeline').textContent = timelines[state.service];
+      document.getElementById('rUplift').textContent = state.service === 'cohost' ? 'Ongoing' : '40–120%';
+      const tlo = dlo + flo + elo, thi = dhi + fhi + ehi;
+      document.getElementById('rTotal').textContent = state.service === 'cohost' ? '15–25% of revenue' : fmt(tlo, thi);
+    }
+  </script>
 </body>
 </html>
