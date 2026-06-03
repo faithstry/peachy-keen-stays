@@ -811,100 +811,58 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
 }
 .airbnb-pill:hover { opacity: .85; }
 
-/* Why Us section */
-.why-us-section{padding:80px 48px;background:var(--cream);}
-.why-us-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr;gap:80px;align-items:start;}
-.why-us-text h2{font-family:var(--font-head);font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;color:var(--dark);letter-spacing:-1px;line-height:1.1;margin-bottom:8px;}
-.why-sub{color:var(--peach);font-size:1.1rem;font-weight:700;margin-bottom:24px;}
-.why-body p{color:var(--mid);line-height:1.8;margin-bottom:12px;}
-.why-list{list-style:none;margin:8px 0 16px;display:flex;flex-direction:column;gap:8px;}
-.why-list li{color:var(--dark);font-weight:700;font-size:1.05rem;}
-.why-closer{font-size:1.05rem;}
-.why-us-visual{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.why-card{background:var(--white);border-radius:var(--radius-sm);padding:24px;box-shadow:var(--shadow);text-align:center;}
-.why-icon{font-size:1.8rem;margin-bottom:8px;}
-.why-stat{font-family:var(--font-head);font-size:1.6rem;font-weight:700;color:var(--peach);letter-spacing:-.5px;}
-.why-label{color:var(--mid);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
-
-/* Featured section */
-.featured-section{padding:80px 48px;max-width:1200px;margin:0 auto;}
-.featured-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-bottom:40px;}
-.featured-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;}
-.featured-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
-.featured-info{padding:20px 24px;}
-.featured-title{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--dark);text-decoration:none;display:block;margin-bottom:8px;transition:color .2s;}
-.featured-title:hover{color:var(--peach);}
-.featured-meta{display:flex;gap:12px;flex-wrap:wrap;}
-.featured-meta span{background:var(--peach-light);color:var(--peach-dark);padding:4px 12px;border-radius:50px;font-size:.78rem;font-weight:700;}
-.section-cta{text-align:center;}
-.hero-slider-label{text-align:center;color:var(--mid);font-size:.88rem;margin-top:12px;font-style:italic;}
-
-/* Calculator packages */
-.calc-subtitle{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:4px;}
-.calc-fine{color:var(--mid);font-size:.88rem;margin-bottom:32px;}
-.packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-.package-card{background:var(--white);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);position:relative;}
-.featured-package{background:var(--dark);color:white;}
-.featured-package h4,.featured-package .package-price{color:white;}
-.featured-package li{color:rgba(255,255,255,.7);}
-.package-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--peach);color:white;font-size:.75rem;font-weight:700;padding:4px 16px;border-radius:50px;white-space:nowrap;}
-.package-card h4{font-family:var(--font-head);font-size:1.2rem;font-weight:700;margin-bottom:8px;color:var(--dark);}
-.package-price{font-family:var(--font-head);font-size:1.8rem;font-weight:700;color:var(--peach);margin-bottom:20px;}
-.package-card ul{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:10px;}
-.package-card li{font-size:.88rem;color:var(--mid);font-weight:600;}
-
-/* Final CTA */
-.final-cta{background:var(--dark);padding:80px 48px;text-align:center;}
-.final-cta h2{font-family:var(--font-head);font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:white;letter-spacing:-.5px;margin-bottom:16px;}
-.final-cta p{color:rgba(255,255,255,.65);font-size:1rem;line-height:1.7;max-width:480px;margin:0 auto 32px;}
-
-@media(max-width:900px){
-  .why-us-inner{grid-template-columns:1fr;gap:40px;}
-  .featured-grid{grid-template-columns:repeat(2,1fr);}
-  .packages-grid{grid-template-columns:1fr;}
-  .why-us-visual{grid-template-columns:repeat(2,1fr);}
-}
-@media(max-width:600px){
-  .why-us-section,.featured-section{padding:60px 20px;}
-  .featured-grid{grid-template-columns:1fr;}
-  .final-cta{padding:60px 20px;}
-}
-
 </style>
   <style>
-    .hiw-hero{padding:140px 48px 80px;max-width:900px;margin:0 auto;text-align:center;}
-    .hiw-hero h1{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4rem);font-weight:700;color:var(--dark);letter-spacing:-1.5px;line-height:1.1;margin-bottom:16px;}
-    .hiw-hero p{color:var(--mid);font-size:1.05rem;line-height:1.8;max-width:600px;margin:0 auto;}
-    .service-block{max-width:1100px;margin:0 auto 80px;padding:0 48px;}
-    .service-block-header{margin-bottom:48px;}
-    .service-block-header .service-emoji{font-size:2.5rem;margin-bottom:12px;}
-    .service-block-header h2{font-family:var(--font-head);font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:var(--dark);letter-spacing:-1px;line-height:1.1;margin-bottom:12px;}
-    .service-block-header .service-intro{color:var(--mid);font-size:1rem;line-height:1.8;max-width:680px;}
-    .service-block-header .service-intro p{margin-bottom:12px;}
-    .steps-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px;}
-    .step-card{background:var(--white);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow);}
-    .step-num{font-family:var(--font-head);font-size:2.5rem;font-weight:700;color:var(--peach);opacity:.3;line-height:1;margin-bottom:16px;}
-    .step-card h4{font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--dark);margin-bottom:8px;}
-    .step-card p{color:var(--mid);font-size:.92rem;line-height:1.7;}
-    .service-cta-row{display:flex;justify-content:flex-start;}
-    .service-divider{border:none;border-top:1px solid var(--border);max-width:1100px;margin:0 auto 80px;padding:0 48px;}
-    .decision-section{background:var(--dark);padding:80px 48px;text-align:center;}
-    .decision-inner{max-width:700px;margin:0 auto;}
-    .decision-inner h2{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;color:white;letter-spacing:-.5px;margin-bottom:16px;}
-    .decision-inner .dec-sub{color:rgba(255,255,255,.6);font-size:1rem;margin-bottom:40px;}
-    .decision-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px;}
-    .decision-card{background:rgba(255,255,255,.07);border-radius:var(--radius);padding:28px;text-align:left;}
-    .decision-want{color:rgba(255,255,255,.5);font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
-    .decision-answer{color:var(--peach);font-family:var(--font-head);font-size:1.4rem;font-weight:700;}
-    @media(max-width:768px){
-      .hiw-hero,.service-block{padding-left:20px;padding-right:20px;}
-      .steps-row{grid-template-columns:1fr;}.decision-grid{grid-template-columns:1fr;}
-      .decision-section{padding:60px 20px;}
-    }
+  /* How It Works page extras */
+  .hiw-hero { padding: 140px 48px 60px; background: var(--cream); text-align: center; }
+  .hiw-hero h1 { font-family: var(--font-head); font-size: clamp(2.2rem,4vw,3.5rem); font-weight: 700; color: var(--dark); letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px; }
+  .hiw-hero p { color: var(--mid); font-size: 1.05rem; line-height: 1.8; max-width: 580px; margin: 0 auto 32px; }
+  .hiw-pills { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .hiw-pill { background: var(--peach-light); color: var(--peach-dark); padding: 10px 22px; border-radius: 50px; font-size: 0.88rem; font-weight: 700; text-decoration: none; transition: background 0.2s, color 0.2s; }
+  .hiw-pill:hover { background: var(--peach); color: white; }
+
+  .service-block { padding: 80px 48px; }
+  .service-block:nth-child(even) { background: var(--white); }
+  .service-block-inner { max-width: 1100px; margin: 0 auto; }
+
+  .service-block-header { margin-bottom: 48px; }
+  .service-label-row { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+  .service-emoji-big { font-size: 2rem; }
+  .service-type-pill { background: var(--peach-light); color: var(--peach-dark); padding: 5px 16px; border-radius: 50px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; }
+
+  .service-block-header h2 { font-family: var(--font-head); font-size: clamp(2rem,3.5vw,2.8rem); font-weight: 700; color: var(--dark); letter-spacing: -1px; line-height: 1.1; margin-bottom: 12px; }
+  .service-block-header h2 em { font-style: italic; color: var(--peach); }
+  .service-intro { color: var(--mid); font-size: 1rem; line-height: 1.8; max-width: 680px; }
+  .service-intro p { margin-bottom: 10px; }
+
+  .steps-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 40px; }
+  .step-card { background: var(--peach-pale); border-radius: var(--radius); padding: 32px; transition: transform 0.2s, box-shadow 0.2s; }
+  .step-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .step-num { font-family: var(--font-head); font-size: 2.5rem; font-weight: 700; color: var(--peach); opacity: 0.3; line-height: 1; margin-bottom: 16px; }
+  .step-card h4 { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; color: var(--dark); margin-bottom: 8px; }
+  .step-card p { color: var(--mid); font-size: 0.92rem; line-height: 1.7; }
+
+  .decision-section { background: var(--dark); padding: 80px 48px; text-align: center; }
+  .decision-inner { max-width: 700px; margin: 0 auto; }
+  .decision-inner h2 { font-family: var(--font-head); font-size: clamp(1.6rem,2.5vw,2.4rem); font-weight: 700; color: white; letter-spacing: -0.5px; margin-bottom: 12px; }
+  .decision-inner .dec-sub { color: rgba(255,255,255,0.55); font-size: 1rem; margin-bottom: 40px; }
+  .decision-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; margin-bottom: 36px; }
+  .decision-card { background: rgba(255,255,255,0.07); border-radius: var(--radius); padding: 28px; text-align: left; }
+  .decision-want { color: rgba(255,255,255,0.5); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; line-height: 1.5; }
+  .decision-answer { color: var(--peach); font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; }
+
+  @media(max-width:768px) {
+    .hiw-hero { padding: 110px 20px 40px; }
+    .service-block { padding: 60px 20px; }
+    .steps-row { grid-template-columns: 1fr; }
+    .decision-grid { grid-template-columns: 1fr; }
+    .decision-section { padding: 60px 20px; }
+  }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">Peachy Keen <span>Stays</span></a>
     <ul class="nav-links">
@@ -918,107 +876,119 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
     <button class="hamburger" onclick="toggleMenu()">☰</button>
   </nav>
 
+  <!-- HERO -->
   <div class="hiw-hero">
-    <h1>Three Ways To Make More<br>Money With Your Property</h1>
+    <div class="section-label">How It Works</div>
+    <h1>Make More Money<br>With Your Property.</h1>
     <p>Whether you need a better design, help managing guests, or want guaranteed rent without becoming an Airbnb host yourself, we've got an option for you.</p>
+    <div class="hiw-pills">
+      <a href="#design" class="hiw-pill">✨ Airbnb Design</a>
+      <a href="#cohosting" class="hiw-pill">🏡 Co-Hosting</a>
+      <a href="#arbitrage" class="hiw-pill">🔑 Arbitrage</a>
+    </div>
   </div>
 
   <!-- ✨ AIRBNB DESIGN -->
   <div class="service-block" id="design">
-    <div class="service-block-header">
-      <div class="service-emoji">✨</div>
-      <h2>Don't Compete On Price.<br><em>Compete On Experience.</em></h2>
-      <div class="service-intro">
-        <p>Most Airbnbs look the same. Same gray walls. Same furniture. Same photos. We help owners create properties guests actually remember — and book.</p>
-        <p>Because a better-designed Airbnb doesn't just look better. It performs better.</p>
+    <div class="service-block-inner">
+      <div class="service-block-header">
+        <div class="service-label-row">
+          <span class="service-emoji-big">✨</span>
+          <span class="service-type-pill">Airbnb Design</span>
+        </div>
+        <h2>Don't Compete On Price.<br><em>Compete On Experience.</em></h2>
+        <div class="service-intro">
+          <p>Most Airbnbs look the same. Same gray walls. Same furniture. Same photos. We help owners create properties guests actually remember — and book.</p>
+          <p>Because a better-designed Airbnb doesn't just look better. It performs better.</p>
+        </div>
       </div>
-    </div>
-    <div class="steps-row">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h4>Strategy Before Shopping</h4>
-        <p>Before we buy a single pillow, we analyze your market, competitors, guest avatar, and revenue goals.</p>
+      <div class="steps-row">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h4>Strategy Before Shopping</h4>
+          <p>Before we buy a single pillow, we analyze your market, competitors, guest avatar, and revenue goals.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h4>Design For Bookings</h4>
+          <p>Every room is intentionally designed to stand out in photos and create a better guest experience.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h4>Launch Ready</h4>
+          <p>Choose virtual design or full-service setup. Either way, you'll receive a property built to compete.</p>
+        </div>
       </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h4>Design For Bookings</h4>
-        <p>Every room is intentionally designed to stand out in photos and create a better guest experience.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h4>Launch Ready</h4>
-        <p>Choose virtual design or full-service setup. Either way, you'll receive a property built to compete.</p>
-      </div>
-    </div>
-    <div class="service-cta-row">
       <button class="btn-primary" onclick="openModal()">Fix My Property →</button>
     </div>
   </div>
 
-  <hr class="service-divider">
-
   <!-- 🏡 CO-HOSTING -->
   <div class="service-block" id="cohosting">
-    <div class="service-block-header">
-      <div class="service-emoji">🏡</div>
-      <h2>Keep The Property.<br><em>Lose The Headaches.</em></h2>
-      <div class="service-intro">
-        <p>You own the property. We handle the chaos. Guest communication, cleaners, maintenance coordination, pricing strategy, reviews, and everything in between.</p>
-        <p>You get the income. We do the work.</p>
+    <div class="service-block-inner">
+      <div class="service-block-header">
+        <div class="service-label-row">
+          <span class="service-emoji-big">🏡</span>
+          <span class="service-type-pill">Co-Hosting</span>
+        </div>
+        <h2>Keep The Property.<br><em>Lose The Headaches.</em></h2>
+        <div class="service-intro">
+          <p>You own the property. We handle the chaos. Guest communication, cleaners, maintenance coordination, pricing strategy, reviews, and everything in between.</p>
+          <p>You get the income. We do the work.</p>
+        </div>
       </div>
-    </div>
-    <div class="steps-row">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h4>We Audit The Property</h4>
-        <p>We review your listing, pricing, guest experience, and operations. Not all properties qualify for this service.</p>
+      <div class="steps-row">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h4>We Audit The Property</h4>
+          <p>We review your listing, pricing, guest experience, and operations. Not all properties qualify for this service.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h4>We Take Over Operations</h4>
+          <p>Guest messages. Cleaner coordination. Maintenance. Pricing optimization. Handled.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h4>You Collect The Revenue</h4>
+          <p>Track performance through transparent reporting. We keep 15% — so we're mutually incentivized to make you as much as possible.</p>
+        </div>
       </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h4>We Take Over Operations</h4>
-        <p>Guest messages. Cleaner coordination. Maintenance. Pricing optimization. Handled.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h4>You Collect The Revenue</h4>
-        <p>Track performance through transparent reporting. We keep 15% — so we're mutually incentivized to make you as much as possible.</p>
-      </div>
-    </div>
-    <div class="service-cta-row">
       <button class="btn-primary" onclick="openModal()">See If Co-Hosting Is A Fit →</button>
     </div>
   </div>
 
-  <hr class="service-divider">
-
   <!-- 🔑 ARBITRAGE -->
   <div class="service-block" id="arbitrage">
-    <div class="service-block-header">
-      <div class="service-emoji">🔑</div>
-      <h2>Want Guaranteed Rent Instead?</h2>
-      <div class="service-intro">
-        <p>Not every owner wants to manage an Airbnb. And not every owner wants revenue fluctuations. If your property qualifies, we'll lease it directly from you and operate it ourselves.</p>
-        <p>You get consistent monthly rent. We take the operational risk.</p>
+    <div class="service-block-inner">
+      <div class="service-block-header">
+        <div class="service-label-row">
+          <span class="service-emoji-big">🔑</span>
+          <span class="service-type-pill">Arbitrage</span>
+        </div>
+        <h2>Want Guaranteed<br><em>Rent Instead?</em></h2>
+        <div class="service-intro">
+          <p>Not every owner wants to manage an Airbnb. And not every owner wants revenue fluctuations. If your property qualifies, we'll lease it directly from you and operate it ourselves.</p>
+          <p>You get consistent monthly rent. We take the operational risk.</p>
+        </div>
       </div>
-    </div>
-    <div class="steps-row">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h4>We Evaluate The Property</h4>
-        <p>Location, regulations, layout, and revenue potential all factor into whether a property is a fit.</p>
+      <div class="steps-row">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <h4>We Evaluate The Property</h4>
+          <p>Location, regulations, layout, and revenue potential all factor into whether a property is a fit.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">02</div>
+          <h4>We Sign A Lease</h4>
+          <p>We become your tenant and furnish the property ourselves. You're not responsible for any of it.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-num">03</div>
+          <h4>You Get Paid</h4>
+          <p>Consistent rent. No guest messages. No midnight maintenance calls. No Airbnb headaches.</p>
+        </div>
       </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h4>We Sign A Lease</h4>
-        <p>We become your tenant and furnish the property ourselves. You're not responsible for any of it.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h4>You Get Paid</h4>
-        <p>Consistent rent. No guest messages. No midnight maintenance calls. No Airbnb headaches.</p>
-      </div>
-    </div>
-    <div class="service-cta-row">
       <button class="btn-primary" onclick="openModal()">See If Arbitrage Is A Fit →</button>
     </div>
   </div>
@@ -1026,7 +996,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
   <!-- DECISION HELPER -->
   <div class="decision-section">
     <div class="decision-inner">
-      <h2>NOT SURE WHICH ONE IS RIGHT FOR YOU?</h2>
+      <h2>Not Sure Which One Is Right For You?</h2>
       <p class="dec-sub">Here's the easy version:</p>
       <div class="decision-grid">
         <div class="decision-card">
@@ -1042,11 +1012,12 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
           <div class="decision-answer">→ Arbitrage</div>
         </div>
       </div>
-      <p style="color:rgba(255,255,255,.5);font-size:.95rem;margin-bottom:32px;">Still unsure? We'll tell you which one we'd choose if it were our investment.</p>
+      <p style="color:rgba(255,255,255,0.45);font-size:0.9rem;margin-bottom:32px;">Still unsure? We'll tell you which one we'd choose if it were our investment.</p>
       <button class="btn-primary" onclick="openModal()">Let's Figure Out What Would Actually Move The Needle →</button>
     </div>
   </div>
 
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -1071,12 +1042,8 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
     </div>
     <div class="footer-bottom"><p>© 2026 Peachy Keen Stays. All rights reserved.</p></div>
   </footer>
-  <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <button class="lightbox-nav lightbox-prev" onclick="lightboxPrev()">‹</button>
-    <img class="lightbox-img" id="lightboxImg" src="" alt="">
-    <button class="lightbox-nav lightbox-next" onclick="lightboxNext()">›</button>
-  </div>
+
+  <!-- MODAL -->
   <div class="modal-overlay" id="bookingModal" onclick="closeModalOutside(event)">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal()">✕</button>
@@ -1094,11 +1061,14 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
       </div>
     </div>
   </div>
+
+  <!-- STICKY BAR -->
   <div class="sticky-bar" id="stickyBar">
     <p>Have a property that needs help? <span>Let's figure out what would actually move the needle.</span></p>
     <button class="btn-primary" onclick="openModal()">Let's Talk →</button>
     <button class="sticky-bar-close" onclick="closeStickyBar()">✕</button>
   </div>
+
   <script>
 // ========================
 // BEFORE/AFTER SLIDER
@@ -1327,6 +1297,6 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
 
-</script>
+  </script>
 </body>
 </html>
