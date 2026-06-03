@@ -811,6 +811,19 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
 }
 .airbnb-pill:hover { opacity: .85; }
 
+
+/* ========== MOBILE OVERFLOW FIX ========== */
+html, body { max-width: 100%; overflow-x: hidden; }
+
+/* ========== MOBILE SLIDER IMAGE FIX ========== */
+@media (max-width: 768px) {
+  .before-after-container { touch-action: pan-y; }
+  .after-img, .before-img {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+  .slider-input { touch-action: none; }
+}
 </style>
   <style>
     .property-hero{padding:140px 48px 60px;background:var(--cream);max-width:1200px;margin:0 auto;}
@@ -994,15 +1007,15 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
   <div class="gallery-section">
     <h2>Professional Photos</h2>
     <div class="gallery-grid">
-      <img src="https://drive.google.com/thumbnail?id=1KnLMi0Cwwzy44b07J7fJQy6Ww8DaJ_Sx&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
-      <img src="https://drive.google.com/thumbnail?id=1vNIZZ0bOGlUiun6bnbtS9RCG5i2yDYlV&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
-      <img src="https://drive.google.com/thumbnail?id=1-kbnDJ9D4I7gMKFAicxJAEi3lDS8e5f1&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
-      <img src="https://drive.google.com/thumbnail?id=1WlAaF35iWPc-qpGToSCz0RCw079QrjA9&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
-      <img src="https://drive.google.com/thumbnail?id=1Lf8fe95-UIWd9vsbnQdseaD4HP2dd_bK&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
-      <img src="https://drive.google.com/thumbnail?id=1aw11hxXcUVcaZX2JdvNIliqApTHzHcy3&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
-      <img src="https://drive.google.com/thumbnail?id=1o_pYB6crC39njJBPRWK6I1hCZ964n_hc&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
-      <img src="https://drive.google.com/thumbnail?id=1s-kOT03q8fCPprHlOwiseHURVzS-DtSS&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
-      <img src="https://drive.google.com/thumbnail?id=1uFAnn4Dr9venlgWHjl2En_SKMsFhyT0_&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1KnLMi0Cwwzy44b07J7fJQy6Ww8DaJ_Sx&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
+      <img src="https://drive.google.com/thumbnail?id=1vNIZZ0bOGlUiun6bnbtS9RCG5i2yDYlV&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
+      <img src="https://drive.google.com/thumbnail?id=1-kbnDJ9D4I7gMKFAicxJAEi3lDS8e5f1&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
+      <img src="https://drive.google.com/thumbnail?id=1WlAaF35iWPc-qpGToSCz0RCw079QrjA9&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
+      <img src="https://drive.google.com/thumbnail?id=1Lf8fe95-UIWd9vsbnQdseaD4HP2dd_bK&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
+      <img src="https://drive.google.com/thumbnail?id=1aw11hxXcUVcaZX2JdvNIliqApTHzHcy3&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
+      <img src="https://drive.google.com/thumbnail?id=1o_pYB6crC39njJBPRWK6I1hCZ964n_hc&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
+      <img src="https://drive.google.com/thumbnail?id=1s-kOT03q8fCPprHlOwiseHURVzS-DtSS&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
+      <img src="https://drive.google.com/thumbnail?id=1uFAnn4Dr9venlgWHjl2En_SKMsFhyT0_&sz=w800" alt="Irving Install" loading="lazy" onclick="openLightbox(this)" referrerpolicy="no-referrer">
     </div>
   </div>
 
@@ -1156,6 +1169,9 @@ function updateCalc() {
 // BOOKING MODAL
 // ========================
 function openModal() {
+  // Hide sticky bar when modal is open
+  const stickyBarEl = document.getElementById('stickyBar');
+  if (stickyBarEl) stickyBarEl.style.display = 'none';
   const modal = document.getElementById('bookingModal');
   if (modal) {
     modal.classList.add('open');
@@ -1164,6 +1180,12 @@ function openModal() {
 }
 
 function closeModal() {
+  // Restore sticky bar when modal closes (only if not dismissed)
+  const stickyBarEl = document.getElementById('stickyBar');
+  if (stickyBarEl && !stickyDismissed) {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (pct > 0.5) stickyBarEl.style.display = '';
+  }
   const modal = document.getElementById('bookingModal');
   if (modal) {
     modal.classList.remove('open');
@@ -1238,7 +1260,14 @@ function toggleMenu() {
       boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
       zIndex: '99'
     });
+    // Add "Let's Work Together" button if not already injected
+    if (!links.querySelector('.mobile-cta-btn')) {
+      const btn = document.createElement('li');
+      btn.innerHTML = '<button class="mobile-cta-btn btn-primary" onclick="openModal();toggleMenu();" style="width:100%;margin-top:12px;padding:14px;font-size:1rem;">Let's Work Together →</button>';
+      links.appendChild(btn);
+    }
   }
+}
 }
 
 // ========================
@@ -1246,9 +1275,15 @@ function toggleMenu() {
 // ========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const href = this.getAttribute('href');
+    // Only intercept pure same-page anchors (not cross-page like index.html#faq)
+    if (href.startsWith('#') && !href.includes('.html')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
   });
 });
 
