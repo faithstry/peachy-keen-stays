@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio – Peachy Keen Stays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .port-hero{padding:140px 48px 60px;max-width:1200px;margin:0 auto;text-align:center;}
+    .port-hero h1{font-family:var(--font-head);font-size:clamp(3rem,6vw,5rem);font-weight:800;color:var(--dark);letter-spacing:-2px;line-height:1.05;margin-bottom:16px;}
+    .port-hero p{color:var(--mid);font-size:1.05rem;max-width:520px;margin:0 auto 48px;}
+    .port-grid{max-width:1200px;margin:0 auto;padding:0 48px 100px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+    .port-card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .3s,box-shadow .3s;}
+    .port-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+    .port-card-link{text-decoration:none;color:inherit;display:block;}
+    .port-slider .before-after-container{aspect-ratio:4/3;}
+    .port-meta{padding:24px;}
+    .port-meta h3{font-family:var(--font-head);font-size:1.4rem;font-weight:800;color:var(--dark);margin-bottom:6px;}
+    .port-loc{color:var(--mid);font-size:.82rem;margin-bottom:10px;}
+    .port-pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
+    .port-pill{background:var(--peach-light);color:var(--peach-dark);padding:3px 10px;border-radius:50px;font-size:.7rem;font-weight:700;}
+    .port-price{color:var(--peach-dark);font-size:.85rem;font-weight:700;margin-bottom:12px;}
+    .port-cta{color:var(--peach);font-size:.88rem;font-weight:700;}
+    @media(max-width:900px){.port-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:600px){.port-grid{grid-template-columns:1fr;padding:0 24px 60px;}.port-hero{padding:100px 24px 40px;}}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Peachy Keen <span>Stays</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="index.html#calculator">Pricing</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('bookingModal').style.display='flex'">Let's Work Together</button>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <div class="port-hero">
+    <span class="section-label">Our Work</span>
+    <h1>The Portfolio</h1>
+    <p>Every property tells a story. Drag the sliders to see the before &amp; after, then click to explore the full transformation.</p>
+  </div>
+
+  <div class="port-grid">
+    
+    <div class="port-card">
+      <a href="property-the-peach-pit.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_the-peach-pit"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=11lRd33cJyI2L2uTjQhKqQD3L1AocVQ3m&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_the-peach-pit','ph_the-peach-pit')">
+            <div class="slider-handle" id="ph_the-peach-pit" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>The Peach Pit</h3>
+          
+          <div class="port-pills"><span class="port-pill">4 Bedroom, 2.5 Bath, 3 Living Areas, Large Backyard</span><span class="port-pill">Our Property</span><span class="port-pill">🎬 Video Tour</span></div>
+          
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="port-card">
+      <a href="property-the-lone-star-loft.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1cP9cDN2IXGUVszEuN_IIOduWMvfkPoMd&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_the-lone-star-loft"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1K_uQYaAk91hMmIcMINX985hfQ1r2tdgf&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_the-lone-star-loft','ph_the-lone-star-loft')">
+            <div class="slider-handle" id="ph_the-lone-star-loft" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>The Lone Star Loft</h3>
+          
+          <div class="port-pills"><span class="port-pill">2 Bedroom, 2 Bath, 2 Living Areas, Custom Wall Designs</span><span class="port-pill">Our Property</span><span class="port-pill">🎬 Video Tour</span></div>
+          
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="port-card">
+      <a href="property-san-antonio-quirk.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1aP8OCSKZelLVDbw2Grycn7WnEwye3xVw&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_san-antonio-quirk"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1rBUI3RspJ_iTfyUPAUvUoCM1fNRCm0yp&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_san-antonio-quirk','ph_san-antonio-quirk')">
+            <div class="slider-handle" id="ph_san-antonio-quirk" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>San Antonio Quirk</h3>
+          <p class='port-loc'>📍 San Antonio, TX</p>
+          <div class="port-pills"><span class="port-pill">4 Bedroom, 2.5 Bath, 1 Living Areas, Pool / Backyard, Custom Garage Conversion</span><span class="port-pill">Client Project</span><span class="port-pill">🏠 On Airbnb</span></div>
+          <p class='port-price'>$5K design investment</p>
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="port-card">
+      <a href="property-the-sunshine-house.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1iwXBZAWZf0m4spYx36TWu1cbwUdiTGh8&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_the-sunshine-house"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1U5adQ5hATZ7mVv9y56vG-aJcS4os9BEh&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_the-sunshine-house','ph_the-sunshine-house')">
+            <div class="slider-handle" id="ph_the-sunshine-house" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>The Sunshine House</h3>
+          <p class='port-loc'>📍 Tyler, TX</p>
+          <div class="port-pills"><span class="port-pill">3 Bedroom, 2 Bath, 1 Living Area, Large Backyard</span><span class="port-pill">Client Project</span><span class="port-pill">🏠 On Airbnb</span></div>
+          <p class='port-price'>$3K design investment</p>
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="port-card">
+      <a href="property-the-homebody-club.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1XzFMKeUH5EOF0C1fvdvK2IYVPFrr8Quv&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_the-homebody-club"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1mpXRxNVNSFEY0P235Et5_-2-h_KIdIKW&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_the-homebody-club','ph_the-homebody-club')">
+            <div class="slider-handle" id="ph_the-homebody-club" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>The Homebody Club</h3>
+          <p class='port-loc'>📍 Seattle, WA</p>
+          <div class="port-pills"><span class="port-pill">2 separate units. 1/1 and 2/2. Shared outdoor areas.</span><span class="port-pill">Client Project</span><span class="port-pill">🏠 On Airbnb</span></div>
+          <p class='port-price'>$45007K design investment</p>
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="port-card">
+      <a href="property-irving-install-only.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1KnLMi0Cwwzy44b07J7fJQy6Ww8DaJ_Sx&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_irving-install-only"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1sYmhVFF0GKiXrrpBmQCU-6kmcKbdvZmd&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_irving-install-only','ph_irving-install-only')">
+            <div class="slider-handle" id="ph_irving-install-only" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>Irving (Install Only)</h3>
+          <p class='port-loc'>📍 Irving, TX</p>
+          <div class="port-pills"><span class="port-pill">5 Bedroom, 3 Bath, 1 Living Areas, Custom Backyard, Custom Garage</span><span class="port-pill">Client Project</span><span class="port-pill">🎬 Video Tour</span></div>
+          <p class='port-price'>$1K design investment</p>
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="port-card">
+      <a href="property-san-antonio-luxe.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Mt8BuchXmQu4fEui8U0pzDjPXReE4O-9&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_san-antonio-luxe"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=15RC9zqilwJiZ0RiBjbaMH94d8PdfCTCd&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_san-antonio-luxe','ph_san-antonio-luxe')">
+            <div class="slider-handle" id="ph_san-antonio-luxe" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>San Antonio Luxe</h3>
+          <p class='port-loc'>📍 San Antonio, TX</p>
+          <div class="port-pills"><span class="port-pill">5 Bedroom, 2.5 Bath, 3 Living Areas, Custom Backyard, Handpainted Custom Walls in Garage</span><span class="port-pill">Client Project</span><span class="port-pill">🎬 Video Tour</span></div>
+          <p class='port-price'>$6K design investment</p>
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="port-card">
+      <a href="property-the-san-antonio-cowboy.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1cQbsGSbHFx-AVqZbyAXxcebCDSotAHVX&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_the-san-antonio-cowboy"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1DjQmBlJk6BJei2UiXpoO3TzmlQMJMa8w&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_the-san-antonio-cowboy','ph_the-san-antonio-cowboy')">
+            <div class="slider-handle" id="ph_the-san-antonio-cowboy" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>The San Antonio Cowboy</h3>
+          <p class='port-loc'>📍 San Antonio, TX</p>
+          <div class="port-pills"><span class="port-pill">5 Bedroom, 3 Bath, 3 Living Areas, Large Custom Backyard with Putt Putt, Pickleball Court</span><span class="port-pill">Client Project</span><span class="port-pill">🎬 Video Tour</span></div>
+          <p class='port-price'>$10K design investment</p>
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+    <div class="port-card">
+      <a href="property-the-lone-star-lookout.html" class="port-card-link">
+        <div class="port-slider">
+          <div class="before-after-container">
+            <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1DRkeg6XuzhRDeIARutZMqmxJ3zIxwQrG&sz=w800');background-size:cover;background-position:center;"></div>
+            <div class="before-overlay" id="pbo_the-lone-star-lookout"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1g1RRGvMiQjZJSzxRxR-URYYTnyKTEH-9&sz=w800');background-size:cover;background-position:center;"></div></div>
+            <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'pbo_the-lone-star-lookout','ph_the-lone-star-lookout')">
+            <div class="slider-handle" id="ph_the-lone-star-lookout" style="left:50%">◀▶</div>
+          </div>
+        </div>
+        <div class="port-meta">
+          <h3>The Lone Star Lookout</h3>
+          
+          <div class="port-pills"><span class="port-pill">3 Bedroom, 3.5 Bath, 2 Living Areas, Custom Rooftop</span><span class="port-pill">Our Property</span><span class="port-pill">🎬 Video Tour</span></div>
+          
+          <span class="port-cta">View Project →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <footer style="background:var(--dark);color:white;padding:60px 48px;text-align:center;">
+    <a href="index.html" style="font-family:var(--font-head);font-size:1.6rem;font-weight:800;color:white;text-decoration:none;">Peachy Keen <span style="color:var(--peach);">Stays</span></a>
+    <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:16px;">Transforming short-term rentals into top-earning properties.</p>
+    <p style="color:rgba(255,255,255,.4);font-size:.78rem;margin-top:12px;">© 2026 Peachy Keen Stays. All rights reserved.</p>
+  </footer>
+  <div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:white;border-radius:24px;padding:40px;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;">
+      <button onclick="document.getElementById('bookingModal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--mid);">✕</button>
+      <h2 style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:8px;">Book a Free Intro Call</h2>
+      <p style="color:var(--mid);margin-bottom:24px;font-size:.95rem;">Let's talk about your property and how we can maximize its potential.</p>
+      <iframe src="https://app.usemotion.com/meet/faith-storey/design-intro" width="100%" height="400" frameborder="0" style="border-radius:12px;"></iframe>
+    </div>
+  </div>
+  <script>
+    function moveSlider(input, overlayId, handleId) {
+      document.getElementById(overlayId).style.width = input.value + '%';
+      document.getElementById(handleId).style.left = input.value + '%';
+    }
+    function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+  </script>
+</body>
+</html>
