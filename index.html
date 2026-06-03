@@ -752,6 +752,13 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
   .modal-box { padding: 32px 24px; }
   .sticky-bar { flex-direction: column; text-align: center; padding: 16px 20px; gap: 12px; }
   .page-hero { padding: 120px 20px 60px; }
+  /* Stat strip mobile */
+  .stat-strip-grid { grid-template-columns: 1fr !important; }
+  /* Hero badge: pull out of absolute position on mobile */
+  .hero-badge { position: static !important; margin: 16px auto 0; display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 50px; }
+  .hero-img-wrap { position: relative; width: 100%; }
+  /* Overflow kill */
+  html, body { max-width: 100%; overflow-x: hidden; }
 }
 
 /* ========== LIGHTBOX ========== */
@@ -979,7 +986,7 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
       </div>
 
       <!-- Stat strip -->
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--light);border-radius:var(--radius);overflow:hidden;margin-bottom:32px;">
+      <div class="stat-strip-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--light);border-radius:var(--radius);overflow:hidden;margin-bottom:32px;">
         <div style="background:var(--white);padding:36px 32px;text-align:center;">
           <div style="font-family:var(--font-head);font-size:2.6rem;font-weight:700;color:var(--peach);letter-spacing:-1px;line-height:1;">+71%</div>
           <div style="color:var(--mid);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-top:8px;">Avg. Revenue Increase</div>
@@ -1306,7 +1313,6 @@ h1, h2, h3, h4 { font-family: var(--font-head); }
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal()">✕</button>
       <iframe src="https://app.usemotion.com/meet/faith-storey/design-intro" title="Book a Call" width="100%" height="560" frameborder="0" style="display:block;border:none;border-radius:0 0 12px 12px;"></iframe>
-    </div>
     </div>
   </div>
 
