@@ -6,43 +6,398 @@
   <title>The Sunshine House – Peachy Keen Stays</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    .property-hero{padding:140px 48px 60px;max-width:1200px;margin:0 auto;}
-    .property-back{display:inline-flex;align-items:center;gap:8px;color:var(--mid);text-decoration:none;font-size:.88rem;font-weight:700;margin-bottom:32px;transition:color .2s;}
-    .property-back:hover{color:var(--peach);}
-    .property-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px;}
-    .property-header h1{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;color:var(--dark);letter-spacing:-1.5px;line-height:1.05;}
-    .property-header h1 em{font-style:italic;color:var(--peach);}
-    .property-address{color:var(--mid);font-size:.95rem;font-weight:600;margin-top:8px;}
-    .property-tags{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;}
-    .property-tag{background:var(--peach-light);color:var(--peach-dark);padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
-    .airbnb-btn{display:inline-flex;align-items:center;gap:8px;background:#FF5A5F;color:white;text-decoration:none;padding:10px 20px;border-radius:50px;font-size:.85rem;font-weight:700;margin-top:8px;transition:opacity .2s;}
-    .airbnb-btn:hover{opacity:.85;}
-    .revenue-bar{max-width:1200px;margin:0 auto 32px;padding:0 48px;}
-    .revenue-card{background:var(--dark);border-radius:var(--radius);padding:32px 40px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:24px;color:white;}
-    .rev-block{text-align:center;} .rev-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-bottom:6px;}
-    .rev-num{font-family:var(--font-head);font-size:2.2rem;font-weight:700;letter-spacing:-1px;line-height:1;}
-    .rev-num.before{color:rgba(255,255,255,.5);} .rev-num.after{color:var(--peach);} .rev-num.delta{color:#4ade80;}
-    .rev-divider{color:rgba(255,255,255,.2);font-size:1.8rem;} .rev-arrow{font-size:1.4rem;opacity:.6;color:white;}
-    .main-slider-wrap{max-width:1200px;margin:0 auto 32px;padding:0 48px;}
-    .main-slider-wrap .before-after-container {
+/* ===========================
+   PEACHY KEEN STAYS - STYLES
+   =========================== */
+
+:root {
+  --peach: #F4845F;
+  --peach-light: #FFD9C8;
+  --peach-pale: #FFF5F0;
+  --peach-dark: #E06A42;
+  --teal: #2A9D8F;
+  --teal-dark: #1A7A6E;
+  --cream: #FFFAF7;
+  --dark: #1A1208;
+  --dark-soft: #2D2010;
+  --mid: #6B5744;
+  --light: #F7EDE4;
+  --white: #FFFFFF;
+  --font-head: 'Libre Baskerville', serif;
+  --font-body: 'Nunito Sans', sans-serif;
+  --radius: 20px;
+  --radius-sm: 12px;
+  --shadow: 0 8px 40px rgba(26,18,8,0.10);
+  --shadow-lg: 0 20px 80px rgba(26,18,8,0.15);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--dark);
+  overflow-x: hidden;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3, h4 { font-family: var(--font-head); }
+
+/* ========== NAV ========== */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(255,250,247,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(244,132,95,0.15);
+  transition: box-shadow 0.3s;
+}
+
+.nav-logo {
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dark);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: var(--peach); }
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  color: var(--mid);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--peach); }
+
+.nav-cta {
+  background: var(--peach);
+  color: var(--white);
+  padding: 11px 22px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.2s;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+.nav-cta:hover { background: var(--peach-dark); transform: translateY(-1px); }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--dark);
+}
+
+/* ========== BUTTONS ========== */
+.btn-primary {
+  display: inline-block;
+  background: var(--peach);
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+}
+.btn-primary:hover {
+  background: var(--peach-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244,132,95,0.4);
+}
+
+.btn-secondary {
+  display: inline-block;
+  color: var(--dark);
+  padding: 14px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid var(--dark);
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: var(--font-body);
+  background: none;
+}
+.btn-secondary:hover {
+  background: var(--dark);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ========== HERO ========== */
+.hero {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  padding: 100px 48px 60px;
+  gap: 60px;
+  background: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 700px; height: 700px;
+  background: radial-gradient(circle, rgba(244,132,95,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 580px;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: var(--peach-light);
+  color: var(--peach-dark);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  color: var(--dark);
+  margin-bottom: 24px;
+  letter-spacing: -2px;
+  font-weight: 700;
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--peach);
+}
+
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--mid);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+.hero-visual { flex: 1; display: flex; justify-content: center; position: relative; }
+
+.hero-img-wrap { position: relative; width: 100%; max-width: 540px; }
+
+.hero-placeholder {
+  width: 100%;
+  aspect-ratio: 4/3;
+  background: linear-gradient(135deg, var(--peach-light) 0%, var(--light) 100%);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: var(--shadow-lg);
+}
+.hero-placeholder span { font-size: 1.5rem; color: var(--peach); font-family: var(--font-head); font-weight: 700; }
+.hero-placeholder p { color: var(--mid); font-size: 0.9rem; }
+
+.hero-badge {
+  position: absolute;
+  bottom: -20px; left: -20px;
+  background: var(--dark);
+  color: white;
+  padding: 18px 22px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+.badge-num { display: block; font-family: var(--font-head); font-size: 2rem; font-weight: 700; color: var(--peach); line-height: 1; }
+.badge-label { font-size: 0.75rem; font-weight: 600; opacity: 0.8; }
+
+/* ========== TICKER ========== */
+.ticker-wrap {
+  background: var(--peach);
+  padding: 16px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker {
+  display: inline-block;
+  animation: ticker 30s linear infinite;
+}
+.ticker span {
+  display: inline-block;
+  color: white;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  padding: 0 24px;
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ========== SECTIONS ========== */
+.section { padding: 100px 48px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+
+.section-label {
+  display: inline-block;
+  background: var(--peach-light);
+  color: var(--peach-dark);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--dark);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.section-sub {
+  color: var(--mid);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+/* ========== HOW IT WORKS (on home = overview cards) ========== */
+.how-it-works { background: var(--white); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.service-card {
+  padding: 40px 32px;
+  border-radius: var(--radius);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+
+.card-peach { background: var(--peach-pale); }
+.card-teal  { background: #EBF8F6; }
+.card-coral { background: #FFF0ED; }
+
+.service-icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+
+.service-card h3 { font-size: 1.6rem; color: var(--dark); margin-bottom: 12px; font-weight: 700; }
+.service-card p  { color: var(--mid); line-height: 1.65; margin-bottom: 24px; font-size: 0.95rem; }
+
+.card-link {
+  color: var(--peach);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  transition: opacity 0.2s;
+}
+.card-link:hover { opacity: 0.75; }
+
+/* ========== PORTFOLIO (home preview) ========== */
+.portfolio { background: var(--cream); }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 48px;
+}
+
+.slider-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 16px;
+}
+
+.before-after-container {
   position: relative;
   aspect-ratio: 4/3;
   overflow: hidden;
   cursor: ew-resize;
 }
+
+.img-placeholder {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
 /* AFTER image — always full size, behind */
 .after-img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  background: linear-gradient(135deg, #FFD9C8 0%, #F4845F 100%);
   background-size: cover;
   background-position: center;
+  color: white;
 }
+
 /* BEFORE overlay — full size, clipped from the right */
+.before-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: inset(0 50% 0 0);
+  transition: none;
+}
 
 /* BEFORE image — full size inside the clipped overlay */
 .before-img {
@@ -50,100 +405,490 @@
   inset: 0;
   width: 100%;
   height: 100%;
+  background: linear-gradient(135deg, #e8e8e8 0%, #b0b0b0 100%);
   background-size: cover;
   background-position: center;
+  color: #666;
 }
+
 /* Divider line */
 .before-overlay::after {
   content: '';
   position: absolute;
-  top: 0; right: 0;
-  width: 2px; height: 100%;
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
   background: white;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+  pointer-events: none;
 }
+
+.slider-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: ew-resize;
+  z-index: 10;
+  margin: 0;
+}
+
+.slider-handle {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px; height: 40px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: var(--dark);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  z-index: 9;
+  pointer-events: none;
+  font-weight: 700;
+}
+
+.portfolio-meta { padding: 4px 4px 0; }
+.portfolio-meta h4 { font-family: var(--font-head); font-size: 1.2rem; color: var(--dark); margin-bottom: 4px; font-weight: 700; }
+.portfolio-meta a { text-decoration: none; }
+.portfolio-meta a h4 { transition: color 0.2s; }
+.portfolio-meta a:hover h4 { color: var(--peach); }
+.portfolio-meta p  { color: var(--mid); font-size: 0.85rem; }
+
+.center-btn { text-align: center; }
+
+/* ========== CALCULATOR ========== */
+.calculator { background: var(--dark); color: white; }
+.calculator .section-label { background: rgba(244,132,95,0.2); color: var(--peach); }
+.calculator .section-title { color: white; }
+.calculator .section-sub  { color: rgba(255,255,255,0.65); }
+
+.calc-wrap {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.calc-form {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+
+.calc-group { margin-bottom: 32px; }
+.calc-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+.calc-options { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.calc-opt {
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.calc-opt:hover { border-color: var(--peach); color: var(--peach); }
+.calc-opt.active { background: var(--peach); border-color: var(--peach); color: white; font-weight: 700; }
+
+.calc-range {
+  width: 100%;
+  accent-color: var(--peach);
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(255,255,255,0.15);
+  outline: none;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.calc-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.calc-estimate { display: flex; flex-direction: column; gap: 4px; }
+.est-label { font-size: 0.8rem; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.5px; }
+.est-price { font-family: var(--font-head); font-size: 2.2rem; font-weight: 700; color: var(--peach); letter-spacing: -0.5px; }
+
+.calc-features {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(244,132,95,0.25);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+.calc-features h4 { font-family: var(--font-head); font-size: 1.5rem; color: white; margin-bottom: 20px; font-weight: 700; }
+.calc-features ul { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.calc-features li { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.5; }
+
+/* ========== FAQ ========== */
+.faq { background: var(--white); }
+
+.faq-list {
+  max-width: 760px;
+  margin-top: 48px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--light);
+  cursor: pointer;
+  padding: 24px 0;
+}
+
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--dark);
+  gap: 16px;
+}
+
+.faq-icon {
+  width: 28px; height: 28px;
+  background: var(--peach-light);
+  color: var(--peach-dark);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+.faq-item.open .faq-icon { background: var(--peach); color: white; transform: rotate(45deg); }
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+  color: var(--mid);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+.faq-item.open .faq-a { max-height: 200px; padding-top: 14px; }
+
+/* ========== FOOTER ========== */
+.footer { background: var(--dark-soft); color: white; padding: 64px 48px 0; }
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 48px;
+  padding-bottom: 48px;
+}
+
+.footer-logo { font-family: var(--font-head); font-size: 1.6rem; font-weight: 700; margin-bottom: 14px; }
+.footer-logo span { color: var(--peach); }
+.footer-brand p { color: rgba(255,255,255,0.55); font-size: 0.92rem; line-height: 1.6; margin-bottom: 20px; max-width: 280px; }
+
+.footer-socials { display: flex; gap: 16px; }
+.footer-socials a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.88rem; font-weight: 600; transition: color 0.2s; }
+.footer-socials a:hover { color: var(--peach); }
+
+.footer-links { display: flex; flex-direction: column; gap: 12px; }
+.footer-links h5 { color: rgba(255,255,255,0.4); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.92rem; transition: color 0.2s; }
+.footer-links a:hover { color: var(--peach); }
+
+.footer-cta { display: flex; flex-direction: column; gap: 16px; }
+.footer-cta h5 { font-family: var(--font-head); font-size: 1.4rem; color: white; line-height: 1.35; font-weight: 700; }
+
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding: 20px 0; border-top: 1px solid rgba(255,255,255,0.08); }
+.footer-bottom p { color: rgba(255,255,255,0.35); font-size: 0.82rem; }
+
+/* ========== BOOKING MODAL ========== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,18,8,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: white;
+  border-radius: 24px;
+  padding: 48px;
+  max-width: 520px;
+  width: 100%;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  animation: modalIn 0.3s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  background: var(--light);
+  border: none;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mid);
+  transition: background 0.2s;
+}
+.modal-close:hover { background: var(--peach-light); color: var(--peach-dark); }
+
+.modal-box h3 { font-family: var(--font-head); font-size: 2rem; color: var(--dark); margin-bottom: 12px; font-weight: 700; }
+.modal-box p  { color: var(--mid); font-size: 0.95rem; line-height: 1.65; margin-bottom: 28px; }
+
+.modal-perks { list-style: none; margin-bottom: 32px; display: flex; flex-direction: column; gap: 10px; }
+.modal-perks li { color: var(--mid); font-size: 0.92rem; font-weight: 600; }
+
+.modal-embed-placeholder {
+  background: var(--peach-pale);
+  border: 2px dashed var(--peach-light);
+  border-radius: var(--radius-sm);
+  padding: 40px;
+  text-align: center;
+  color: var(--mid);
+  font-size: 0.92rem;
+}
+.modal-embed-placeholder .embed-icon { font-size: 2.5rem; margin-bottom: 12px; }
+.modal-embed-placeholder h4 { font-family: var(--font-head); font-size: 1.3rem; color: var(--dark); margin-bottom: 8px; font-weight: 700; }
+
+/* ========== STICKY BAR ========== */
+.sticky-bar {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 200;
+  background: var(--dark);
+  padding: 16px 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.2);
+  animation: slideUp 0.4s ease;
+}
+.sticky-bar.visible { display: flex; }
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+.sticky-bar p { color: white; font-size: 0.95rem; font-weight: 600; }
+.sticky-bar p span { color: var(--peach); }
+.sticky-bar-close {
+  background: none; border: none; color: rgba(255,255,255,0.4);
+  font-size: 1.2rem; cursor: pointer; margin-left: auto;
+  transition: color 0.2s;
+}
+.sticky-bar-close:hover { color: white; }
+
+/* ========== STANDALONE PAGES ========== */
+.page-hero {
+  padding: 160px 48px 80px;
+  background: var(--cream);
+  text-align: center;
+}
+.page-hero .section-label { margin-bottom: 16px; }
+.page-hero h1 { font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; color: var(--dark); margin-bottom: 20px; letter-spacing: -0.5px; }
+.page-hero p { color: var(--mid); font-size: 1.1rem; line-height: 1.7; max-width: 580px; margin: 0 auto; }
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 1024px) {
+  .hero { padding: 100px 32px 60px; }
+  .section { padding: 80px 32px; }
+  .nav { padding: 16px 32px; }
+  .services-grid { grid-template-columns: 1fr; gap: 16px; }
+  .portfolio-grid { grid-template-columns: 1fr 1fr; }
+  .calc-wrap { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .sticky-bar { padding: 16px 24px; }
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 14px 20px; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: block; }
+  .hero { flex-direction: column; padding: 100px 20px 60px; text-align: center; gap: 40px; }
+  .hero-btns { justify-content: center; }
+  .hero-sub { margin: 0 auto 36px; }
+  .section { padding: 60px 20px; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+  .calc-form { padding: 24px; }
+  .modal-box { padding: 32px 24px; }
+  .sticky-bar { flex-direction: column; text-align: center; padding: 16px 20px; gap: 12px; }
+  .page-hero { padding: 120px 20px 60px; }
+}
+
+/* ========== LIGHTBOX ========== */
+.lightbox-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-img {
+  max-width: 92vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 80px rgba(0,0,0,0.5);
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 28px;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  line-height: 1;
+  opacity: 0.8;
+}
+.lightbox-close:hover { opacity: 1; }
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  padding: 12px 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.lightbox-nav:hover { background: rgba(255,255,255,0.3); }
+.lightbox-prev { left: 16px; }
+.lightbox-next { right: 16px; }
+
+/* Airbnb pill */
+.airbnb-pill {
+  background: #FF5A5F !important;
+  color: white !important;
+  text-decoration: none;
+  transition: opacity .2s;
+}
+.airbnb-pill:hover { opacity: .85; }
+
+</style>
+  <style>
+    .property-hero{padding:140px 48px 60px;background:var(--cream);max-width:1200px;margin:0 auto;}
+    .property-back{display:inline-flex;align-items:center;gap:8px;color:var(--mid);text-decoration:none;font-size:.88rem;font-weight:700;margin-bottom:32px;transition:color .2s;}
+    .property-back:hover{color:var(--peach);}
+    .property-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:48px;}
+    .property-header h1{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:700;color:var(--dark);letter-spacing:-1.5px;line-height:1.05;}
+    .property-header h1 em{font-style:italic;color:var(--peach);}
+    .property-address{color:var(--mid);font-size:.95rem;font-weight:600;margin-top:8px;}
+    .property-tags{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;}
+    .property-tag{background:var(--peach-light);color:var(--peach-dark);padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+    .airbnb-pill{background:#FF5A5F !important;color:white !important;text-decoration:none;transition:opacity .2s;}
+    .airbnb-pill:hover{opacity:.85;}
+    .own-badge{background:var(--peach) !important;color:white !important;}
+    .revenue-bar{max-width:1200px;margin:0 auto 32px;padding:0 48px;}
+    .revenue-card{background:var(--dark);border-radius:var(--radius);padding:32px 40px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:24px;color:white;}
+    .rev-block{text-align:center;}.rev-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-bottom:6px;}
+    .rev-num{font-family:var(--font-head);font-size:2.2rem;font-weight:700;letter-spacing:-1px;line-height:1;}
+    .rev-num.before{color:rgba(255,255,255,.5);}.rev-num.after{color:var(--peach);}.rev-num.delta{color:#4ade80;}
+    .rev-divider{color:rgba(255,255,255,.2);font-size:1.8rem;}.rev-arrow{font-size:1.4rem;opacity:.4;}
+    .main-slider-wrap{max-width:1200px;margin:0 auto 32px;padding:0 48px;}
+    .main-slider-wrap .slider-wrap{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:0;}
+    .main-slider-wrap .before-after-container{aspect-ratio:16/9;}
     .stats-row{max-width:1200px;margin:0 auto 60px;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
     .stat-card{background:var(--white);border-radius:var(--radius-sm);padding:28px;text-align:center;box-shadow:var(--shadow);}
     .stat-num{font-family:var(--font-head);font-size:2.2rem;font-weight:700;color:var(--peach);letter-spacing:-1px;display:block;}
     .stat-label{color:var(--mid);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+    .yt-section{background:var(--cream);padding:60px 48px;}
+    .yt-inner{max-width:900px;margin:0 auto;}
+    .yt-inner h2{font-family:var(--font-head);font-size:2rem;font-weight:700;color:var(--dark);letter-spacing:-.5px;margin-bottom:24px;}
+    .yt-embed{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow-lg);}
+    .yt-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
     .sliders-section{max-width:1200px;margin:0 auto 60px;padding:0 48px;}
-    .sliders-section h2,.gallery-section h2,.yt-inner h2{font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:8px;}
+    .sliders-section h2{font-family:var(--font-head);font-size:2.2rem;font-weight:700;color:var(--dark);letter-spacing:-.5px;margin-bottom:8px;}
     .sliders-section .sub{color:var(--mid);font-size:.95rem;margin-bottom:32px;}
     .sliders-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
     .gallery-section{max-width:1200px;margin:0 auto 60px;padding:0 48px;}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
-    .gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-sm);cursor:zoom-in;transition:transform .25s,box-shadow .25s;}
+    .gallery-section h2{font-family:var(--font-head);font-size:2.2rem;font-weight:700;color:var(--dark);letter-spacing:-.5px;margin-bottom:24px;}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+    .gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-sm);display:block;cursor:zoom-in;transition:transform .25s,box-shadow .25s;}
     .gallery-grid img:hover{transform:scale(1.02);box-shadow:var(--shadow-lg);}
-    .yt-section{background:var(--cream);padding:60px 48px;}
-    .yt-inner{max-width:900px;margin:0 auto;}
-    .yt-embed{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow-lg);margin-top:24px;}
-    .yt-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
-    .story-section{max-width:1200px;margin:0 auto 60px;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
-    .story-left h2{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--dark);margin-bottom:20px;}
-    .story-left p{color:var(--mid);line-height:1.8;margin-bottom:16px;}
-    .story-right{background:var(--peach-pale);border-radius:var(--radius);padding:36px;}
-    .story-right h3{font-family:var(--font-head);font-size:1.4rem;font-weight:800;color:var(--dark);margin-bottom:20px;}
-    .story-right ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
-    .story-right li{color:var(--mid);font-size:.92rem;font-weight:600;}
-    .invest-strip{display:flex;gap:24px;margin-top:24px;}
-    .invest-item{background:var(--white);border-radius:var(--radius-sm);padding:20px 24px;flex:1;text-align:center;}
-    .invest-num{font-family:var(--font-head);font-size:1.6rem;font-weight:700;color:var(--peach);display:block;}
-    .invest-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--mid);}
-    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;}
-    .lightbox.open{display:flex;}
-    .lightbox img{max-width:90vw;max-height:90vh;border-radius:12px;}
-    .lightbox-close{position:absolute;top:20px;right:28px;color:white;font-size:2rem;cursor:pointer;background:none;border:none;}
+    .story-section{max-width:1200px;margin:0 auto;padding:0 48px 60px;display:grid;grid-template-columns:1.4fr 1fr;gap:64px;align-items:start;}
+    .story-section h2{font-family:var(--font-head);font-size:2rem;font-weight:700;color:var(--dark);letter-spacing:-.5px;margin-bottom:20px;}
+    .story-section p{color:var(--mid);line-height:1.8;margin-bottom:16px;font-size:1rem;}
+    .services-box{background:var(--peach-pale);border-radius:var(--radius);padding:32px;}
+    .services-box h4{font-family:var(--font-head);font-size:1.3rem;font-weight:700;color:var(--dark);margin-bottom:16px;}
+    .services-box ul{list-style:none;display:flex;flex-direction:column;gap:12px;}
+    .services-box li{color:var(--mid);font-size:.92rem;font-weight:600;}
+    .property-cta{background:var(--dark);padding:72px 48px;text-align:center;}
+    .property-cta h2{font-family:var(--font-head);font-size:clamp(2rem,3.5vw,3rem);font-weight:700;color:white;letter-spacing:-.5px;margin-bottom:16px;}
+    .property-cta p{color:rgba(255,255,255,.65);font-size:1rem;line-height:1.7;max-width:480px;margin:0 auto 32px;}
+    .next-project{max-width:1200px;margin:0 auto;padding:40px 48px;display:flex;justify-content:space-between;align-items:center;}
+    .next-project a{color:var(--mid);text-decoration:none;font-weight:700;font-size:.92rem;transition:color .2s;}
+    .next-project a:hover{color:var(--peach);}
     @media(max-width:768px){
-      .property-hero{padding:100px 24px 40px;}
-      .revenue-bar,.main-slider-wrap,.stats-row,.sliders-section,.gallery-section,.yt-section,.story-section{padding-left:24px;padding-right:24px;}
-      .revenue-card{grid-template-columns:1fr;text-align:center;gap:16px;}
-      .stats-row{grid-template-columns:repeat(2,1fr);}
-      .sliders-grid{grid-template-columns:1fr;}
-      .gallery-grid{grid-template-columns:repeat(2,1fr);}
-      .story-section{grid-template-columns:1fr;gap:32px;}
+      .property-hero,.main-slider-wrap,.revenue-bar,.sliders-section,.stats-row,.gallery-section,.story-section,.next-project{padding-left:20px;padding-right:20px;}
+      .property-hero{padding-top:110px;}.yt-section{padding:40px 20px;}
+      .sliders-grid{grid-template-columns:1fr;}.stats-row{grid-template-columns:repeat(2,1fr);}
+      .gallery-grid{grid-template-columns:repeat(2,1fr);}.story-section{grid-template-columns:1fr;gap:32px;}
+      .property-cta{padding:48px 20px;}.next-project{flex-direction:column;gap:16px;}
+      .revenue-card{grid-template-columns:1fr;}.rev-divider,.rev-arrow{display:none;}
     }
-  
-/* ========== STICKY BAR ========== */
-.sticky-bar { display:none; position:fixed; bottom:0; left:0; right:0; z-index:200; background:var(--dark); padding:16px 48px; align-items:center; justify-content:space-between; gap:16px; box-shadow:0 -4px 24px rgba(0,0,0,0.2); animation:slideUp 0.4s ease; }
-.sticky-bar.visible { display:flex; }
-@keyframes slideUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
-.sticky-bar p { color:white; font-size:0.95rem; font-weight:600; margin:0; }
-.sticky-bar p span { color:var(--peach-light); }
-.sticky-bar-close { background:none; border:none; color:rgba(255,255,255,0.5); font-size:1.2rem; cursor:pointer; padding:4px 8px; }
-.sticky-bar-close:hover { color:white; }
-@media(max-width:600px){ .sticky-bar { padding:14px 20px; flex-direction:column; text-align:center; gap:10px; } }
-
-
-/* ========== MODAL ========== */
-.modal-overlay { display:none; position:fixed; inset:0; background:rgba(26,18,8,0.7); z-index:300; align-items:center; justify-content:center; padding:24px; }
-.modal-overlay.open { display:flex; }
-.modal-box { background:white; border-radius:20px; padding:40px; max-width:520px; width:100%; position:relative; box-shadow:0 20px 80px rgba(0,0,0,0.3); }
-.modal-close { position:absolute; top:16px; right:20px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:var(--mid); }
-.modal-close:hover { color:var(--dark); }
-.modal-box h3 { font-family:var(--font-head); font-size:1.8rem; font-weight:800; margin-bottom:8px; }
-.modal-box p { color:var(--mid); margin-bottom:20px; }
-.modal-perks { list-style:none; margin-bottom:24px; display:flex; flex-direction:column; gap:8px; }
-.modal-perks li { font-size:0.9rem; color:var(--mid); font-weight:600; }
-
-</style>
+  </style>
 </head>
 <body>
-
-  <!-- NAV -->
   <nav class="nav">
     <a href="index.html" class="nav-logo">Peachy Keen <span>Stays</span></a>
     <ul class="nav-links">
       <li><a href="how-it-works.html">How It Works</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="#calculator">Pricing</a></li>
-      <li><a href="#faq">FAQ</a></li>
+      <li><a href="index.html#calculator">Pricing</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
       <li><a href="https://www.youtube.com/@thisismy_storey/featured" target="_blank">YouTube</a></li>
     </ul>
     <button class="nav-cta" onclick="openModal()">Let's Work Together →</button>
     <button class="hamburger" onclick="toggleMenu()">☰</button>
   </nav>
 
-  <!-- PROPERTY HERO -->
   <div class="property-hero">
     <a href="portfolio.html" class="property-back">← Back to Portfolio</a>
     <div class="property-header">
@@ -151,181 +896,420 @@
         <h1>The Sunshine<br><em>House</em></h1>
         <p class="property-address">Tyler, TX</p>
       </div>
-      <div>
-        <div class="property-tags"><span class="property-tag">3 Bedroom, 2 Bath, 1 Living Area, Large Backyard</span><span class="property-tag">Client Project</span><span class="property-tag">🏠 On Airbnb</span></div>
-        <a href="https://airbnb.com/rooms/628230542899739352?viralityEntryPoint=1&unique_share_id=BB334B96-64FD-4EE9-8E34-C118DB49A59A&slcid=09c039cfb59543c4a5db018d6754ce07&s=76&adults=1&slug=WyGdK7vi" target="_blank" class="airbnb-btn">🏠 View on Airbnb →</a>
+      <div class="property-tags">
+        <span class="property-tag">✨ Virtual Design</span>
+        <span class="property-tag">🛋️ $22K Furnishing Budget</span>
+        <a href="https://airbnb.com/rooms/628230542899739352" target="_blank" class="property-tag airbnb-pill">🏠 Airbnb Listing</a>
       </div>
     </div>
   </div>
 
-  <!-- HERO SLIDER -->
   <div class="main-slider-wrap">
-    <div class="before-after-container">
-      <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1iwXBZAWZf0m4spYx36TWu1cbwUdiTGh8&sz=w1200');background-size:cover;background-position:center;"></div><div class="before-overlay" id="beforeOverlayMain"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1U5adQ5hATZ7mVv9y56vG-aJcS4os9BEh&sz=w1200');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'beforeOverlayMain','handleMain')"><div class="slider-handle" id="handleMain" style="left:50%">◀▶</div>
-    </div>
+    <div class="slider-wrap"><div class="before-after-container">
+      <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1iwXBZAWZf0m4spYx36TWu1cbwUdiTGh8&sz=w1200');background-size:cover;background-position:center;"></div>
+      <div class="before-overlay" id="beforeOverlayMain">
+        <div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1U5adQ5hATZ7mVv9y56vG-aJcS4os9BEh&sz=w1200');background-size:cover;background-position:center;"></div>
+      </div>
+      <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'beforeOverlayMain','handleMain')">
+      <div class="slider-handle" id="handleMain" style="left:50%">◀▶</div>
+    </div></div>
   </div>
 
-  
   <div class="revenue-bar">
     <div class="revenue-card">
-      <div class="rev-block"><div class="rev-label">Revenue Before</div><div class="rev-num before">$45K</div></div>
+      <div class="rev-block"><div class="rev-label">Annual Revenue Before</div><div class="rev-num before">$45K</div></div>
       <div class="rev-arrow">→</div>
-      <div class="rev-block"><div class="rev-label">Revenue After</div><div class="rev-num after">$65K</div></div>
-      <div class='rev-divider'>|</div><div class='rev-block'><div class='rev-label'>Increase</div><div class='rev-num delta'>+44%</div></div>
+      <div class="rev-block"><div class="rev-label">Annual Revenue After</div><div class="rev-num after">$65K</div></div>
+      <div class="rev-divider">|</div>
+      <div class="rev-block"><div class="rev-label">Revenue Increase</div><div class="rev-num delta">+44%</div></div>
     </div>
   </div>
 
-  <!-- STATS -->
   <div class="stats-row">
-    <div class="stat-card"><span class="stat-num">$3,500</span><span class="stat-label">Design Investment</span></div>
-    <div class="stat-card"><span class="stat-num">Virtual Design</span><span class="stat-label">Service Type</span></div>
-    <div class="stat-card"><span class="stat-num">$22,000</span><span class="stat-label">Furnishing Budget</span></div>
-  </div>
+    <div class="stat-card"><span class="stat-num">$3.5K</span><span class="stat-label">Design Investment</span></div>
+    <div class="stat-card"><span class="stat-num">Virtual</span><span class="stat-label">Service Type</span></div>
     <div class="stat-card"><span class="stat-num">$22K</span><span class="stat-label">Furnishing Budget</span></div>
-    <div class="stat-card"><span class="stat-num">3 Bedroom, 2 Bath, 1 Living Area, Large Backyard</span><span class="stat-label">Property Size</span></div>
   </div>
 
-  
 
-  <div class="sliders-section"><h2>The Transformation</h2><p class="sub">Drag each slider to reveal the before &amp; after.</p><div class="sliders-grid"><div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1o9Nv_Ke5ZtZh5oUoj2GqrcZGiyGoHRuQ&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo2"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1bC1CVuDls0V8asLYoAnduZgl4LfVkZHh&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo2','h2')"><div class="slider-handle" id="h2" style="left:50%">◀▶</div></div></div></div>
-<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1iuqVcT-u-GetyUGUJs3es8srRyM_vOKB&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo3"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=19aO-gH3xvu6CGkT23KedPu5saARtM5w6&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo3','h3')"><div class="slider-handle" id="h3" style="left:50%">◀▶</div></div></div></div>
-<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Ka44EYELweIwjABU5nT0ewzYJKAKXMMN&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo4"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Go_i4wVkIPjagHfV1temausmlIsWS3rS&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo4','h4')"><div class="slider-handle" id="h4" style="left:50%">◀▶</div></div></div></div>
-<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1uaeEF-y9jclIz6FL86Vvf84O4HAKthW0&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo5"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1d6e-OqmLhCCboHSx9s_YQMBpBnQ2g07v&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo5','h5')"><div class="slider-handle" id="h5" style="left:50%">◀▶</div></div></div></div>
-<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=173bsfxNWdFChEGaz0PGsZDRjjFIkoZlE&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo6"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1xYefOSAnS_wTPv7v_ECIq9gyz6gctojT&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo6','h6')"><div class="slider-handle" id="h6" style="left:50%">◀▶</div></div></div></div>
-<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1iI7fOpsrZ_Jtc8yhXn_ITSpQ0yikc0X4&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo7"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=18keu3ZSNXRD_FVbsaqmUf6EWzDr7OBx9&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo7','h7')"><div class="slider-handle" id="h7" style="left:50%">◀▶</div></div></div></div>
-</div></div>
 
-  <div class="gallery-section"><h2>Professional Photos</h2><div class="gallery-grid"><img src="https://drive.google.com/thumbnail?id=1Et2wGwXxjq_0lYvGMkPAkd3_3-iQhpLL&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1Fk5Csuay-FOuX-XjjdR7rI-IL1s9bwyo&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1KMtt-tYTRlqOBwZ1S6lUiQzKi_7kiWrT&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1gsl-6LhE_8By8dtTR2qK37tgXrcFSzEq&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1aBTaqX0bajJkwpWzcs_oxDaSetJo4wOj&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1Vc1dM3g8QDCDMLEJD7Iw_BYkCfLqL5Q6&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1LGUI2C7U8379jN24pKm9GJKBUBr2OkbH&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1NQRo3KqDl4e8byfva8jilc0Q7N3sAgVg&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1d0XBdYvJQZAVMW3Iwd-Eop1u4usUHXWa&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1OtNOjFsv0c19YWk9tW5Q9xCKkSiIWxz0&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1Zl7_51YH6JRZ0UeYsWR4t1yQ6PlxGqy9&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1nuNsvZDbLxavCSZi-o0iIojVS7V0CTV5&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1LLrabCrk50d4nLubdGU5uxdE-KG2MGSv&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=11kEGc6crMb6GlBoypRgBYExY96SbpXbo&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1BwtS8vDUUAEsuleYN0FKOimaLklwSLNx&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1ndk2GJ0dBencuqJ-UQnwctGvGaGkwxQP&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=17tgs2BCd4mvc0JEYQiMvIT7Ovu8FuDPy&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1j_xZ4Ulj5v617HFdYs09R4TdN-72nfP_&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1iAj8Ix6VDcbn0TM9ct9sIin6woF7VyVk&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1Tup2wPxVJ5Ueh4u5MCeSU-pVTzGg-Kib&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1fofX1IiSm_2SPndZqShGxPSWeFMBqiSB&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1gRGWT1dPwR4svN-PY8EKJBsVPiB7wuj0&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1_GNpdLk82NiDMU5WlLOhf_8W4kVLGRJu&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1YM_2lP7JW7BBGYOG2pDcfotf9rjgN5hE&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1Ot3nSbWwcK9WvaE2k_BwcmGmtLPxwqvR&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=167W4fC-PXyLpuogfEUsx3JuAAdeQjTI4&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-<img src="https://drive.google.com/thumbnail?id=1fUwGZBDGcM4K3qxngYjTHPXEzXWQkTNS&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
-</div></div>
-
-  <!-- STORY + SERVICES -->
-  <div class="story-section">
-    <div class="story-left">
-      <h2>The Transformation</h2>
-      <p></p>
+  <div class="sliders-section">
+    <h2>The Transformation</h2>
+    <p class="sub">Drag each slider to reveal the before &amp; after.</p>
+    <div class="sliders-grid">
+      <div class="slider-item"><div class="slider-wrap"><div class="before-after-container">
+        <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1o9Nv_Ke5ZtZh5oUoj2GqrcZGiyGoHRuQ&sz=w800');background-size:cover;background-position:center;"></div>
+        <div class="before-overlay" id="bo2"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1bC1CVuDls0V8asLYoAnduZgl4LfVkZHh&sz=w800');background-size:cover;background-position:center;"></div></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo2','h2')">
+        <div class="slider-handle" id="h2" style="left:50%">◀▶</div>
+      </div></div></div>
+      <div class="slider-item"><div class="slider-wrap"><div class="before-after-container">
+        <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1iuqVcT-u-GetyUGUJs3es8srRyM_vOKB&sz=w800');background-size:cover;background-position:center;"></div>
+        <div class="before-overlay" id="bo3"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=19aO-gH3xvu6CGkT23KedPu5saARtM5w6&sz=w800');background-size:cover;background-position:center;"></div></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo3','h3')">
+        <div class="slider-handle" id="h3" style="left:50%">◀▶</div>
+      </div></div></div>
+      <div class="slider-item"><div class="slider-wrap"><div class="before-after-container">
+        <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Ka44EYELweIwjABU5nT0ewzYJKAKXMMN&sz=w800');background-size:cover;background-position:center;"></div>
+        <div class="before-overlay" id="bo4"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Go_i4wVkIPjagHfV1temausmlIsWS3rS&sz=w800');background-size:cover;background-position:center;"></div></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo4','h4')">
+        <div class="slider-handle" id="h4" style="left:50%">◀▶</div>
+      </div></div></div>
+      <div class="slider-item"><div class="slider-wrap"><div class="before-after-container">
+        <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1uaeEF-y9jclIz6FL86Vvf84O4HAKthW0&sz=w800');background-size:cover;background-position:center;"></div>
+        <div class="before-overlay" id="bo5"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1d6e-OqmLhCCboHSx9s_YQMBpBnQ2g07v&sz=w800');background-size:cover;background-position:center;"></div></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo5','h5')">
+        <div class="slider-handle" id="h5" style="left:50%">◀▶</div>
+      </div></div></div>
+      <div class="slider-item"><div class="slider-wrap"><div class="before-after-container">
+        <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=173bsfxNWdFChEGaz0PGsZDRjjFIkoZlE&sz=w800');background-size:cover;background-position:center;"></div>
+        <div class="before-overlay" id="bo6"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1xYefOSAnS_wTPv7v_ECIq9gyz6gctojT&sz=w800');background-size:cover;background-position:center;"></div></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo6','h6')">
+        <div class="slider-handle" id="h6" style="left:50%">◀▶</div>
+      </div></div></div>
+      <div class="slider-item"><div class="slider-wrap"><div class="before-after-container">
+        <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1iI7fOpsrZ_Jtc8yhXn_ITSpQ0yikc0X4&sz=w800');background-size:cover;background-position:center;"></div>
+        <div class="before-overlay" id="bo7"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=18keu3ZSNXRD_FVbsaqmUf6EWzDr7OBx9&sz=w800');background-size:cover;background-position:center;"></div></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo7','h7')">
+        <div class="slider-handle" id="h7" style="left:50%">◀▶</div>
+      </div></div></div>
+      <div class="slider-item"><div class="slider-wrap"><div class="before-after-container">
+        <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Et2wGwXxjq_0lYvGMkPAkd3_3-iQhpLL&sz=w800');background-size:cover;background-position:center;"></div>
+        <div class="before-overlay" id="bo8"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Yy_O63CFUg89o-UznTATdbC0ePCMFoYG&sz=w800');background-size:cover;background-position:center;"></div></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo8','h8')">
+        <div class="slider-handle" id="h8" style="left:50%">◀▶</div>
+      </div></div></div>
+      <div class="slider-item"><div class="slider-wrap"><div class="before-after-container">
+        <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Fk5Csuay-FOuX-XjjdR7rI-IL1s9bwyo&sz=w800');background-size:cover;background-position:center;"></div>
+        <div class="before-overlay" id="bo9"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1uviLVFjzA_5NLGM_G2kv4gGaq0_fgubV&sz=w800');background-size:cover;background-position:center;"></div></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo9','h9')">
+        <div class="slider-handle" id="h9" style="left:50%">◀▶</div>
+      </div></div></div>
     </div>
-    <div class="story-right">
-      <h3>What We Delivered</h3>
+  </div>
+
+  <div class="gallery-section">
+    <h2>Professional Photos</h2>
+    <div class="gallery-grid">
+      <img src="https://drive.google.com/thumbnail?id=1KMtt-tYTRlqOBwZ1S6lUiQzKi_7kiWrT&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1gsl-6LhE_8By8dtTR2qK37tgXrcFSzEq&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1aBTaqX0bajJkwpWzcs_oxDaSetJo4wOj&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1Vc1dM3g8QDCDMLEJD7Iw_BYkCfLqL5Q6&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1LGUI2C7U8379jN24pKm9GJKBUBr2OkbH&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1NQRo3KqDl4e8byfva8jilc0Q7N3sAgVg&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1d0XBdYvJQZAVMW3Iwd-Eop1u4usUHXWa&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1OtNOjFsv0c19YWk9tW5Q9xCKkSiIWxz0&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1Zl7_51YH6JRZ0UeYsWR4t1yQ6PlxGqy9&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1nuNsvZDbLxavCSZi-o0iIojVS7V0CTV5&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1LLrabCrk50d4nLubdGU5uxdE-KG2MGSv&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/thumbnail?id=1BwtS8vDUUAEsuleYN0FKOimaLklwSLNx&sz=w800" alt="The Sunshine House" loading="lazy" onclick="openLightbox(this)">
+    </div>
+  </div>
+
+  <div class="story-section">
+    <div>
+      <h2>About This<br>Transformation</h2>
+      <p>The Sunshine House in Tyler, TX had great bones but needed a personality. With a $22K furnishing budget and virtual design package, we transformed it into a bright, inviting retreat that stands out in the Tyler market.</p>
+      <p>Every room was designed with warmth and intention — layered textures, curated furniture, and a cohesive palette that makes guests feel right at home.</p>
+    </div>
+    <div class="services-box">
+      <h4>What We Delivered</h4>
       <ul>
         <li>✦ Custom mood board + concept</li>
-<li>✦ Full room-by-room design plan</li>
-<li>✦ Curated shopping list with links</li>
-<li>✦ Market &amp; competitor analysis</li>
-<li>✦ Listing setup + optimization</li>
-<li>✦ 30-day post-launch support</li>
+        <li>✦ Full room-by-room design plan</li>
+        <li>✦ Curated shopping list with links</li>
+        <li>✦ Market &amp; competitor analysis</li>
+        <li>✦ Listing setup + optimization</li>
+        <li>✦ 30-day post-launch support</li>
       </ul>
-      <div class="invest-strip">
-        <div class="invest-item"><span class="invest-num">$3K</span><span class="invest-label">Design Investment</span></div>
-        <div class="invest-item"><span class="invest-num">$22K</span><span class="invest-label">Furnishing Budget</span></div>
-      </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
+  <div class="next-project">
+    <a href="portfolio.html">← All Projects</a>
+    <a href="portfolio.html">More Projects →</a>
+  </div>
+
+  <div class="property-cta">
+    <h2>Want This For<br>Your Property?</h2>
+    <p>Every rental has potential. Let's figure out what yours could look like — and what it could earn.</p>
+    <button class="btn-primary" onclick="openModal()" style="font-size:1rem;padding:16px 36px;">Book a Free Discovery Call →</button>
+  </div>
+
   <footer class="footer">
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo">Peachy Keen <span>Stays</span></div>
-        <p>Short-term rental design + management, serving all 50 states.</p>
+        <p>Short-term rental management + design, serving all 50 states.</p>
         <div class="footer-socials">
           <a href="https://www.youtube.com/@thisismy_storey/featured" target="_blank">📺 YouTube</a>
+          <a href="#">📸 Instagram</a>
         </div>
       </div>
-      <div class="footer-links">
-        <h5>Navigate</h5>
-        <a href="how-it-works.html">How It Works</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="#calculator">Pricing</a>
-        <a href="#faq">FAQ</a>
-        <a href="https://www.youtube.com/@thisismy_storey/featured" target="_blank">YouTube</a>
+      <div class="footer-links"><h5>Navigate</h5>
+        <a href="how-it-works.html">How It Works</a><a href="portfolio.html">Portfolio</a>
+        <a href="index.html#calculator">Pricing</a><a href="index.html#faq">FAQ</a>
       </div>
-      <div class="footer-cta">
-        <h5>Have a property that needs help?</h5>
+      <div class="footer-cta"><h5>Ready to transform your property?</h5>
         <button class="btn-primary" onclick="openModal()">Let's Work Together →</button>
       </div>
     </div>
     <div class="footer-bottom"><p>© 2026 Peachy Keen Stays. All rights reserved.</p></div>
   </footer>
 
-  <!-- BOOKING MODAL -->
-  <div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
-    <div style="background:white;border-radius:24px;padding:40px;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;">
-      <button onclick="document.getElementById('bookingModal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--mid);">✕</button>
-      <h2 style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:8px;">Book a Free Intro Call</h2>
-      <p style="color:var(--mid);margin-bottom:24px;font-size:.95rem;">Let's talk about your property and how we can maximize its potential.</p>
-      <iframe src="https://app.usemotion.com/meet/faith-storey/design-intro" width="100%" height="400" frameborder="0" style="border-radius:12px;"></iframe>
+  <div class="lightbox-overlay" id="lightboxOverlay" onclick="if(event.target===this)closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxPrev()">‹</button>
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    <button class="lightbox-nav lightbox-next" onclick="lightboxNext()">›</button>
+  </div>
+
+  <div class="modal-overlay" id="bookingModal" onclick="closeModalOutside(event)">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <h3>Book a Free Discovery Call</h3>
+      <p>15 minutes is all it takes.</p>
+      <ul class="modal-perks">
+        <li>✦ No commitment required</li><li>✦ Market data prepared</li><li>✦ Custom roadmap on the call</li>
+      </ul>
+      <div class="modal-embed-placeholder"><div class="embed-icon">📅</div><h4>Scheduling Widget</h4><p>Your Calendly or booking tool embeds here</p></div>
     </div>
   </div>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-    <img id="lightboxImg" src="" alt="">
+  <div class="sticky-bar" id="stickyBar">
+    <p>Ready to transform your property? <span>Let's make it happen.</span></p>
+    <button class="btn-primary" onclick="openModal()">Book a Free Call →</button>
+    <button class="sticky-bar-close" onclick="closeStickyBar()">✕</button>
   </div>
 
   <script>
-    function moveSlider(input, overlayId, handleId) {
+// ========================
+// BEFORE/AFTER SLIDER
+// ========================
+function moveSlider(input, overlayId, handleId) {
   const val = input.value;
   const overlay = document.getElementById(overlayId);
   const handle = document.getElementById(handleId);
+  // Clip from the right — stable images, no scaling
   if (overlay) overlay.style.clipPath = `inset(0 ${100 - val}% 0 0)`;
   if (handle) handle.style.left = val + '%';
 }
-    
-    function openLightbox(img) {
-      document.getElementById('lightboxImg').src = img.src;
-      document.getElementById('lightbox').classList.add('open');
-    }
-    function closeLightbox() {
-      document.getElementById('lightbox').classList.remove('open');
-    }
-  
+
+// ========================
+// FAQ ACCORDION
+// ========================
+function toggleFaq(item) {
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ========================
+// CALCULATOR
+// ========================
+const BASE_PRICES = {
+  'Studio / 1BD': 800,
+  '2–3 Bedroom': 1200,
+  '4+ Bedroom': 1800
+};
+const ADDON_PRICES = {
+  'Shopping List': 200,
+  '3D Renders': 350,
+  'Rush Delivery': 400
+};
+
+let selectedType = 'Studio / 1BD';
+let selectedAddons = new Set();
+
+function selectOpt(btn) {
+  const group = btn.dataset.group;
+  document.querySelectorAll(`.calc-opt[data-group="${group}"]`).forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  if (group === 'type') selectedType = btn.textContent.trim();
+  updateCalc();
+}
+
+function toggleAddon(btn) {
+  const label = btn.textContent.trim();
+  if (btn.classList.contains('active')) {
+    btn.classList.remove('active');
+    selectedAddons.delete(label);
+  } else {
+    btn.classList.add('active');
+    selectedAddons.add(label);
+  }
+  updateCalc();
+}
+
+function updateCalc() {
+  const roomEl = document.getElementById('roomCount');
+  const valEl  = document.getElementById('roomVal');
+  const priceEl = document.getElementById('estPrice');
+  if (!roomEl) return;
+
+  const rooms = parseInt(roomEl.value);
+  if (valEl) valEl.textContent = rooms;
+
+  const base = BASE_PRICES[selectedType] || 800;
+  const roomMult = 1 + (rooms - 1) * 0.18;
+  let addonTotal = 0;
+  selectedAddons.forEach(a => { addonTotal += ADDON_PRICES[a] || 0; });
+
+  const low  = Math.round((base * roomMult + addonTotal) / 100) * 100;
+  const high = Math.round((base * roomMult * 1.45 + addonTotal) / 100) * 100;
+
+  if (priceEl) priceEl.textContent = `$${low.toLocaleString()} – $${high.toLocaleString()}`;
+}
+
+// ========================
 // BOOKING MODAL
-function openModal() { const m=document.getElementById('bookingModal'); if(m){m.classList.add('open');document.body.style.overflow='hidden';} }
-function closeModal() { const m=document.getElementById('bookingModal'); if(m){m.classList.remove('open');document.body.style.overflow='';} }
-function closeModalOutside(e) { if(e.target===document.getElementById('bookingModal')) closeModal(); }
-document.addEventListener('keydown',(e)=>{ if(e.key==='Escape') closeModal(); });
-// STICKY BAR
-let stickyDismissed=false;
-function closeStickyBar(){ const b=document.getElementById('stickyBar'); if(b) b.classList.remove('visible'); stickyDismissed=true; }
-window.addEventListener('scroll',()=>{ if(stickyDismissed) return; const pct=window.scrollY/(document.body.scrollHeight-window.innerHeight); const b=document.getElementById('stickyBar'); if(b){ if(pct>0.5) b.classList.add('visible'); else b.classList.remove('visible'); } });
-// NAV SCROLL
-window.addEventListener('scroll',()=>{ const nav=document.querySelector('.nav'); if(nav) nav.style.boxShadow=window.scrollY>50?'0 4px 24px rgba(26,18,8,0.10)':'none'; });
+// ========================
+function openModal() {
+  const modal = document.getElementById('bookingModal');
+  if (modal) {
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById('bookingModal');
+  if (modal) {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+function closeModalOutside(e) {
+  if (e.target === document.getElementById('bookingModal')) closeModal();
+}
+
+// Close modal on Escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeModal();
+});
+
+// ========================
+// STICKY BAR (appears at 50% scroll)
+// ========================
+let stickyDismissed = false;
+
+function closeStickyBar() {
+  const bar = document.getElementById('stickyBar');
+  if (bar) bar.classList.remove('visible');
+  stickyDismissed = true;
+}
+
+window.addEventListener('scroll', () => {
+  if (stickyDismissed) return;
+  const scrollPct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+  const bar = document.getElementById('stickyBar');
+  if (bar) {
+    if (scrollPct > 0.5) {
+      bar.classList.add('visible');
+    } else {
+      bar.classList.remove('visible');
+    }
+  }
+});
+
+// ========================
+// NAV SCROLL EFFECT
+// ========================
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.nav');
+  if (nav) {
+    nav.style.boxShadow = window.scrollY > 50
+      ? '0 4px 24px rgba(26,18,8,0.10)'
+      : 'none';
+  }
+});
+
+// ========================
 // MOBILE MENU
-function toggleMenu(){ const links=document.querySelector('.nav-links'); if(!links) return; const isOpen=links.style.display==='flex'; if(isOpen){ links.style.display='none'; } else { Object.assign(links.style,{display:'flex',flexDirection:'column',position:'absolute',top:'70px',left:'0',right:'0',background:'white',padding:'20px 24px',boxShadow:'0 8px 24px rgba(0,0,0,0.1)',zIndex:'99'}); } }
+// ========================
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (!links) return;
+  const isOpen = links.style.display === 'flex';
+  if (isOpen) {
+    links.style.display = 'none';
+  } else {
+    Object.assign(links.style, {
+      display: 'flex',
+      flexDirection: 'column',
+      position: 'absolute',
+      top: '70px',
+      left: '0',
+      right: '0',
+      background: 'white',
+      padding: '20px 24px',
+      boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+      zIndex: '99'
+    });
+  }
+}
+
+// ========================
+// SMOOTH SCROLL (same-page anchors only)
+// ========================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+// Init
+updateCalc();
+
+// ========================
+// LIGHTBOX
+// ========================
+let lightboxImages = [];
+let lightboxIndex = 0;
+
+function openLightbox(imgEl) {
+  const gallery = imgEl.closest('.gallery-grid');
+  if (!gallery) return;
+  lightboxImages = Array.from(gallery.querySelectorAll('img'));
+  lightboxIndex = lightboxImages.indexOf(imgEl);
+  showLightboxImage();
+  const overlay = document.getElementById('lightboxOverlay');
+  if (overlay) overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage() {
+  const img = document.getElementById('lightboxImg');
+  if (img && lightboxImages[lightboxIndex]) {
+    img.src = lightboxImages[lightboxIndex].src.replace('sz=w800','sz=w1600').replace('sz=w1200','sz=w1600');
+  }
+}
+
+function lightboxNext() {
+  lightboxIndex = (lightboxIndex + 1) % lightboxImages.length;
+  showLightboxImage();
+}
+function lightboxPrev() {
+  lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+  showLightboxImage();
+}
+function closeLightbox() {
+  const overlay = document.getElementById('lightboxOverlay');
+  if (overlay) overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', (e) => {
+  const overlay = document.getElementById('lightboxOverlay');
+  if (!overlay || !overlay.classList.contains('open')) return;
+  if (e.key === 'ArrowRight') lightboxNext();
+  if (e.key === 'ArrowLeft') lightboxPrev();
+  if (e.key === 'Escape') closeLightbox();
+});
 
 </script>
-
-  <div class="sticky-bar" id="stickyBar">
-    <p>Have a property that needs help? <span>Let's figure out what would actually move the needle.</span></p>
-    <button class="btn-primary" onclick="openModal()">Let's Talk →</button>
-    <button class="sticky-bar-close" onclick="closeStickyBar()">✕</button>
-  </div>
 </body>
 </html>
