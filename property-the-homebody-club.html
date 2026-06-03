@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Homebody Club – Peachy Keen Stays</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400;1,700&family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .property-hero{padding:140px 48px 60px;max-width:1200px;margin:0 auto;}
+    .property-back{display:inline-flex;align-items:center;gap:8px;color:var(--mid);text-decoration:none;font-size:.88rem;font-weight:700;margin-bottom:32px;transition:color .2s;}
+    .property-back:hover{color:var(--peach);}
+    .property-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px;}
+    .property-header h1{font-family:var(--font-head);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:800;color:var(--dark);letter-spacing:-1.5px;line-height:1.05;}
+    .property-header h1 em{font-style:italic;color:var(--peach);}
+    .property-address{color:var(--mid);font-size:.95rem;font-weight:600;margin-top:8px;}
+    .property-tags{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:16px;}
+    .property-tag{background:var(--peach-light);color:var(--peach-dark);padding:6px 16px;border-radius:50px;font-size:.78rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+    .airbnb-btn{display:inline-flex;align-items:center;gap:8px;background:#FF5A5F;color:white;text-decoration:none;padding:10px 20px;border-radius:50px;font-size:.85rem;font-weight:700;margin-top:8px;transition:opacity .2s;}
+    .airbnb-btn:hover{opacity:.85;}
+    .revenue-bar{max-width:1200px;margin:0 auto 32px;padding:0 48px;}
+    .revenue-card{background:var(--dark);border-radius:var(--radius);padding:32px 40px;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center;gap:24px;color:white;}
+    .rev-block{text-align:center;} .rev-label{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-bottom:6px;}
+    .rev-num{font-family:var(--font-head);font-size:2.2rem;font-weight:700;letter-spacing:-1px;line-height:1;}
+    .rev-num.before{color:rgba(255,255,255,.5);} .rev-num.after{color:var(--peach);} .rev-num.delta{color:#4ade80;}
+    .rev-divider{color:rgba(255,255,255,.2);font-size:1.8rem;} .rev-arrow{font-size:1.4rem;opacity:.6;color:white;}
+    .main-slider-wrap{max-width:1200px;margin:0 auto 32px;padding:0 48px;}
+    .main-slider-wrap .before-after-container{aspect-ratio:16/9;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);}
+    .stats-row{max-width:1200px;margin:0 auto 60px;padding:0 48px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .stat-card{background:var(--white);border-radius:var(--radius-sm);padding:28px;text-align:center;box-shadow:var(--shadow);}
+    .stat-num{font-family:var(--font-head);font-size:2.2rem;font-weight:700;color:var(--peach);letter-spacing:-1px;display:block;}
+    .stat-label{color:var(--mid);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+    .sliders-section{max-width:1200px;margin:0 auto 60px;padding:0 48px;}
+    .sliders-section h2,.gallery-section h2,.yt-inner h2{font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--dark);letter-spacing:-.5px;margin-bottom:8px;}
+    .sliders-section .sub{color:var(--mid);font-size:.95rem;margin-bottom:32px;}
+    .sliders-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+    .gallery-section{max-width:1200px;margin:0 auto 60px;padding:0 48px;}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px;}
+    .gallery-grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:var(--radius-sm);cursor:zoom-in;transition:transform .25s,box-shadow .25s;}
+    .gallery-grid img:hover{transform:scale(1.02);box-shadow:var(--shadow-lg);}
+    .yt-section{background:var(--cream);padding:60px 48px;}
+    .yt-inner{max-width:900px;margin:0 auto;}
+    .yt-embed{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius);box-shadow:var(--shadow-lg);margin-top:24px;}
+    .yt-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
+    .story-section{max-width:1200px;margin:0 auto 60px;padding:0 48px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+    .story-left h2{font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--dark);margin-bottom:20px;}
+    .story-left p{color:var(--mid);line-height:1.8;margin-bottom:16px;}
+    .story-right{background:var(--peach-pale);border-radius:var(--radius);padding:36px;}
+    .story-right h3{font-family:var(--font-head);font-size:1.4rem;font-weight:800;color:var(--dark);margin-bottom:20px;}
+    .story-right ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .story-right li{color:var(--mid);font-size:.92rem;font-weight:600;}
+    .invest-strip{display:flex;gap:24px;margin-top:24px;}
+    .invest-item{background:var(--white);border-radius:var(--radius-sm);padding:20px 24px;flex:1;text-align:center;}
+    .invest-num{font-family:var(--font-head);font-size:1.6rem;font-weight:700;color:var(--peach);display:block;}
+    .invest-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--mid);}
+    .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:999;align-items:center;justify-content:center;}
+    .lightbox.open{display:flex;}
+    .lightbox img{max-width:90vw;max-height:90vh;border-radius:12px;}
+    .lightbox-close{position:absolute;top:20px;right:28px;color:white;font-size:2rem;cursor:pointer;background:none;border:none;}
+    @media(max-width:768px){
+      .property-hero{padding:100px 24px 40px;}
+      .revenue-bar,.main-slider-wrap,.stats-row,.sliders-section,.gallery-section,.yt-section,.story-section{padding-left:24px;padding-right:24px;}
+      .revenue-card{grid-template-columns:1fr;text-align:center;gap:16px;}
+      .stats-row{grid-template-columns:repeat(2,1fr);}
+      .sliders-grid{grid-template-columns:1fr;}
+      .gallery-grid{grid-template-columns:repeat(2,1fr);}
+      .story-section{grid-template-columns:1fr;gap:32px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Peachy Keen <span>Stays</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="index.html#calculator">Pricing</a></li>
+    </ul>
+    <button class="nav-cta" onclick="document.getElementById('bookingModal').style.display='flex'">Let's Work Together</button>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <!-- PROPERTY HERO -->
+  <div class="property-hero">
+    <a href="portfolio.html" class="property-back">← Back to Portfolio</a>
+    <div class="property-header">
+      <div>
+        <h1>The Homebody<br><em>Club</em></h1>
+        <p class="property-address">Seattle, WA</p>
+      </div>
+      <div>
+        <div class="property-tags"><span class="property-tag">2 separate units. 1/1 and 2/2. Shared outdoor areas.</span><span class="property-tag">Client Project</span><span class="property-tag">🏠 On Airbnb</span></div>
+        <a href="https://www.airbnb.com/rooms/1583531486670801042?source_impression_id=p3_1770410709_P3iVFNaNWpB7nkc0&scroll_to_review=1601748078288598739" target="_blank" class="airbnb-btn">🏠 View on Airbnb →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO SLIDER -->
+  <div class="main-slider-wrap">
+    <div class="before-after-container">
+      <div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1XzFMKeUH5EOF0C1fvdvK2IYVPFrr8Quv&sz=w1200');background-size:cover;background-position:center;"></div><div class="before-overlay" id="beforeOverlayMain"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1mpXRxNVNSFEY0P235Et5_-2-h_KIdIKW&sz=w1200');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'beforeOverlayMain','handleMain')"><div class="slider-handle" id="handleMain" style="left:50%">◀▶</div>
+    </div>
+  </div>
+
+  
+  <div class="revenue-bar">
+    <div class="revenue-card">
+      <div class="rev-block"><div class="rev-label">Revenue Before</div><div class="rev-num before">$62K</div></div>
+      <div class="rev-arrow">→</div>
+      <div class="rev-block"><div class="rev-label">Revenue After</div><div class="rev-num after">$96K</div></div>
+      <div class='rev-divider'>|</div><div class='rev-block'><div class='rev-label'>Increase</div><div class='rev-num delta'>+55%</div></div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-card"><span class="stat-num">$45007K</span><span class="stat-label">Design Investment</span></div>
+    <div class="stat-card"><span class="stat-num">$38K</span><span class="stat-label">Furnishing Budget</span></div>
+    <div class="stat-card"><span class="stat-num">2 separate units. 1/1 and 2/2. Shared outdoor areas.</span><span class="stat-label">Property Size</span></div>
+  </div>
+
+  
+
+  <div class="sliders-section"><h2>The Transformation</h2><p class="sub">Drag each slider to reveal the before &amp; after.</p><div class="sliders-grid"><div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=13uqNPhU9WDImnu03V4eMA0LyDgYbMCtU&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo2"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1ow5cY0Eu1YNTOVYmXvBedWqPAiOopjbM&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo2','h2')"><div class="slider-handle" id="h2" style="left:50%">◀▶</div></div></div></div>
+<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1-2WqGtsHSjZXLM2mugjuaFLFPrgEPx-o&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo3"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1489UFpTvTRb7JjFskq0yweSjB005nHJ4&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo3','h3')"><div class="slider-handle" id="h3" style="left:50%">◀▶</div></div></div></div>
+<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1PSqbMAsZphcFBqX2JNdEWbvEviDFPvGC&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo4"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1s6g72BX_dO1d5ibEIckK15vWxOj-NVk_&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo4','h4')"><div class="slider-handle" id="h4" style="left:50%">◀▶</div></div></div></div>
+<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1sigoo6JzLAvQ9xGoe5SPi9PsFPZmKo-s&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo5"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=18L_-orCffwI9inSoZDl7cPBd4e6gSzBs&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo5','h5')"><div class="slider-handle" id="h5" style="left:50%">◀▶</div></div></div></div>
+<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1awK0VYB6rBqPMhyNar1sTs2Vnz8KU5b3&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo6"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=15QNYG85O2mNjCHJ7rhQa2RJMIWO3yEuI&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo6','h6')"><div class="slider-handle" id="h6" style="left:50%">◀▶</div></div></div></div>
+<div class="slider-item"><div class="slider-wrap"><div class="before-after-container"><div class="after-img" style="background-image:url('https://drive.google.com/thumbnail?id=1Duz-9JW1fMz_TKQ7R4juj4NFtldZRf9U&sz=w800');background-size:cover;background-position:center;"></div><div class="before-overlay" id="bo7"><div class="before-img" style="background-image:url('https://drive.google.com/thumbnail?id=1TF9VxD_79HV9hKj0ZjCVeZrZ9RkB6Uej&sz=w800');background-size:cover;background-position:center;"></div></div><input type="range" min="0" max="100" value="50" class="slider-input" oninput="moveSlider(this,'bo7','h7')"><div class="slider-handle" id="h7" style="left:50%">◀▶</div></div></div></div>
+</div></div>
+
+  <div class="gallery-section"><h2>Professional Photos</h2><div class="gallery-grid"><img src="https://drive.google.com/thumbnail?id=1tRJAYhrYjO-naSsEuKcwtt8wsKa47DiW&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=18qoUmn_8LU6cC5sA5rIO4ssaUvezT0Sh&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1CE_zbpPU6RbZaRs2UnbWXyzXyRb2vdhq&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1AD-0PReRVw55cLgiWsTB0FpwmlhMewjc&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1cieje6fhAZO7LsDdSLgHO64uc7Iu73Gp&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=12QhFW4AQyyY52b-05iR31ZJTtlnsqzxu&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1HQrmqOCO-RJwv9hrzUnfAmI9iuB8lnVL&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1pG1t2IwPPDQJ4lRdshE-WT2YUd-yZxPl&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1z3cgcqqQpTURfCHa6r9BsTRQFryM1KmF&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1CdInRN-DmrdLtM9kyv1h575gSQRpGm1c&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1PvgdgjTq4nDPiJfgUrZo8UNLweoILTgN&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1WdkqwE3cfsj07KJkvv88Zy02v4eZazfk&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=14ccIWwUsrJ0cOzFndvdpjZxRBUCLpSKr&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1d0k2Zk287HeOA-lG0VKTrd53McLvPmsq&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=13obzA_qKPIZM-2-YksHFAyiyVvg2VP3K&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1u87QNiMXwTBQvBW598OJ5tjnMDPHclOb&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1BanrjknIJB9SwV2mjF3WIRM79uOF08l1&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1CACyodpnHq5ZkC3YtCstYPu-bvlTeJss&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1xbJiXis-7FmuZkpvm6VgXTS7DnSc6kk5&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1j4OX2jKiyToXoi7SpR9N-B6hIVi7M6aw&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1ujfnTgpOFZ8jcmbE6AiGlERg3zNqi1QZ&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1W8y33Z5e4whRGh_P14h0y4UwpU7OAyGd&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1SfZL_OPYWrhtaItloFQSpzcKb-3MjGu_&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1CuXvolhdqVtCfxXhViDRyqY3XSv9TExI&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1LWksLF_FSWxd5BnNqnZEAiLs7IIg0n4p&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1sfzU1xKPk2OglY6TQRjxyK3hramyER0d&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1A3Jh4tZJsmNRUd2z21vVC8Hkh5UGJJia&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1PGdk3Ncxd-PU8_skaEM_hloFynTJS90O&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1zKFa_NqpjM43QjWoyQjB8ExZUcsO3tFj&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1fkQhRWG-ldEWg3uOO_Qij51ekx5M7Nnl&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=17cIWGHNzImX0ZUvO-8z8RJsMU-cJNrHf&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1EmXF0skCzhdPChF5wxUkEPTb_B1Ixciu&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1q3z4uwWAlmXwsbm9hnctHH0lumUvtxZm&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1uyPcoWCCWII-23s9GQbiBzlGNfxk_M3d&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1rmZzBAmdlNc36Ix-lWGl5lmNjw3uBNzR&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1MB4x34mWUajV3ES1hFFqqituGfSPj9Q3&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=14US-2KY4PJAw2cNB6ratLDeXO3SIDw7q&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=15c8Uh3zbGrM0EWwjpeAf1TQGLEA8QUFg&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1hdAILq7FinAL6QUZZH-hgHs6e0qR4cO3&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1HGJQJrjb2z-eq_bSGuS6Bge_bC2TrNO4&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1atUd34-w8yjbG83ugNojtZ5OaiKhYpTC&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1yH3VcMYmqkok100QgARNRuj8vf7EM65q&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1yeCPB1hQYAkJ5VcNL9K2TqS495Js51H6&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1laG17fY1ds5FH1MMir1PkmY3V80uDPNp&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=10ns9_q9gjrjz6llUKebAsifzHTfFHmGq&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1xcqT1-Gjj544EmNCPQKqYDyd11n7tVDZ&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1_8XllGBmsoXsA3zsY4JoJMOz-2uTjPzu&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1zB08CH2oIkhv9e1Ofh2PAal9qU0KFzYY&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1ecHcxnOkuXArh_5Dcb8MVlU_KOmVzOsU&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=166_IouIanJUxZ3L2mFAguxLGsJD_flqp&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1SxLAjoQxFpmR9gEL3hSETtqOQfy-vvlh&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1jqnUEWyT-_xujsoo2HzW74RpnAwCvvtY&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1W9TN2Cw3EFsFVTlyNC9_p6snLQivYU7b&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1-NoOBbXMdDMP06yAI2Kg4Mhff5f2VBbb&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1bdN9CiznSk5k2KCl43G2U4rQDUixO7Qp&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1DvXW-eDXNZEVBSUx38XGSW-hykEaVANC&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1BdaeUlkCO8V4BFgfpuVxApd99PNEHOy5&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1ISL_87cKDlJ9tJXBuw1L-vhsE2Kt5r4-&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1XkF63bvLEzdN9QQhStBAa5bEzzp81fOg&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=163MUM_BJT77K0qQ2MKhAkSiGcIIIQeJ4&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1ysGIwGvMjGZwKD-RKDT-35zqrtvxbi0E&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1kueI9mK0eiFZJW738gLzAhIh2Iu1lpGn&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1h947e1c8h0p81yx_fFo67VIGHsdRMX7u&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1ck2dVxEEmwT3M5tq1wCHgshu9GIHC9qp&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=1Y5GGCul-D89iNkqwp_mlXnaZN2GwBpMQ&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+<img src="https://drive.google.com/thumbnail?id=18vU3dNTu1QrCTf9KBwavWi2Mkz-hhrtW&sz=w800" alt="The Homebody Club" loading="lazy" onclick="openLightbox(this)">
+</div></div>
+
+  <!-- STORY + SERVICES -->
+  <div class="story-section">
+    <div class="story-left">
+      <h2>The Transformation</h2>
+      <p>2 airbnb links, the other inside the note</p>
+    </div>
+    <div class="story-right">
+      <h3>What We Delivered</h3>
+      <ul>
+        <li>✦ Custom mood board + concept</li>
+<li>✦ Full room-by-room design plan</li>
+<li>✦ Curated shopping list with links</li>
+<li>✦ Market &amp; competitor analysis</li>
+<li>✦ Listing setup + optimization</li>
+<li>✦ 30-day post-launch support</li>
+      </ul>
+      <div class="invest-strip">
+        <div class="invest-item"><span class="invest-num">$45007K</span><span class="invest-label">Design Investment</span></div>
+        <div class="invest-item"><span class="invest-num">$38K</span><span class="invest-label">Furnishing Budget</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer style="background:var(--dark);color:white;padding:48px;text-align:center;">
+    <a href="index.html" style="font-family:var(--font-head);font-size:1.4rem;font-weight:800;color:white;text-decoration:none;">Peachy Keen <span style="color:var(--peach);">Stays</span></a>
+    <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:16px;">© 2026 Peachy Keen Stays. All rights reserved.</p>
+  </footer>
+
+  <!-- BOOKING MODAL -->
+  <div id="bookingModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:500;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none'">
+    <div style="background:white;border-radius:24px;padding:40px;max-width:520px;width:90%;max-height:90vh;overflow-y:auto;position:relative;">
+      <button onclick="document.getElementById('bookingModal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--mid);">✕</button>
+      <h2 style="font-family:var(--font-head);font-size:1.8rem;font-weight:800;margin-bottom:8px;">Book a Free Intro Call</h2>
+      <p style="color:var(--mid);margin-bottom:24px;font-size:.95rem;">Let's talk about your property and how we can maximize its potential.</p>
+      <iframe src="https://app.usemotion.com/meet/faith-storey/design-intro" width="100%" height="400" frameborder="0" style="border-radius:12px;"></iframe>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <script>
+    function moveSlider(input, overlayId, handleId) {
+      const pct = input.value;
+      document.getElementById(overlayId).style.width = pct + '%';
+      document.getElementById(handleId).style.left = pct + '%';
+    }
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+    function openLightbox(img) {
+      document.getElementById('lightboxImg').src = img.src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+    }
+  </script>
+</body>
+</html>
